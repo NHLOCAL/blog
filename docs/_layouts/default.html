@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en" }}" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <!-- כאן אפשר להוסיף פונטים מ-Google Fonts או אחרים -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    {% include header.html %}
+    <main class="main-content-wrapper">
+      <div class="content-area">
+        {{ content }}
+      </div>
+      {% comment %} הוספת סרגל צד גם בעמוד הבית, הסרנו את התנאי page.layout != 'home' {% endcomment %}
+      {% if page.layout != 'post_full_width' %} 
+        {% include sidebar.html %}
+      {% endif %}
+    </main>
+    {% include footer.html %}
+  </div>
+  <!-- אפשר להוסיף כאן סקריפטים של JS -->
+</body>
+</html>

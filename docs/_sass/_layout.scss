@@ -1,0 +1,502 @@
+// _sass/_layout.scss
+
+.container {
+  max-width: $content-width + $sidebar-width + ($spacing-unit * 3); // רוחב תוכן + סרגל צד + מרווחים
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex-direction: row-reverse; // תוכן מימין, סרגל צד משמאל
+  gap: $spacing-unit * 1.5;
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
+}
+
+.content-area {
+  flex: 1; // תופס את רוב הרוחב
+  min-width: 0; // חשוב ל-flex items
+}
+
+.sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  border-inline-start: 1px solid $color-border; // קו הפרדה בצד הפנימי (ימין ב-RTL)
+  padding-inline-start: $spacing-unit; // ריווח פנימי בצד הקו
+
+  .sidebar-section {
+    margin-bottom: $spacing-unit * 1.5;
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: $spacing-unit * 0.5;
+      color: $color-secondary;
+      border-bottom: 1px solid $color-border;
+      padding-bottom: $spacing-unit * 0.25;
+    }
+    ul { // For recent_posts_list and custom_links_list
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: $spacing-unit * 0.25;
+        a {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    // Styling for tag list and category list in sidebar
+    .tags-list, .categories-list-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-unit * 0.3;
+      .tag-item, .category-item-badge {
+        font-size: 0.85rem;
+        background-color: lighten($color-secondary, 35%);
+        color: $color-secondary;
+        padding: $spacing-unit*0.1 $spacing-unit*0.4;
+        border-radius: 3px;
+        &:hover {
+          background-color: lighten($color-secondary, 30%);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// ----- Header -----
+.site-header {
+  padding: $spacing-unit 0;
+  margin-bottom: $spacing-unit;
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+  }
+
+  .site-branding {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-inline-end: $spacing-unit;
+  }
+
+  .site-titles {
+    .site-title {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      a {
+        color: $color-text;
+        &:hover {
+          text-decoration: none;
+          color: $color-primary;
+        }
+      }
+    }
+    .site-description {
+      margin: 0;
+      font-size: 0.95rem;
+      color: $color-text-light;
+    }
+  }
+  
+  .search-container {
+    .search-form {
+      display: flex;
+      input[type="text"] {
+        padding: $spacing-unit * 0.4 $spacing-unit * 0.6;
+        border: 1px solid $color-border;
+        min-width: 200px;
+        font-family: $font-primary;
+        
+        // Joined appearance for RTL (input on right, button on left)
+        border-inline-end: none; 
+        border-radius: 0 4px 4px 0; // TL=0, TR=4px, BR=4px, BL=0
+
+        &:focus {
+          outline: none;
+          border-color: $color-primary;
+          box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+        }
+      }
+      button[type="submit"] {
+        padding: $spacing-unit * 0.4 $spacing-unit * 0.6;
+        border: 1px solid $color-primary;
+        background-color: $color-primary;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // Joined appearance for RTL
+        border-radius: 4px 0 0 4px; // TL=4px, TR=0, BR=0, BL=4px
+        
+        &:hover {
+          background-color: darken($color-primary, 10%);
+        }
+        svg { 
+            width: 1em;
+            height: 1em;
+        }
+      }
+    }
+  }
+}
+
+// ----- Footer -----
+.site-footer {
+  border-top: 1px solid $color-border;
+  padding: $spacing-unit * 1.5 0;
+  margin-top: $spacing-unit * 2;
+  text-align: center;
+  font-size: 0.85rem;
+  color: $color-text-light;
+  p {
+    margin: 0;
+  }
+  .back-to-top {
+    display: inline-block;
+    margin-top: $spacing-unit * 0.5;
+  }
+}
+
+// ----- Generic Post List Styling (used on homepage, category pages, etc.) -----
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    margin-bottom: $spacing-unit * 2;
+    border-bottom: 1px dotted lighten($color-border, 5%);
+    padding-bottom: $spacing-unit * 1.5;
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.post-summary {
+  display: flex;
+  gap: $spacing-unit;
+
+  &.no-thumbnail {
+    // .post-summary-content will naturally take full width due to flex-grow.
+    // No specific style needed here unless vertical alignment issues arise.
+  }
+
+  .post-thumbnail {
+    flex-shrink: 0;
+    width: 120px; 
+    height: 120px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+  .post-summary-content {
+    flex-grow: 1;
+    min-width: 0; // Fix for potential flex overflow issues with long text
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: $spacing-unit * 0.3;
+    }
+    .post-meta { 
+      font-size: 0.85rem;
+      color: $color-text-light;
+      margin-bottom: $spacing-unit * 0.2;
+    }
+    .post-excerpt {
+      font-size: 0.95rem;
+      color: $color-text-light;
+      margin-bottom: $spacing-unit * 0.5;
+    }
+    .read-more {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+}
+
+
+// ----- Homepage Specific -----
+.homepage {
+  .post-latest {
+    margin-bottom: $spacing-unit * 3;
+    border-bottom: 1px dashed $color-border;
+    padding-bottom: $spacing-unit * 2;
+
+    .post-title {
+      font-size: 2.5rem; 
+      margin-bottom: $spacing-unit * 0.5;
+    }
+    .post-meta {
+      font-size: 0.9rem;
+      color: $color-text-light;
+      margin-bottom: $spacing-unit;
+    }
+  }
+
+  .previous-posts {
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: $spacing-unit * 1.5;
+      border-bottom: 1px solid $color-border;
+      padding-bottom: $spacing-unit * 0.5;
+    }
+    // .post-list and .post-summary styles are now generic and apply here
+  }
+}
+
+
+// ----- Post Specific -----
+.post {
+  .post-header {
+    margin-bottom: $spacing-unit * 1.5;
+    .post-title {
+      font-size: 2.8rem;
+      margin-bottom: $spacing-unit * 0.5;
+    }
+    .post-meta {
+      font-size: 0.9rem;
+      color: $color-text-light;
+    }
+  }
+  .post-content {
+    font-size: 1.05rem; 
+    img { 
+      margin: $spacing-unit auto; 
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  }
+  .post-tags {
+    margin-top: $spacing-unit * 2;
+    .tag {
+      display: inline-block;
+      background-color: lighten($color-secondary, 40%);
+      color: $color-secondary;
+      padding: $spacing-unit*0.2 $spacing-unit*0.5;
+      margin-inline-end: $spacing-unit * 0.3;
+      margin-bottom: $spacing-unit * 0.3;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      &:hover {
+        background-color: lighten($color-secondary, 35%);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// ----- Categories Page Specific -----
+.categories-page {
+  h1 { // "כל הקטגוריות"
+    font-size: 2.2rem;
+    margin-bottom: $spacing-unit * 1.5;
+  }
+
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit * 0.5;
+    margin-bottom: $spacing-unit * 2;
+    padding-bottom: $spacing-unit;
+    border-bottom: 1px dashed $color-border;
+
+    .category-tab-link {
+      display: inline-block;
+      padding: $spacing-unit * 0.4 $spacing-unit * 0.8;
+      background-color: lighten($color-border, 6%);
+      border: 1px solid lighten($color-border, 2%);
+      border-radius: 20px; // pill shape
+      font-size: 0.9rem;
+      color: $color-text;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: $color-primary;
+        color: white;
+        border-color: $color-primary;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .category-section {
+    margin-bottom: $spacing-unit * 2.5;
+    // The ID on the section is the scroll target.
+    // Add some top padding if you have a fixed header, e.g., scroll-margin-top: $header-height + $spacing-unit;
+    
+    .category-title-anchor { // Title for each category section e.g. "טכנולוגיה"
+      font-size: 1.8rem;
+      margin-bottom: $spacing-unit * 1.5;
+      color: $color-primary;
+      border-bottom: 1px solid lighten($color-border, 5%);
+      padding-bottom: $spacing-unit * 0.5;
+    }
+    // Uses generic .post-list and .post-summary styles
+  }
+}
+
+
+// ----- Search Page Specific -----
+.search-page {
+  padding-top: $spacing-unit; 
+  
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: $spacing-unit;
+  }
+
+  #search-input-page { 
+    width: 100%;
+    padding: $spacing-unit * 0.6;
+    font-size: 1.1rem;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    margin-bottom: $spacing-unit * 1.5;
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+    }
+  }
+
+  #no-results-message { // This class seems to be unused, SimpleJekyllSearch uses .no-results-found
+    text-align: center;
+    color: $color-secondary;
+    font-size: 1.1rem;
+    padding: $spacing-unit * 2 0;
+    border: 1px dashed lighten($color-border, 10%);
+    border-radius: 4px;
+    background-color: lighten($color-background, 2%);
+  }
+  .no-results-found { // Style for SimpleJekyllSearch's no results message
+     text-align: center;
+     color: $color-secondary;
+     font-size: 1.1rem;
+     padding: $spacing-unit * 2 0;
+     border: 1px dashed lighten($color-border, 10%);
+     border-radius: 4px;
+     background-color: lighten($color-background, 2%);
+     margin-top: $spacing-unit;
+  }
+
+
+  #results-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .search-results-item {
+    border-bottom: 1px dotted lighten($color-border, 5%);
+    padding-bottom: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit * 1.5;
+    
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-unit * 0.3;
+      font-size: 1.3rem;
+      a {
+        color: $color-text;
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+    p { // Excerpt from search result
+      font-size: 0.95rem;
+      color: $color-text-light;
+      margin-bottom: $spacing-unit * 0.5;
+    }
+    .search-meta {
+      font-size: 0.8rem;
+      color: $color-secondary;
+      display: block; 
+    }
+  }
+}
+
+// ----- רספונסיביות -----
+@media (max-width: $breakpoint-lg) {
+  .container {
+    padding: 0 $spacing-unit * 0.75;
+  }
+}
+
+@media (max-width: $breakpoint-md) { 
+  .main-content-wrapper {
+    flex-direction: column; 
+  }
+  .sidebar {
+    width: 100%;
+    border-inline-start: none; 
+    border-top: 1px solid $color-border; 
+    padding-inline-start: 0;
+    padding-top: $spacing-unit;
+    margin-top: $spacing-unit * 1.5;
+  }
+  .site-header .header-content {
+    flex-direction: column;
+    align-items: flex-start; 
+    .site-branding {
+      margin-bottom: $spacing-unit * 0.75;
+    }
+    .search-container {
+      width: 100%;
+      .search-form input[type="text"]{
+        min-width: 0; 
+        flex-grow: 1;
+      }
+    }
+  }
+  .post-summary { // Generic post-summary mobile adjustment
+      flex-direction: column;
+      .post-thumbnail {
+        width: 100%;
+        height: auto; 
+        max-height: 200px; 
+        margin-bottom: $spacing-unit * 0.5;
+      }
+  }
+}
+
+@media (max-width: $breakpoint-sm) { 
+  html {
+    font-size: 15px; 
+  }
+  .post .post-header .post-title, 
+  .homepage .post-latest .post-title,
+  .categories-page h1, // Main title on categories page
+  .search-page h1 {   // Main title on search page
+    font-size: 2rem; 
+  }
+  .categories-page .category-title-anchor { // Section titles on categories page
+    font-size: 1.6rem;
+  }
+}
+
+// Note: The override block for .site-header .search-container .search-form that was at the end
+// of the original file has been removed as its logic was integrated directly into the
+// .site-header .search-container .search-form styling above for clarity.

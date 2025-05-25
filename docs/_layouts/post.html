@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%d/%m/%Y" }}
+      </time>
+      {% if page.author %}
+        • <span>{{ page.author }}</span>
+      {% endif %}
+      {% if page.categories.size > 0 %}
+        • קטגוריות:
+        {% for category in page.categories %}
+          <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <div class="post-tags">
+    תגיות:
+    {% for tag in page.tags %}
+      <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- אפשר להוסיף כאן ניווט לפוסט הבא/הקודם, מערכת תגובות וכו' -->
+</article>

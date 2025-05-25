@@ -1,0 +1,28 @@
+// _sass/_variables.scss
+
+// פונטים
+$font-primary: 'Assistant', 'Rubik', sans-serif; // פונט ראשי לעברית
+$font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; // פונט לקוד
+
+// צבעים
+$color-text: #333;
+$color-text-light: #555;
+$color-background: #fdfdfd; // רקע מעט אוף-וויט
+$color-primary: #007bff;    // צבע הדגשה ראשי (כחול לדוגמה)
+$color-secondary: #6c757d;  // צבע משני
+$color-border: #e0e0e0;
+$color-link: $color-primary;
+$color-link-hover: darken($color-primary, 10%);
+$color-code-background: #f0f0f0; // רקע לקטעי קוד
+
+// מידות
+$content-width: 800px;
+$sidebar-width: 220px;
+$header-height: auto; // גובה משתנה לפי התוכן
+$spacing-unit: 20px;
+
+// Breakpoints לרספונסיביות
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

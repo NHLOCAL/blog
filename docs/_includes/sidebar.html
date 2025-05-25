@@ -1,0 +1,52 @@
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <h4>פוסטים אחרונים</h4>
+    <ul class="recent-posts-list">
+      {% for post in site.posts limit: site.custom_settings.recent_posts_sidebar_count %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if site.categories.size > 0 %}
+  <div class="sidebar-section">
+    <h4>קטגוריות</h4>
+    <div class="categories-list-flex">
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category_item in sorted_categories %}
+        {% assign category_name = category_item[0] %}
+        {% assign category_posts = category_item[1] %}
+        <a href="{{ site.baseurl }}/categories/#{{ category_name | slugify }}" class="category-item-badge">
+          {{ category_name }} ({{ category_posts.size }})
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if site.tags.size > 0 %}
+  <div class="sidebar-section">
+    <h4>תגיות</h4>
+    <div class="tags-list">
+      {% for tag in site.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag[0] | slugify }}" class="tag-item">
+          {{ tag[0] }} ({{ tag[1].size }})
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  
+  {% if site.custom_settings.social_links.size > 0 %}
+  <div class="sidebar-section">
+    <h4>קישורים</h4>
+    <ul class="custom-links-list">
+      {% for link in site.custom_settings.social_links %}
+        <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a></li>
+      {% endfor %}
+      <!-- הוסף כאן קישורים נוספים כמו "אודות", "יצירת קשר" וכו' -->
+      <!-- <li><a href="/about/">אודות</a></li> -->
+    </ul>
+  </div>
+  {% endif %}
+</aside>

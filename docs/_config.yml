@@ -1,0 +1,64 @@
+# _config.yml
+
+title: "הבלוג של NHLOCAL"
+description: "לגלות דברים חדשים זה קל!"
+author: "nh local"
+email: "nh.local11@gmail.com"
+url: "https://blog.ze-kal.top" # החלף בדומיין שלך
+baseurl: "" # אם הבלוג לא בשורש הדומיין, שנה בהתאם (למשל, "/blog")
+
+lang: "he" # הגדרת שפת האתר לעברית
+
+# הגדרות בנייה
+markdown: kramdown
+highlighter: rouge # להדגשת תחביר בקוד
+permalink: /:categories/:year/:month/:day/:title/
+
+# הגדרות Sass
+sass:
+  sass_dir: _sass
+  style: compressed # אפשר גם :expanded בזמן פיתוח
+
+# Front Matter Defaults - הגדרות ברירת מחדל לפוסטים
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      # אפשר להוסיף כאן ערכים ברירת מחדל נוספים לפוסטים
+
+# הגדרות מותאמות אישית (לשימוש בתבניות)
+custom_settings:
+  profile_image: "https://nhlocal.github.io/NH.LOCAL.jpg" # נתיב לתמונת הפרופיל
+  posts_per_page_home: 5 # מספר פוסטים קודמים להצגה בעמוד הבית (לא כולל הפוסט האחרון)
+  recent_posts_sidebar_count: 5 # מספר פוסטים אחרונים בסרגל הצד
+  social_links: # קישורים לרשתות חברתיות (לסרגל הצד או לפוטר)
+    - name: "GitHub"
+      url: "https://github.com/nhlocal"
+    # הוסף עוד לפי הצורך
+
+# Jekyll Plugins (אם תצטרך בעתיד, למשל jekyll-paginate או jekyll-seo-tag)
+# plugins:
+#   - jekyll-paginate
+#   - jekyll-seo-tag
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
