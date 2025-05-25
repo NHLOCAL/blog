@@ -1,64 +1,80 @@
 // _sass/_layout.scss
 
 .container {
-  max-width: $content-width + $sidebar-width + ($spacing-unit * 3); // רוחב תוכן + סרגל צד + מרווחים
+  max-width: $content-width + $sidebar-width + ($spacing-unit * 4); // הגדלת מרווחים
   margin: 0 auto;
-  padding: 0 $spacing-unit;
+  padding: 0 $spacing-unit * 1.5; // ריווח צדדי גדול יותר
 }
 
 .main-content-wrapper {
   display: flex;
-  flex-direction: row-reverse; // תוכן מימין, סרגל צד משמאל
-  gap: $spacing-unit * 1.5;
-  margin-top: $spacing-unit;
-  margin-bottom: $spacing-unit * 2;
+  flex-direction: row-reverse; 
+  gap: $spacing-unit * 2; // מרווח גדול יותר בין תוכן לסיידבר
+  margin-top: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit * 2.5;
 }
 
 .content-area {
-  flex: 1; // תופס את רוב הרוחב
-  min-width: 0; // חשוב ל-flex items
+  flex: 1;
+  min-width: 0;
 }
 
 .sidebar {
   width: $sidebar-width;
   flex-shrink: 0;
-  border-inline-start: 1px solid $color-border; // קו הפרדה בצד הפנימי (ימין ב-RTL)
-  padding-inline-start: $spacing-unit; // ריווח פנימי בצד הקו
+  // border-inline-start: 1px solid $color-border; // הסרת קו גבול קשיח
+  padding-inline-start: $spacing-unit * 1.5; // ריווח פנימי בצד הקו
 
   .sidebar-section {
-    margin-bottom: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit * 2;
+    padding: $spacing-unit * 0.8;
+    background-color: lighten($color-background, 1%); // רקע מעט שונה לסיידבר, אם רוצים
+    // border: 1px solid $color-border;
+    // border-radius: $border-radius-base;
+    // box-shadow: $box-shadow-subtle; // צל עדין מאוד אם רוצים
+
     h4 {
-      font-size: 1.1rem;
-      margin-bottom: $spacing-unit * 0.5;
-      color: $color-secondary;
-      border-bottom: 1px solid $color-border;
-      padding-bottom: $spacing-unit * 0.25;
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: $spacing-unit * 0.8;
+      color: $color-primary; // כותרות סיידבר בצבע הראשי
+      padding-bottom: $spacing-unit * 0.3;
+      border-bottom: 2px solid $color-secondary; // קו תחתון בצבע המשני
+      display: inline-block; // כדי שהקו יהיה רק מתחת לטקסט
     }
     ul { // For recent_posts_list and custom_links_list
       list-style: none;
       padding: 0;
       margin: 0;
       li {
-        margin-bottom: $spacing-unit * 0.25;
+        margin-bottom: $spacing-unit * 0.4;
         a {
-          font-size: 0.9rem;
+          font-size: 0.95rem;
+          color: $color-text; // קישורים בסיידבר בצבע טקסט רגיל
+          &:hover {
+            color: $color-primary; // בהובר משנים לצבע הראשי
+            text-decoration-color: $color-primary; // קו תחתון בצבע ראשי
+          }
         }
       }
     }
-    // Styling for tag list and category list in sidebar
     .tags-list, .categories-list-flex {
       display: flex;
       flex-wrap: wrap;
-      gap: $spacing-unit * 0.3;
+      gap: $spacing-unit * 0.5;
       .tag-item, .category-item-badge {
-        font-size: 0.85rem;
-        background-color: lighten($color-secondary, 35%);
-        color: $color-secondary;
-        padding: $spacing-unit*0.1 $spacing-unit*0.4;
-        border-radius: 3px;
+        font-size: 0.8rem;
+        background-color: lighten($color-secondary, 30%);
+        color: darken($color-secondary, 15%);
+        padding: $spacing-unit*0.25 $spacing-unit*0.6;
+        border-radius: $border-radius-small;
+        font-weight: 500;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
         &:hover {
-          background-color: lighten($color-secondary, 30%);
+          background-color: $color-secondary;
+          color: white;
           text-decoration: none;
+          transform: translateY(-2px); // אפקט ריחוף קל
         }
       }
     }
@@ -67,8 +83,9 @@
 
 // ----- Header -----
 .site-header {
-  padding: $spacing-unit 0;
-  margin-bottom: $spacing-unit;
+  padding: $spacing-unit * 1.5 0;
+  margin-bottom: $spacing-unit * 1.5;
+  border-bottom: 1px solid $color-border; // גבול תחתון עדין להדר
   
   .header-content {
     display: flex;
@@ -83,17 +100,20 @@
   }
 
   .profile-image {
-    width: 70px;
-    height: 70px;
+    width: 60px; // הקטנה קלה
+    height: 60px;
     border-radius: 50%;
-    margin-inline-end: $spacing-unit;
+    margin-inline-end: $spacing-unit * 0.8;
+    border: 2px solid $color-border; // מסגרת עדינה לתמונה
+    box-shadow: $box-shadow-subtle;
   }
 
   .site-titles {
     .site-title {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.8rem; // התאמת גודל
       font-weight: 700;
+      font-family: $font-secondary;
       a {
         color: $color-text;
         &:hover {
@@ -104,7 +124,7 @@
     }
     .site-description {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: $color-text-light;
     }
   }
@@ -113,23 +133,24 @@
     .search-form {
       display: flex;
       input[type="text"] {
-        padding: $spacing-unit * 0.4 $spacing-unit * 0.6;
+        padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
         border: 1px solid $color-border;
-        min-width: 200px;
+        min-width: 220px; // הגדלה קלה
         font-family: $font-primary;
-        
-        // Joined appearance for RTL (input on right, button on left)
         border-inline-end: none; 
-        border-radius: 0 4px 4px 0; // TL=0, TR=4px, BR=4px, BL=0
+        border-radius: $border-radius-base 0 0 $border-radius-base; // RTL: TR=base, TL=0, BL=0, BR=base
+        background-color: lighten($color-background, 2%); // רקע מעט שונה לשדה
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
           outline: none;
           border-color: $color-primary;
-          box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+          box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+          background-color: $color-background;
         }
       }
       button[type="submit"] {
-        padding: $spacing-unit * 0.4 $spacing-unit * 0.6;
+        padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
         border: 1px solid $color-primary;
         background-color: $color-primary;
         color: white;
@@ -137,12 +158,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        // Joined appearance for RTL
-        border-radius: 4px 0 0 4px; // TL=4px, TR=0, BR=0, BL=4px
+        border-radius: 0 $border-radius-base $border-radius-base 0; // RTL
+        transition: background-color 0.2s ease;
         
         &:hover {
-          background-color: darken($color-primary, 10%);
+          background-color: $color-primary-hover;
         }
         svg { 
             width: 1em;
@@ -156,29 +176,35 @@
 // ----- Footer -----
 .site-footer {
   border-top: 1px solid $color-border;
-  padding: $spacing-unit * 1.5 0;
-  margin-top: $spacing-unit * 2;
+  padding: $spacing-unit * 2 0;
+  margin-top: $spacing-unit * 3;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: $color-text-light;
   p {
-    margin: 0;
+    margin: $spacing-unit * 0.25 0;
   }
   .back-to-top {
     display: inline-block;
     margin-top: $spacing-unit * 0.5;
+    font-weight: 500;
+    color: $color-secondary; // חזרה למעלה בצבע משני
+    &:hover {
+      color: $color-secondary-hover;
+      text-decoration-color: $color-secondary-hover;
+    }
   }
 }
 
-// ----- Generic Post List Styling (used on homepage, category pages, etc.) -----
+// ----- Generic Post List Styling -----
 .post-list {
   list-style: none;
   padding: 0;
   margin: 0;
   li {
-    margin-bottom: $spacing-unit * 2;
-    border-bottom: 1px dotted lighten($color-border, 5%);
-    padding-bottom: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit * 2.5; // הגדלת מרווח בין פריטים
+    padding-bottom: $spacing-unit * 2;  // הגדלת ריווח תחתון
+    border-bottom: 1px dashed lighten($color-border, 2%); // קו מקווקו עדין יותר
     &:last-child {
       border-bottom: none;
       margin-bottom: 0;
@@ -189,45 +215,75 @@
 
 .post-summary {
   display: flex;
-  gap: $spacing-unit;
-
-  &.no-thumbnail {
-    // .post-summary-content will naturally take full width due to flex-grow.
-    // No specific style needed here unless vertical alignment issues arise.
-  }
+  gap: $spacing-unit * 1.2; // מרווח בין תמונה לתוכן
+  background-color: $color-background; // לוודא שהרקע נקי
+  // padding: $spacing-unit * 0.5; // אם רוצים להוסיף ריווח פנימי קל
+  // border-radius: $border-radius-base;
+  // box-shadow: $box-shadow-subtle; // אפשר להוסיף צל עדין
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 
   .post-thumbnail {
     flex-shrink: 0;
-    width: 120px; 
-    height: 120px;
+    width: 150px; // הגדלת התמונה
+    height: 150px;
+    overflow: hidden; // כדי שהתמונה לא תחרוג מהרדיוס
+    border-radius: $border-radius-base; // רדיוס גם לתמונה
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 4px;
+      border-radius: 0; // רדיוס על הקונטיינר החיצוני
+      transition: transform 0.3s ease;
+    }
+    a:hover img {
+      transform: scale(1.05); // אפקט זום קל על התמונה בהובר
     }
   }
   .post-summary-content {
     flex-grow: 1;
-    min-width: 0; // Fix for potential flex overflow issues with long text
+    min-width: 0;
+    display: flex;
+    flex-direction: column; // כדי שהקריאה לפעולה תהיה למטה
     h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem; // הגדלת כותרת תקציר
       margin-top: 0;
-      margin-bottom: $spacing-unit * 0.3;
+      margin-bottom: $spacing-unit * 0.4;
+      color: $color-text; // צבע כותרת רגיל
+      a {
+        color: inherit; // יורש צבע מה-h3
+        &:hover {
+          color: $color-primary;
+          text-decoration-color: $color-primary;
+        }
+      }
     }
     .post-meta { 
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: $color-text-light;
-      margin-bottom: $spacing-unit * 0.2;
+      margin-bottom: $spacing-unit * 0.5; // מרווח גדול יותר
+      a { // קישורי קטגוריות במטא
+        color: $color-text-light;
+        &:hover {
+          color: $color-secondary;
+          text-decoration-color: $color-secondary;
+        }
+      }
     }
     .post-excerpt {
       font-size: 0.95rem;
       color: $color-text-light;
-      margin-bottom: $spacing-unit * 0.5;
+      margin-bottom: $spacing-unit * 0.8; // מרווח גדול יותר
+      flex-grow: 1; // דוחף את הקריאה לפעולה למטה
     }
     .read-more {
       font-size: 0.9rem;
-      font-weight: bold;
+      font-weight: 600; // משקל עבה יותר
+      color: $color-secondary; // קריאה לפעולה בצבע משני
+      align-self: flex-start; // יישור להתחלה
+      &:hover {
+        color: $color-secondary-hover;
+        text-decoration-color: $color-secondary-hover;
+      }
     }
   }
 }
@@ -237,28 +293,47 @@
 .homepage {
   .post-latest {
     margin-bottom: $spacing-unit * 3;
-    border-bottom: 1px dashed $color-border;
-    padding-bottom: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2.5;
+    border-bottom: 1px solid $color-border; // שינוי לקו רציף
 
     .post-title {
-      font-size: 2.5rem; 
-      margin-bottom: $spacing-unit * 0.5;
+      font-size: 2.8rem; 
+      margin-bottom: $spacing-unit * 0.6;
+      color: $color-primary; // כותרת פוסט ראשי בצבע הראשי
+      a {
+        color: inherit;
+        &:hover {
+          color: $color-primary-hover;
+        }
+      }
     }
     .post-meta {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: $color-text-light;
-      margin-bottom: $spacing-unit;
+      margin-bottom: $spacing-unit * 1.2;
+      a {
+        color: $color-text-light;
+        &:hover {
+          color: $color-secondary;
+          text-decoration-color: $color-secondary;
+        }
+      }
+    }
+    .post-content-full { // תוכן מלא של הפוסט האחרון
+      font-size: 1.05rem;
+      line-height: 1.75;
     }
   }
 
   .previous-posts {
     h2 {
-      font-size: 1.6rem;
-      margin-bottom: $spacing-unit * 1.5;
-      border-bottom: 1px solid $color-border;
-      padding-bottom: $spacing-unit * 0.5;
+      font-size: 1.8rem; // הגדלת כותרת
+      margin-bottom: $spacing-unit * 2;
+      border-bottom: 2px solid $color-primary; // קו תחתון עבה יותר בצבע הראשי
+      padding-bottom: $spacing-unit * 0.6;
+      display: inline-block;
+      color: $color-text;
     }
-    // .post-list and .post-summary styles are now generic and apply here
   }
 }
 
@@ -266,38 +341,70 @@
 // ----- Post Specific -----
 .post {
   .post-header {
-    margin-bottom: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit * 2;
+    border-bottom: 1px solid $color-border;
+    padding-bottom: $spacing-unit;
     .post-title {
-      font-size: 2.8rem;
-      margin-bottom: $spacing-unit * 0.5;
+      font-size: 3rem; // כותרת גדולה ומרשימה
+      margin-bottom: $spacing-unit * 0.75;
+      color: $color-text; // כותרת פוסט בצבע טקסט רגיל, לא צבעונית מדי
+      line-height: 1.2;
     }
     .post-meta {
       font-size: 0.9rem;
       color: $color-text-light;
+      a { // קטגוריות במטא
+        color: $color-text-light;
+        &:hover {
+          color: $color-secondary;
+          text-decoration-color: $color-secondary;
+        }
+      }
     }
   }
   .post-content {
-    font-size: 1.05rem; 
+    font-size: 1.1rem; // טקסט מעט גדול יותר בפוסט עצמו
+    line-height: 1.8;
+    color: $color-text;
+
+    h2, h3, h4 { // כותרות משנה בתוך הפוסט
+      margin-top: $spacing-unit * 2.5;
+      margin-bottom: $spacing-unit;
+      color: $color-primary; // כותרות משנה יודגשו בצבע
+    }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.2rem; }
+
     img { 
-      margin: $spacing-unit auto; 
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: $spacing-unit * 1.5 auto; 
+      border-radius: $border-radius-base;
+      box-shadow: $box-shadow-soft; // צל עדין לתמונות בפוסט
+    }
+    p, ul, ol {
+      margin-bottom: $spacing-unit * 1.2;
     }
   }
   .post-tags {
-    margin-top: $spacing-unit * 2;
+    margin-top: $spacing-unit * 2.5;
+    padding-top: $spacing-unit * 1.5;
+    border-top: 1px dashed lighten($color-border, 2%);
     .tag {
       display: inline-block;
-      background-color: lighten($color-secondary, 40%);
-      color: $color-secondary;
-      padding: $spacing-unit*0.2 $spacing-unit*0.5;
-      margin-inline-end: $spacing-unit * 0.3;
-      margin-bottom: $spacing-unit * 0.3;
-      border-radius: 3px;
+      background-color: lighten($color-secondary, 35%);
+      color: darken($color-secondary, 20%);
+      padding: $spacing-unit*0.3 $spacing-unit*0.8;
+      margin-inline-end: $spacing-unit * 0.4;
+      margin-bottom: $spacing-unit * 0.4;
+      border-radius: $border-radius-base;
       font-size: 0.85rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
       &:hover {
-        background-color: lighten($color-secondary, 35%);
+        background-color: $color-secondary;
+        color: white;
         text-decoration: none;
+        transform: translateY(-1px) scale(1.02);
       }
     }
   }
@@ -305,51 +412,53 @@
 
 // ----- Categories Page Specific -----
 .categories-page {
-  h1 { // "כל הקטגוריות"
-    font-size: 2.2rem;
+  h1 { 
+    font-size: 2.5rem; // גודל דומה לכותרת פוסט ראשי
     margin-bottom: $spacing-unit * 1.5;
+    color: $color-primary;
   }
 
   .category-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-unit * 0.5;
-    margin-bottom: $spacing-unit * 2;
-    padding-bottom: $spacing-unit;
-    border-bottom: 1px dashed $color-border;
+    gap: $spacing-unit * 0.6;
+    margin-bottom: $spacing-unit * 2.5;
+    padding-bottom: $spacing-unit * 1.5;
+    border-bottom: 1px solid $color-border;
 
     .category-tab-link {
       display: inline-block;
-      padding: $spacing-unit * 0.4 $spacing-unit * 0.8;
-      background-color: lighten($color-border, 6%);
-      border: 1px solid lighten($color-border, 2%);
-      border-radius: 20px; // pill shape
-      font-size: 0.9rem;
+      padding: $spacing-unit * 0.5 $spacing-unit;
+      background-color: lighten($color-background, 2%);
+      border: 1px solid $color-border;
+      border-radius: $border-radius-base;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: $color-text;
-      transition: background-color 0.2s ease, color 0.2s ease;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 
-      &:hover {
+      &:hover, &.active { // עיצוב לטאב פעיל (יצטרך JS להוספת קלאס active)
         background-color: $color-primary;
         color: white;
         border-color: $color-primary;
         text-decoration: none;
+        transform: translateY(-2px);
       }
     }
   }
 
   .category-section {
-    margin-bottom: $spacing-unit * 2.5;
-    // The ID on the section is the scroll target.
-    // Add some top padding if you have a fixed header, e.g., scroll-margin-top: $header-height + $spacing-unit;
+    margin-bottom: $spacing-unit * 3;
+    padding-top: $spacing-unit; // ריווח עליון לקישור ה-anchor
     
-    .category-title-anchor { // Title for each category section e.g. "טכנולוגיה"
-      font-size: 1.8rem;
-      margin-bottom: $spacing-unit * 1.5;
-      color: $color-primary;
-      border-bottom: 1px solid lighten($color-border, 5%);
+    .category-title-anchor { 
+      font-size: 2rem;
+      margin-bottom: $spacing-unit * 1.8;
+      color: $color-secondary; // כותרות קטגוריה בצבע המשני
+      border-bottom: 2px solid lighten($color-secondary, 25%);
       padding-bottom: $spacing-unit * 0.5;
+      display: inline-block;
     }
-    // Uses generic .post-list and .post-summary styles
   }
 }
 
@@ -359,44 +468,41 @@
   padding-top: $spacing-unit; 
   
   h1 {
-    font-size: 2.2rem;
-    margin-bottom: $spacing-unit;
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit * 1.5;
+    color: $color-primary;
   }
 
   #search-input-page { 
     width: 100%;
-    padding: $spacing-unit * 0.6;
-    font-size: 1.1rem;
+    padding: $spacing-unit * 0.8; // ריווח גדול יותר
+    font-size: 1.15rem;
     border: 1px solid $color-border;
-    border-radius: 4px;
-    margin-bottom: $spacing-unit * 1.5;
+    border-radius: $border-radius-base;
+    margin-bottom: $spacing-unit * 2;
+    background-color: lighten($color-background, 2%);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     &:focus {
       outline: none;
       border-color: $color-primary;
-      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+      background-color: $color-background;
     }
   }
 
-  #no-results-message { // This class seems to be unused, SimpleJekyllSearch uses .no-results-found
-    text-align: center;
-    color: $color-secondary;
-    font-size: 1.1rem;
-    padding: $spacing-unit * 2 0;
-    border: 1px dashed lighten($color-border, 10%);
-    border-radius: 4px;
-    background-color: lighten($color-background, 2%);
-  }
-  .no-results-found { // Style for SimpleJekyllSearch's no results message
+  .no-results-found { 
      text-align: center;
-     color: $color-secondary;
+     color: $color-text-light;
      font-size: 1.1rem;
-     padding: $spacing-unit * 2 0;
-     border: 1px dashed lighten($color-border, 10%);
-     border-radius: 4px;
-     background-color: lighten($color-background, 2%);
-     margin-top: $spacing-unit;
+     padding: $spacing-unit * 2.5 $spacing-unit;
+     border: 1px dashed $color-border;
+     border-radius: $border-radius-base;
+     background-color: lighten($color-background, 1%);
+     margin-top: $spacing-unit * 1.5;
+     i { // אם נוסיף אייקון
+       margin-inline-end: $spacing-unit * 0.5;
+     }
   }
-
 
   #results-container {
     list-style: none;
@@ -404,35 +510,35 @@
     margin: 0;
   }
 
-  .search-results-item {
-    border-bottom: 1px dotted lighten($color-border, 5%);
-    padding-bottom: $spacing-unit * 1.5;
-    margin-bottom: $spacing-unit * 1.5;
+  .search-results-item { // כל תוצאת חיפוש
+    border-bottom: 1px solid $color-border; // קו הפרדה ברור יותר
+    padding: $spacing-unit * 1.5 0; // ריווח אנכי
+    margin-bottom: 0; // אין צורך במרווח תחתון אם יש padding
     
     &:last-child {
       border-bottom: none;
-      margin-bottom: 0;
     }
 
     h3 {
       margin-top: 0;
-      margin-bottom: $spacing-unit * 0.3;
+      margin-bottom: $spacing-unit * 0.4;
       font-size: 1.3rem;
       a {
-        color: $color-text;
+        color: $color-primary; // כותרת תוצאה בצבע הראשי
         &:hover {
-          color: $color-primary;
+          color: $color-primary-hover;
+          text-decoration-color: $color-primary-hover;
         }
       }
     }
-    p { // Excerpt from search result
+    p { // Excerpt
       font-size: 0.95rem;
       color: $color-text-light;
-      margin-bottom: $spacing-unit * 0.5;
+      margin-bottom: $spacing-unit * 0.6;
     }
     .search-meta {
       font-size: 0.8rem;
-      color: $color-secondary;
+      color: lighten($color-text-light, 10%);
       display: block; 
     }
   }
@@ -441,27 +547,32 @@
 // ----- רספונסיביות -----
 @media (max-width: $breakpoint-lg) {
   .container {
-    padding: 0 $spacing-unit * 0.75;
+    padding: 0 $spacing-unit;
   }
 }
 
 @media (max-width: $breakpoint-md) { 
   .main-content-wrapper {
     flex-direction: column; 
+    gap: $spacing-unit * 1.5;
   }
   .sidebar {
     width: 100%;
     border-inline-start: none; 
     border-top: 1px solid $color-border; 
     padding-inline-start: 0;
-    padding-top: $spacing-unit;
-    margin-top: $spacing-unit * 1.5;
+    padding-top: $spacing-unit * 1.5;
+    margin-top: $spacing-unit * 2;
+    .sidebar-section {
+      padding: $spacing-unit * 0.5; // הקטנת ריווח פנימי בסיידבר במובייל
+    }
   }
   .site-header .header-content {
     flex-direction: column;
     align-items: flex-start; 
+    gap: $spacing-unit; // מרווח בין הלוגו לחיפוש
     .site-branding {
-      margin-bottom: $spacing-unit * 0.75;
+      margin-bottom: 0; // הוסר בגלל ה-gap
     }
     .search-container {
       width: 100%;
@@ -471,32 +582,45 @@
       }
     }
   }
-  .post-summary { // Generic post-summary mobile adjustment
+  .post-summary { 
       flex-direction: column;
+      gap: $spacing-unit;
       .post-thumbnail {
         width: 100%;
         height: auto; 
-        max-height: 200px; 
-        margin-bottom: $spacing-unit * 0.5;
+        max-height: 220px; // גובה מקסימלי לתמונה בתקציר במובייל
+        margin-bottom: $spacing-unit * 0.8;
       }
   }
+  // הקטנת פונטים לכותרות במובייל
+  h1, .homepage .post-latest .post-title, .post .post-header .post-title { font-size: 2.2rem; }
+  h2, .categories-page .category-title-anchor, .homepage .previous-posts h2 { font-size: 1.7rem; }
+  h3, .post-summary h3 { font-size: 1.4rem; }
+
+  .post .post-content { // התאמות לתוכן פוסט במובייל
+    font-size: 1rem;
+    h2 {font-size: 1.6rem;}
+    h3 {font-size: 1.35rem;}
+  }
+
 }
 
 @media (max-width: $breakpoint-sm) { 
   html {
     font-size: 15px; 
   }
-  .post .post-header .post-title, 
-  .homepage .post-latest .post-title,
-  .categories-page h1, // Main title on categories page
-  .search-page h1 {   // Main title on search page
-    font-size: 2rem; 
+  .site-header .profile-image {
+    width: 50px;
+    height: 50px;
   }
-  .categories-page .category-title-anchor { // Section titles on categories page
+  .site-header .site-titles .site-title {
     font-size: 1.6rem;
   }
-}
+  // עוד הקטנות פונטים לכותרות ראשיות במסכים קטנים מאוד
+  h1, .homepage .post-latest .post-title, .post .post-header .post-title { font-size: 2rem; }
+  h2, .categories-page .category-title-anchor, .homepage .previous-posts h2 { font-size: 1.6rem; }
 
-// Note: The override block for .site-header .search-container .search-form that was at the end
-// of the original file has been removed as its logic was integrated directly into the
-// .site-header .search-container .search-form styling above for clarity.
+  .post-summary .post-thumbnail {
+    max-height: 180px;
+  }
+}

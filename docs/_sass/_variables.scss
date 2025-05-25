@@ -1,27 +1,40 @@
 // _sass/_variables.scss
 
 // פונטים
-$font-primary: 'Assistant', 'Rubik', sans-serif; // פונט ראשי לעברית
-$font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; // פונט לקוד
+$font-primary: 'Assistant', 'Rubik', sans-serif;
+$font-secondary: 'Rubik', 'Assistant', sans-serif;
+$font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-// צבעים
-$color-text: #333;
-$color-text-light: #555;
-$color-background: #fdfdfd; // רקע מעט אוף-וויט
-$color-primary: #007bff;    // צבע הדגשה ראשי (כחול לדוגמה)
-$color-secondary: #6c757d;  // צבע משני
-$color-border: #e0e0e0;
-$color-link: $color-primary;
-$color-link-hover: darken($color-primary, 10%);
-$color-code-background: #f0f0f0; // רקע לקטעי קוד
+// פלטת צבעים חדשה - סגול עם כחול-ירוק ונגיעות חמות
+$color-background: #FDFCFB;        // לבן-קרם מאוד עדין
+$color-text: #2A3342;              // כחול כהה-אפרפר לטקסט ראשי (מעט יותר לכיוון כחול)
+$color-text-light: #65738B;        // כחול-אפרפר בהיר יותר לטקסט משני
+$color-primary: #5D50A1;           // סגול עמוק ומעודן (צבע ראשי) - נשאר
+$color-primary-hover: darken($color-primary, 8%);
 
-// מידות
+$color-secondary: #3B8EA5;         // כחול-ירוק (Teal) מעודן (צבע משני להדגשות)
+$color-secondary-hover: darken($color-secondary, 10%);
+
+$color-accent: #D4A373;            // חום-זהוב חם (לאלמנטים קטנים, גבולות, הדגשות עדינות)
+$color-accent-light: lighten($color-accent, 25%); // גוון בהיר יותר של האקסנט
+
+$color-border: #E8EAEF;            // אפור ניטרלי בהיר יותר לגבולות (קריר יותר)
+$color-code-background: #F7F9FC;   // אפור בהיר מאוד כחלחל לרקע קוד
+$color-highlight-bg: $color-accent-light; // רקע הדגשה עדין מאוד (למשל, לציטוטים)
+
+// מידות (ללא שינוי מהקודם)
 $content-width: 800px;
-$sidebar-width: 220px;
-$header-height: auto; // גובה משתנה לפי התוכן
+$sidebar-width: 240px;
+$header-height: auto;
 $spacing-unit: 20px;
+$border-radius-base: 6px;
+$border-radius-small: 4px;
 
-// Breakpoints לרספונסיביות
+// צלליות (ללא שינוי מהקודם)
+$box-shadow-soft: 0 4px 12px rgba($color-text, 0.08);
+$box-shadow-subtle: 0 2px 6px rgba($color-text, 0.05);
+
+// Breakpoints לרספונסיביות (ללא שינוי מהקודם)
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;

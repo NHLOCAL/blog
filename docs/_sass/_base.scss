@@ -5,46 +5,52 @@
 }
 
 html {
-  font-size: 16px; // גודל פונט בסיסי
+  font-size: 16px;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased; // החלקת פונטים
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: $font-primary;
-  line-height: 1.6;
+  line-height: 1.7; // הגדלת מרווח שורות לקריאות משופרת
   color: $color-text;
   background-color: $color-background;
   margin: 0;
   padding: 0;
-  direction: rtl; // כיווניות מימין לשמאל
-  text-align: start; // יישור טקסט להתחלה (ימין ב-RTL)
+  direction: rtl;
+  text-align: start;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: $spacing-unit * 1.5;
-  margin-bottom: $spacing-unit * 0.75;
-  font-weight: 700; // משקל עבה יותר לכותרות
-  line-height: 1.3;
+  margin-top: $spacing-unit * 1.8;
+  margin-bottom: $spacing-unit * 0.8;
+  font-family: $font-secondary; // פונט שונה לכותרות
+  font-weight: 700;
+  line-height: 1.35;
+  color: $color-text; // כותרות בצבע טקסט רגיל, יודגשו בגודל ובמשקל
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.2rem; }
+h1 { font-size: 2.5rem; } // התאמת גדלי כותרות
+h2 { font-size: 2rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.25rem; }
 
 p {
   margin-top: 0;
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 1.2;
 }
 
 a {
-  color: $color-link;
+  color: $color-primary;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
   &:hover {
-    color: $color-link-hover;
+    color: $color-primary-hover;
     text-decoration: underline;
+    text-decoration-color: $color-secondary; // הדגשת קו תחתון בצבע משני
+    text-decoration-thickness: 2px; // קו תחתון עבה יותר
   }
 }
 
@@ -52,26 +58,54 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  border-radius: $border-radius-small; // רדיוס קטן לתמונות
 }
 
 ul, ol {
-  padding-inline-start: $spacing-unit * 1.5; // ריווח פנימי לתחילת הרשימה
+  padding-inline-start: $spacing-unit * 1.5;
 }
 
-// הדגשת תחביר (בסיסי, יש להתאים לערכת נושא של Rouge)
+// הדגשת תחביר
 .highlight {
   background: $color-code-background;
-  padding: $spacing-unit * 0.5 $spacing-unit;
+  padding: $spacing-unit * 0.75 $spacing-unit;
   margin-bottom: $spacing-unit;
   overflow-x: auto;
-  border-radius: 4px;
-  direction: ltr; // קטעי קוד בדרך כלל באנגלית
+  border-radius: $border-radius-base;
+  border: 1px solid $color-border;
+  direction: ltr;
   text-align: left;
+  box-shadow: $box-shadow-subtle;
 
   pre {
     margin: 0;
     font-family: $font-code;
     font-size: 0.9em;
-    line-height: 1.4;
+    line-height: 1.5;
   }
+}
+
+blockquote {
+  margin: $spacing-unit 0;
+  padding: $spacing-unit * 0.75 $spacing-unit;
+  padding-inline-start: $spacing-unit * 1.5; // ריווח גדול יותר בצד הקו
+  border-inline-start: 4px solid $color-secondary; // קו בצבע המשני
+  background-color: lighten($color-secondary, 38%); // רקע מאוד בהיר בצבע המשני
+  color: darken($color-text, 5%);
+  font-style: italic;
+  border-radius: 0 $border-radius-base $border-radius-base 0;
+
+  p {
+    margin-bottom: $spacing-unit * 0.5;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $color-border;
+  margin: $spacing-unit * 2 0;
 }
