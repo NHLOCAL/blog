@@ -5,40 +5,43 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 16px; // Base font size
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased; // החלקת פונטים
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: $font-primary;
-  line-height: 1.7; // הגדלת מרווח שורות לקריאות משופרת
+  line-height: 1.7;
   color: $color-text;
   background-color: $color-background;
   margin: 0;
   padding: 0;
   direction: rtl;
-  text-align: start;
+  text-align: start; // Replaces 'right' for better logical property support
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: $spacing-unit * 1.8;
-  margin-bottom: $spacing-unit * 0.8;
-  font-family: $font-secondary; // פונט שונה לכותרות
+  margin-top: $spacing-unit * 1.5; // Adjusted spacing
+  margin-bottom: $spacing-unit * 0.75;
+  font-family: $font-secondary;
   font-weight: 700;
-  line-height: 1.35;
-  color: $color-text; // כותרות בצבע טקסט רגיל, יודגשו בגודל ובמשקל
+  line-height: 1.3; // Slightly tighter for headings
+  color: $color-heading; // Use a specific heading color
 }
 
-h1 { font-size: 2.5rem; } // התאמת גדלי כותרות
-h2 { font-size: 2rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.25rem; }
+h1 { font-size: 2.6rem; }
+h2 { font-size: 2.1rem; }
+h3 { font-size: 1.7rem; }
+h4 { font-size: 1.3rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
 
 p {
   margin-top: 0;
-  margin-bottom: $spacing-unit * 1.2;
+  margin-bottom: $spacing-unit * 1; // Adjusted spacing
 }
 
 a {
@@ -49,8 +52,8 @@ a {
   &:hover {
     color: $color-primary-hover;
     text-decoration: underline;
-    text-decoration-color: $color-secondary; // הדגשת קו תחתון בצבע משני
-    text-decoration-thickness: 2px; // קו תחתון עבה יותר
+    text-decoration-color: $color-secondary;
+    text-decoration-thickness: 1.5px; // Slightly thinner underline
   }
 }
 
@@ -58,21 +61,26 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: $border-radius-small; // רדיוס קטן לתמונות
+  border-radius: $border-radius-base; // Consistent border radius
 }
 
 ul, ol {
-  padding-inline-start: $spacing-unit * 1.5;
+  padding-inline-start: $spacing-unit * 1.25; // Standard list indent
+  margin-bottom: $spacing-unit;
 }
 
-// הדגשת תחביר
+li {
+  margin-bottom: $spacing-unit * 0.25;
+}
+
+// Code highlighting
 .highlight {
   background: $color-code-background;
-  padding: $spacing-unit * 0.75 $spacing-unit;
-  margin-bottom: $spacing-unit;
+  padding: $spacing-unit * 0.8 $spacing-unit;
+  margin-bottom: $spacing-unit * 1.2;
   overflow-x: auto;
   border-radius: $border-radius-base;
-  border: 1px solid $color-border;
+  border: 1px solid $color-border-light; // Lighter border for code blocks
   direction: ltr;
   text-align: left;
   box-shadow: $box-shadow-subtle;
@@ -80,18 +88,18 @@ ul, ol {
   pre {
     margin: 0;
     font-family: $font-code;
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 0.9rem; // Slightly smaller code font
+    line-height: 1.6;
   }
 }
 
 blockquote {
-  margin: $spacing-unit 0;
-  padding: $spacing-unit * 0.75 $spacing-unit;
-  padding-inline-start: $spacing-unit * 1.5; // ריווח גדול יותר בצד הקו
-  border-inline-start: 4px solid $color-secondary; // קו בצבע המשני
-  background-color: lighten($color-secondary, 38%); // רקע מאוד בהיר בצבע המשני
-  color: darken($color-text, 5%);
+  margin: $spacing-unit 0 $spacing-unit * 1.5;
+  padding: $spacing-unit * 0.8 $spacing-unit;
+  padding-inline-start: $spacing-unit * 1.5;
+  border-inline-start: 5px solid $color-secondary;
+  background-color: $color-highlight-bg; // Softer background for quotes
+  color: $color-text; // Ensure good contrast
   font-style: italic;
   border-radius: 0 $border-radius-base $border-radius-base 0;
 
@@ -107,5 +115,5 @@ hr {
   border: 0;
   height: 1px;
   background-color: $color-border;
-  margin: $spacing-unit * 2 0;
+  margin: $spacing-unit * 2.5 0; // More spacing around hr
 }

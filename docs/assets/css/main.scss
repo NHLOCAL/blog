@@ -1,6 +1,8 @@
 ---
+# Front matter dashes are required for Jekyll to process SCSS files in this location
 ---
 
 @import "variables";
 @import "base";
 @import "layout";
+// Add other partials here if needed, e.g. @import "components";

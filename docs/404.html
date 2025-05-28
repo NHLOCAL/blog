@@ -1,25 +1,53 @@
 ---
 permalink: /404.html
 layout: default
+title: עמוד לא נמצא
+sidebar: false # Hide sidebar on 404 page
 ---
 
 <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
+  .page-404-container {
+    margin: 40px auto; /* Increased top/bottom margin */
     max-width: 600px;
     text-align: center;
+    padding: 40px; /* Increased padding */
+    background-color: #fff; /* Static value */
+    border: 1px solid #e0e0e0; /* Static value */
+    border-radius: 8px; /* Static value */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07); /* Added subtle shadow */
   }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
+  .page-404-container h1 {
+    margin: 0 0 20px 0; /* Adjusted margin */
+    font-size: 5em; /* Slightly larger */
     line-height: 1;
     letter-spacing: -1px;
+    color: #5D50A1; /* Primary color from your palette (static) */
+  }
+  .page-404-container p {
+    font-size: 1.15em; /* Slightly larger */
+    color: #333D42; /* Text color from your palette (static) */
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .page-404-container a.button-link { /* Added class for styling */
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px; /* Increased padding */
+    background-color: #3B8EA5; /* Secondary color from your palette (static) */
+    color: white;
+    border-radius: 5px; /* Static value */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  .page-404-container a.button-link:hover {
+    background-color: #30788a; /* Darken secondary color (static) */
   }
 </style>
 
-<div class="container">
+<div class="page-404-container">
   <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <p><strong>אופס! העמוד שחיפשת לא נמצא :(</strong></p>
+  <p>יתכן שהקישור שבור, שהעמוד הוסר, או שהקלדת כתובת שגויה.</p>
+  <p><a href="{{ "/" | relative_url }}" class="button-link">חזרה לעמוד הבית</a></p>
 </div>

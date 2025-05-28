@@ -1,18 +1,19 @@
 ---
-layout: page
-title: About
+layout: default
+title: אודות
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+זהו הבלוג של NHLOCAL. האתר נבנה באמצעות Jekyll ומשתמש בעיצוב מותאם אישית.
 
-You can find the source code for Minima at GitHub:
+תוכלו למצוא מידע נוסף על Jekyll בכתובת [jekyllrb.com](https://jekyllrb.com/).
+
+קוד המקור של ערכת העיצוב הבסיסית Minima (שממנה התחלנו):
 [jekyll][jekyll-organization] /
 [minima](https://github.com/jekyll/minima)
 
-You can find the source code for Jekyll at GitHub:
+קוד המקור של Jekyll עצמו:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
-
 
 [jekyll-organization]: https://github.com/jekyll

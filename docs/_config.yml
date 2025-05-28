@@ -27,6 +27,12 @@ defaults:
     values:
       layout: "post"
       # אפשר להוסיף כאן ערכים ברירת מחדל נוספים לפוסטים
+  - scope: # Default layout for pages
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
 
 # הגדרות מותאמות אישית (לשימוש בתבניות)
 custom_settings:

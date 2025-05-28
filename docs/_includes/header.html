@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="header-content">
     <div class="site-branding">
       {% if site.custom_settings.profile_image %}
@@ -11,6 +11,13 @@
         {% endif %}
       </div>
     </div>
+
+    <nav class="site-nav">
+        <a href="{{ "/" | relative_url }}">בית</a>
+        <a href="{{ "/categories/" | relative_url }}">קטגוריות</a>
+        <a href="{{ "/tags/" | relative_url }}">תגיות</a>
+        <a href="{{ "/about/" | relative_url }}">אודות</a>
+    </nav>
 
     <div class="search-container">
       <!-- שדה חיפוש ב-Header - מפנה לדף החיפוש -->

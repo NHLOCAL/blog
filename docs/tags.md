@@ -1,34 +1,34 @@
 ---
 layout: default
-title: קטגוריות
-permalink: /categories/
+title: תגיות
+permalink: /tags/
 ---
 
-<div class="categories-page">
-  <h1>כל הקטגוריות</h1>
+<div class="tags-page">
+  <h1>כל התגיות</h1>
 
-  {% assign all_categories = site.categories | sort %}
+  {% assign all_tags = site.tags | sort %}
 
-  {% if all_categories.size == 0 %}
-    <p>לא נמצאו קטגוריות באתר.</p>
+  {% if all_tags.size == 0 %}
+    <p>לא נמצאו תגיות באתר.</p>
   {% else %}
     <div class="term-tabs">
-      {% for category_array in all_categories %}
-        {% assign category_name = category_array[0] %}
-        <a href="#{{ category_name | slugify }}" class="term-tab-link">{{ category_name }} ({{ category_array[1].size }})</a>
+      {% for tag_array in all_tags %}
+        {% assign tag_name = tag_array[0] %}
+        <a href="#{{ tag_name | slugify }}" class="term-tab-link">{{ tag_name }} ({{ tag_array[1].size }})</a>
       {% endfor %}
     </div>
 
-    {% for category_array in all_categories %}
-      {% assign category_name = category_array[0] %}
-      {% assign posts_in_category = category_array[1] | sort: 'date' | reverse %}
-      <section id="{{ category_name | slugify }}" class="term-section">
-        <h2 class="term-title-anchor">{{ category_name }}</h2>
-        {% if posts_in_category.size == 0 %}
-          <p>אין פוסטים בקטגוריה זו עדיין.</p>
+    {% for tag_array in all_tags %}
+      {% assign tag_name = tag_array[0] %}
+      {% assign posts_with_tag = tag_array[1] | sort: 'date' | reverse %}
+      <section id="{{ tag_name | slugify }}" class="term-section">
+        <h2 class="term-title-anchor">{{ tag_name }}</h2> {# Using shared class name #}
+        {% if posts_with_tag.size == 0 %}
+          <p>אין פוסטים עם תגית זו עדיין.</p>
         {% else %}
           <ul class="post-list">
-            {% for post in posts_in_category %}
+            {% for post in posts_with_tag %}
               <li>
                 <article class="post-summary{% unless post.featured_image %} no-thumbnail{% endunless %}">
                   {% if post.featured_image %}

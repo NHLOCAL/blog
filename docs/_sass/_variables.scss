@@ -1,41 +1,46 @@
 // _sass/_variables.scss
 
-// פונטים
-$font-primary: 'Assistant', 'Rubik', sans-serif;
-$font-secondary: 'Rubik', 'Assistant', sans-serif;
+// Fonts - Updated
+$font-primary: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-secondary: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; // For headings
 $font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-// פלטת צבעים חדשה - סגול עם כחול-ירוק ונגיעות חמות
-$color-background: #FDFCFB;        // לבן-קרם מאוד עדין
-$color-text: #2A3342;              // כחול כהה-אפרפר לטקסט ראשי (מעט יותר לכיוון כחול)
-$color-text-light: #65738B;        // כחול-אפרפר בהיר יותר לטקסט משני
-$color-primary: #5D50A1;           // סגול עמוק ומעודן (צבע ראשי) - נשאר
+// Color Palette - Retained structure, minor adjustments for harmony
+$color-background: #FDFCFB;        // Light cream
+$color-text: #333D42;              // Dark grey for text, slightly softer
+$color-text-light: #65738B;        // Lighter grey for meta, etc.
+$color-heading: #2A3342;           // Specific color for headings, can be same as $color-text or darker
+
+$color-primary: #5D50A1;           // Deep purple (main accent)
 $color-primary-hover: darken($color-primary, 8%);
 
-$color-secondary: #3B8EA5;         // כחול-ירוק (Teal) מעודן (צבע משני להדגשות)
+$color-secondary: #3B8EA5;         // Teal (secondary accent)
 $color-secondary-hover: darken($color-secondary, 10%);
 
-$color-accent: #D4A373;            // חום-זהוב חם (לאלמנטים קטנים, גבולות, הדגשות עדינות)
-$color-accent-light: lighten($color-accent, 25%); // גוון בהיר יותר של האקסנט
+// $color-accent: #D4A373;         // Warm gold-brown (can be used for subtle highlights if needed)
+// $color-accent-light: lighten($color-accent, 25%);
 
-$color-border: #E8EAEF;            // אפור ניטרלי בהיר יותר לגבולות (קריר יותר)
-$color-code-background: #F7F9FC;   // אפור בהיר מאוד כחלחל לרקע קוד
-$color-highlight-bg: $color-accent-light; // רקע הדגשה עדין מאוד (למשל, לציטוטים)
+$color-border: #DDE1E6;            // Neutral border color
+$color-border-light: #E8EAEF;      // Lighter border for less prominent lines
 
-// מידות (ללא שינוי מהקודם)
-$content-width: 800px;
-$sidebar-width: 240px;
+$color-code-background: #F7F8FA;   // Very light grey for code blocks
+$color-highlight-bg: lighten($color-secondary, 42%); // Soft background for blockquotes or highlights
+
+
+// Dimensions
+$content-width: 780px; // Slightly adjusted
+$sidebar-width: 260px; // Slightly adjusted
 $header-height: auto;
-$spacing-unit: 20px;
-$border-radius-base: 6px;
-$border-radius-small: 4px;
+$spacing-unit: 20px;   // Base unit for margins/paddings
+$border-radius-base: 5px; // Slightly softer radius
+$border-radius-small: 3px;
 
-// צלליות (ללא שינוי מהקודם)
-$box-shadow-soft: 0 4px 12px rgba($color-text, 0.08);
-$box-shadow-subtle: 0 2px 6px rgba($color-text, 0.05);
+// Shadows
+$box-shadow-soft: 0 5px 15px rgba($color-text, 0.07);
+$box-shadow-subtle: 0 2px 8px rgba($color-text, 0.05);
 
-// Breakpoints לרספונסיביות (ללא שינוי מהקודם)
+// Breakpoints for Responsive Design
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
-$breakpoint-lg: 992px;
+$breakpoint-lg: 992px; // Changed from 992 to 1024 for a bit more room before sidebar stacks
 $breakpoint-xl: 1200px;

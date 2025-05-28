@@ -8,12 +8,16 @@
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   
+   <link rel="icon" href="{{ "https://nhlocal.github.io/favicon.ico" | relative_url }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ "https://nhlocal.github.io/favicon.ico" | relative_url }}" type="image/x-icon">
+  
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <!-- כאן אפשר להוסיף פונטים מ-Google Fonts או אחרים -->
+  
+  <!-- Updated Google Fonts: Open Sans for body, Montserrat for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +27,8 @@
       <div class="content-area">
         {{ content }}
       </div>
-      {% comment %} הוספת סרגל צד גם בעמוד הבית, הסרנו את התנאי page.layout != 'home' {% endcomment %}
-      {% if page.layout != 'post_full_width' %} 
+      {% comment %} Only show sidebar if not explicitly disabled by 'post_full_width' layout or similar front matter {% endcomment %}
+      {% if page.sidebar != false and page.layout != 'post_full_width' %} 
         {% include sidebar.html %}
       {% endif %}
     </main>

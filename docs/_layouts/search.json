@@ -17,7 +17,7 @@ sitemap: false # אופציונלי: למנוע הכללה במפת אתר
   {% endfor %}
   {% comment %} 
     אם אין פוסטים כלל, הלולאה לא תרוץ והפלט יהיה רק '[', שזה JSON לא תקין.
-    נוסיף פריט דמה אם אין פוסטים, או שנבטיח שיש לפחות פוסט אחד.
-    לפשטות, כרגע נניח שיש פוסטים.
+    This setup assumes there's at least one post. For a robust solution with zero posts, 
+    you might need a conditional check or ensure at least one dummy post exists.
   {% endcomment %}
 ]
