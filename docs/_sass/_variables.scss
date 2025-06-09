@@ -1,7 +1,7 @@
 // 1. Fonts
 // -----------------------------------------------------------------------------
 $font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-secondary: 'Roboto Slab', 'Georgia', 'Times New Roman', serif;
+$font-secondary: 'Frank Ruhl Libre', 'Georgia', 'Times New Roman', serif;
 $font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
 // 2. Colors
@@ -32,7 +32,7 @@ $color-code-background: $gray-100;
 // -----------------------------------------------------------------------------
 $content-width: 800px;
 $sidebar-width: 280px;
-$spacing-unit: 16px; // FIX: Changed from 1rem to 16px for unit compatibility
+$spacing-unit: 16px; // Base spacing unit
 $border-radius: 6px;
 $border-radius-small: 4px;
 $border-radius-large: 8px;

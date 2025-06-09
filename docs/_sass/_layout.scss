@@ -24,16 +24,26 @@
 
   .sidebar-section {
     margin-bottom: $spacing-unit * 2.5;
+    
     h4 {
       font-family: $font-secondary;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       margin-top: 0;
       margin-bottom: $spacing-unit;
-      color: $color-heading;
       padding-bottom: $spacing-unit * 0.5;
       border-bottom: 1px solid $color-border;
+      
+      a {
+        color: $color-heading;
+        font-weight: 700; // Inherit boldness
+        &:hover {
+          color: $color-accent;
+          text-decoration: none;
+        }
+      }
     }
+    
     ul {
       list-style: none;
       padding: 0;
@@ -237,17 +247,28 @@
 
 .homepage {
   .post-latest {
-    text-align: center;
     padding-bottom: $spacing-unit * 3;
     margin-bottom: $spacing-unit * 3;
     border-bottom: 1px solid $color-border;
-    .post-title { font-size: 3rem; margin-bottom: $spacing-unit; }
-    .post-meta { font-size: 0.9rem; margin-bottom: $spacing-unit * 1.5; }
+    .post-title { 
+        font-size: 3rem; 
+        margin-bottom: $spacing-unit; 
+        text-align: center;
+    }
+    .post-meta { 
+        font-size: 0.9rem; 
+        margin-bottom: $spacing-unit * 1.5; 
+        text-align: center;
+    }
     .post-content-full {
       font-size: 1.1rem;
-      line-height: 1.7;
-      max-width: $content-width - 100px;
+      line-height: 1.8;
+      max-width: $content-width - 50px; // A bit wider for justify
       margin: 0 auto;
+      text-align: justify; // Justify the text
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
     }
   }
   .previous-posts h2 {
@@ -372,4 +393,5 @@
     h1, .homepage .post-latest .post-title { font-size: 2.2rem; }
     h2 { font-size: 1.8rem; }
     .site-header .site-branding { flex-direction: column; align-items: flex-start; gap: $spacing-unit * 0.5; }
+    .homepage .post-latest .post-content-full { font-size: 1rem; }
 }
