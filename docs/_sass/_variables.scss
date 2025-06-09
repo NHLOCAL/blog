@@ -1,0 +1,50 @@
+// Fonts
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-secondary: 'Frank Ruhl Libre', 'Georgia', 'Times New Roman', serif;
+$font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+
+// User-Defined Color Palette (No changes in this step)
+$color-dark-navy: #192A34;        // For primary text - almost black, very readable.
+$color-slate-blue: #4E626E;       // For headings.
+$color-accent-blue: #175377;      // Main accent color for links, buttons.
+$color-bright-accent-blue: #25A3D0; // Hover state for accents.
+$color-soft-grey: #969FA6;        // Secondary text, subtle borders.
+$color-dark-bg-element: #182735;  // A dark element color (can be used for code bg etc.)
+
+$color-light-bg: #F0F2F5;         // A very light, cool grey for the main page background.
+$color-light-border: #DDE3E8;     // A soft border color.
+$color-white: #ffffff;
+
+// Mapping new palette to theme variables
+$color-background: $color-light-bg;
+$color-text-primary: $color-dark-navy;
+$color-text-secondary: $color-soft-grey;
+$color-heading: $color-slate-blue;
+$color-accent: $color-accent-blue;
+$color-accent-hover: $color-bright-accent-blue;
+$color-border: $color-light-border;
+$color-code-background: $color-dark-bg-element;
+
+
+// Sizing and Spacing
+$content-width: 800px;
+$sidebar-width: 280px;
+$spacing-unit: 16px;
+$border-radius: 6px;
+$border-radius-small: 4px;
+$border-radius-large: 10px;
+
+
+// Shadows
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+$box-shadow-md: 0 5px 10px -2px rgba(0, 0, 0, 0.08), 0 3px 6px -3px rgba(0, 0, 0, 0.05);
+$transition-base: all 0.25s ease-in-out;
+
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1120px;
+$breakpoint-xl: 1400px;

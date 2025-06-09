@@ -1,0 +1,65 @@
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <h4><a href="{{ "/" | relative_url }}"><i class="bi bi-file-earmark-text"></i> פוסטים אחרונים</a></h4>
+    <ul class="recent-posts-list">
+      {% for post in site.posts limit: site.custom_settings.recent_posts_sidebar_count %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if site.categories.size > 0 %}
+  <div class="sidebar-section">
+    <h4><a href="{{ "/categories/" | relative_url }}"><i class="bi bi-folder2-open"></i> קטגוריות</a></h4>
+    <div class="categories-list-flex">
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category_item in sorted_categories limit: 10 %}
+        {% assign category_name = category_item[0] %}
+        {% assign category_posts_count = category_item[1].size %}
+        <a href="{{ site.baseurl }}/categories/#{{ category_name | slugify }}" class="category-item-badge">
+          {{ category_name }} ({{ category_posts_count }})
+        </a>
+      {% endfor %}
+      {% if sorted_categories.size > 10 %}
+        <a href="{{ site.baseurl }}/categories/" class="category-item-badge more-link">כל הקטגוריות...</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if site.tags.size > 0 %}
+  <div class="sidebar-section">
+    <h4><a href="{{ "/tags/" | relative_url }}"><i class="bi bi-tags"></i> תגיות</a></h4>
+    <div class="tags-list">
+      {% assign sorted_tags = site.tags | sort %}
+      {% for tag_item in sorted_tags limit: 15 %}
+        {% assign tag_name = tag_item[0] %}
+        {% assign tag_posts_count = tag_item[1].size %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag_name | slugify }}" class="tag-item">
+          {{ tag_name }} ({{ tag_posts_count }})
+        </a>
+      {% endfor %}
+       {% if sorted_tags.size > 15 %}
+        <a href="{{ site.baseurl }}/tags/" class="tag-item more-link">כל התגיות...</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if site.custom_settings.social_links.size > 0 %}
+  <div class="sidebar-section">
+    <h4><i class="bi bi-link-45deg"></i> קישורים</h4>
+    <ul class="custom-links-list">
+      {% for link in site.custom_settings.social_links %}
+        <li>
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-{{ link.icon | default: 'box-arrow-up-right' }}"></i>
+            <span>{{ link.name }}</span>
+          </a>
+        </li>
+      {% endfor %}
+      <li><a href="{{ "/about/" | relative_url }}"><i class="bi bi-person-circle"></i> <span>אודות</span></a></li>
+    </ul>
+  </div>
+  {% endif %}
+</aside>

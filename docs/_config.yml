@@ -1,0 +1,62 @@
+title: "הבלוג של NHLOCAL"
+description: "לגלות דברים חדשים זה קל!"
+author: "nh local"
+email: "nh.local11@gmail.com"
+url: "https://blog.ze-kal.top"
+baseurl: "" # אם הבלוג לא בשורש הדומיין, שנה בהתאם (למשל, "/blog")
+
+lang: "he"
+
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+
+custom_settings:
+  profile_image: "https://nhlocal.github.io/NH.LOCAL.jpg"
+  posts_per_page_home: 5
+  recent_posts_sidebar_count: 5
+  social_links:
+    - name: "GitHub"
+      url: "https://github.com/nhlocal"
+      icon: "github" # שם אייקון מ-Bootstrap Icons
+    # דוגמאות לקישורים נוספים:
+    # - name: "LinkedIn"
+    #   url: "https://www.linkedin.com/in/your-profile/"
+    #   icon: "linkedin"
+    # - name: "Twitter"
+    #   url: "https://twitter.com/your-handle"
+    #   icon: "twitter-x"
+
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

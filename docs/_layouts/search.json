@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /search.json
+sitemap: false # אופציונלי: למנוע הכללה במפת אתר
+---
+[
+  {% for post in site.posts %}
+    {
+      "title"    : {{ post.title | jsonify }},
+      "url"      : "{{ post.url | relative_url }}",
+      "date"     : "{{ post.date | date: "%Y-%m-%d" }}",
+      "categories": {{ post.categories | join: ', ' | jsonify }},
+      "tags"     : {{ post.tags | join: ', ' | jsonify }},
+      "content"  : {{ post.content | strip_html | strip_newlines | truncatewords: 150 | jsonify }},
+      "excerpt"  : {{ post.excerpt | strip_html | strip_newlines | truncatewords: 30 | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  {% comment %} 
+    אם אין פוסטים כלל, הלולאה לא תרוץ והפלט יהיה רק '[', שזה JSON לא תקין.
+    This setup assumes there's at least one post. For a robust solution with zero posts, 
+    you might need a conditional check or ensure at least one dummy post exists.
+  {% endcomment %}
+]

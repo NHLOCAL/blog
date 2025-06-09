@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time></span>
+      {% if page.author %}
+        <span class="meta-item"><i class="bi bi-person"></i> מאת {{ page.author }}</span>
+      {% endif %}
+      {% if page.categories.size > 0 %}
+        <span class="meta-item"><i class="bi bi-folder"></i> קטגוריות:
+        {% for category in page.categories %}
+          <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+        </span>
+      {% endif %}
+    </p>
+  </header>
+
+  {% if page.featured_image %}
+  <div class="post-featured-image">
+    <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title | escape }}">
+  </div>
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <div class="post-tags">
+    <i class="bi bi-tags-fill"></i> תגיות:
+    {% for tag in page.tags %}
+      <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+
+  <nav class="post-nav">
+    {% if page.previous.url %}
+      <a class="post-nav-prev" href="{{ page.previous.url | relative_url }}"><i class="bi bi-arrow-right"></i> {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next.url %}
+      <a class="post-nav-next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} <i class="bi bi-arrow-left"></i></a>
+    {% endif %}
+  </nav>
+
+</article>
