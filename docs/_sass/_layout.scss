@@ -1,705 +1,375 @@
-// _sass/_layout.scss
-
 .container {
-  max-width: $content-width + $sidebar-width + ($spacing-unit * 5); // Max site width
+  max-width: $content-width + $sidebar-width + ($spacing-unit * 4);
   margin: 0 auto;
-  padding: 0 $spacing-unit * 1.5;
+  padding: 0 $spacing-unit;
+  background-color: $color-white;
 }
 
 .main-content-wrapper {
   display: flex;
-  flex-direction: row-reverse; // Sidebar on the left in RTL
-  gap: $spacing-unit * 2.5; // Increased gap
-  margin-top: $spacing-unit * 2;
-  margin-bottom: $spacing-unit * 3;
+  flex-direction: row-reverse;
+  gap: $spacing-unit * 3;
+  padding-top: $spacing-unit * 2;
 }
 
 .content-area {
   flex: 1;
-  min-width: 0; // Prevents flexbox overflow issues
+  min-width: 0;
 }
 
 .sidebar {
   width: $sidebar-width;
   flex-shrink: 0;
-  padding-inline-start: $spacing-unit; // Add some padding if border is removed
+  padding-top: $spacing-unit * 0.5;
 
   .sidebar-section {
-    margin-bottom: $spacing-unit * 2;
-    padding: $spacing-unit * 0.5; // Slightly reduced padding for a tighter look
-    background-color: lighten($color-background, 1%);
-    border: 1px solid $color-border-light;
-    border-radius: $border-radius-base;
-    box-shadow: $box-shadow-subtle;
-
+    margin-bottom: $spacing-unit * 2.5;
     h4 {
-      font-size: 1.2rem; // Slightly larger sidebar section titles
-      margin-top: $spacing-unit * 0.5; // Adjust top margin for h4 within section
+      font-family: $font-secondary;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 0;
       margin-bottom: $spacing-unit;
-      color: $color-primary;
-      padding-bottom: $spacing-unit * 0.4;
-      border-bottom: 2px solid $color-secondary;
-      display: inline-block;
+      color: $color-heading;
+      padding-bottom: $spacing-unit * 0.5;
+      border-bottom: 1px solid $color-border;
     }
-    ul { // For recent_posts_list and custom_links_list
+    ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      li {
-        margin-bottom: $spacing-unit * 0.5;
-        a {
-          font-size: 0.9rem;
-          color: $color-text;
-          &:hover {
-            color: $color-primary;
-            text-decoration-color: $color-primary;
-          }
-        }
+      li a {
+        font-size: 0.9rem;
+        color: $color-text-secondary;
+        font-weight: 400;
+        padding: ($spacing-unit * 0.25) 0;
+        display: block;
+        &:hover { color: $color-accent; text-decoration: none; }
       }
     }
     .tags-list, .categories-list-flex {
       display: flex;
       flex-wrap: wrap;
-      gap: $spacing-unit * 0.4; // Slightly smaller gap for badges
+      gap: $spacing-unit * 0.5;
       .tag-item, .category-item-badge {
-        font-size: 0.75rem; // Smaller badges
-        background-color: lighten($color-secondary, 35%);
-        color: darken($color-secondary, 20%);
-        padding: $spacing-unit*0.2 $spacing-unit*0.5;
+        font-size: 0.75rem;
+        background-color: $color-background;
+        color: $color-text-secondary;
+        padding: $spacing-unit * 0.2 $spacing-unit * 0.6;
         border-radius: $border-radius-small;
+        border: 1px solid $color-border;
         font-weight: 500;
-        transition: all 0.2s ease;
+        transition: $transition-base;
         &:hover {
-          background-color: $color-secondary;
-          color: white;
+          background-color: $color-accent;
+          border-color: $color-accent;
+          color: $color-white;
           text-decoration: none;
           transform: translateY(-1px);
-        }
-        &.more-link { // Styling for "see all" links
-            background-color: lighten($color-primary, 35%);
-            color: darken($color-primary, 15%);
-            &:hover {
-                background-color: $color-primary;
-            }
         }
       }
     }
   }
 }
 
-// ----- Header -----
 .site-header {
-  padding: $spacing-unit 0;
-  margin-bottom: $spacing-unit * 2;
+  padding: $spacing-unit * 1.5 0;
   border-bottom: 1px solid $color-border;
-  
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
-    gap: $spacing-unit;
   }
-
   .site-branding {
     display: flex;
     align-items: center;
+    gap: $spacing-unit;
   }
-
   .profile-image {
-    width: 55px; 
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin-inline-end: $spacing-unit * 0.75;
     border: 2px solid $color-border;
-    box-shadow: $box-shadow-subtle;
   }
-
   .site-titles {
     .site-title {
       margin: 0;
-      font-size: 1.7rem;
-      font-weight: 700;
-      font-family: $font-secondary; // Ensure heading font
-      a {
-        color: $color-heading; // Use heading color
-        &:hover {
-          text-decoration: none;
-          color: $color-primary;
-        }
-      }
+      font-size: 1.5rem;
+      a { color: inherit; &:hover { color: $color-accent; text-decoration: none; } }
     }
-    .site-description {
-      margin: 0;
-      font-size: 0.85rem;
-      color: $color-text-light;
-    }
+    .site-description { margin: 0; font-size: 0.9rem; color: $color-text-secondary; }
   }
-
-  .site-nav { // Added Navigation
+  .site-nav {
     display: flex;
-    gap: $spacing-unit;
-    align-items: center;
+    gap: $spacing-unit * 1.5;
     a {
-        font-family: $font-secondary;
-        font-weight: 500;
-        font-size: 0.95rem;
-        color: $color-text;
-        padding-bottom: $spacing-unit * 0.25;
-        border-bottom: 2px solid transparent;
-        &:hover {
-            color: $color-primary;
-            text-decoration: none;
-            border-bottom-color: $color-primary;
-        }
-        // Add active state if page.url matches link, or use JS
+      font-family: $font-primary;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: $color-text-secondary;
+      position: relative;
+      padding-bottom: $spacing-unit * 0.25;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $color-accent;
+        transition: width 0.3s ease;
+      }
+      &:hover {
+        color: $color-heading;
+        text-decoration: none;
+        &::after { width: 100%; }
+      }
     }
   }
-  
-  .search-container {
-    .search-form {
-      display: flex;
-      input[type="text"] {
-        padding: $spacing-unit * 0.4 $spacing-unit * 0.7;
-        border: 1px solid $color-border;
-        min-width: 200px;
-        font-family: $font-primary;
-        border-inline-end: none; 
-        border-radius: $border-radius-base 0 0 $border-radius-base;
-        background-color: lighten($color-background, 2%);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-        &:focus {
-          outline: none;
-          border-color: $color-primary;
-          box-shadow: 0 0 0 2px rgba($color-primary, 0.2); // Softer focus
-          background-color: $color-background;
-        }
+  .search-container .search-form {
+    display: flex;
+    input[type="text"] {
+      padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
+      border: 1px solid $color-border;
+      border-radius: $border-radius 0 0 $border-radius;
+      background-color: $color-background;
+      transition: $transition-base;
+      &:focus {
+        outline: none;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
       }
-      button[type="submit"] {
-        padding: $spacing-unit * 0.4 $spacing-unit * 0.7;
-        border: 1px solid $color-primary;
-        background-color: $color-primary;
-        color: white;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0 $border-radius-base $border-radius-base 0;
-        transition: background-color 0.2s ease;
-        
-        &:hover {
-          background-color: $color-primary-hover;
-        }
-        svg { 
-            width: 1em;
-            height: 1em;
-        }
-      }
+    }
+    button {
+      padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
+      border: 1px solid $color-accent;
+      background-color: $color-accent;
+      color: $color-white;
+      cursor: pointer;
+      border-radius: 0 $border-radius $border-radius 0;
+      transition: $transition-base;
+      &:hover { background-color: $color-accent-hover; }
     }
   }
 }
 
-// ----- Footer -----
 .site-footer {
   border-top: 1px solid $color-border;
-  padding: $spacing-unit * 1.5 0; // Reduced padding
-  margin-top: $spacing-unit * 2.5;
+  padding: $spacing-unit * 2 0;
+  margin-top: $spacing-unit * 3;
   text-align: center;
-  font-size: 0.85rem; // Slightly smaller footer text
-  color: $color-text-light;
-  p {
-    margin: $spacing-unit * 0.2 0;
-  }
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  p { margin: 0; }
   .back-to-top {
-    display: inline-block;
-    margin-top: $spacing-unit * 0.4;
-    font-weight: 500;
-    color: $color-secondary;
-    &:hover {
-      color: $color-secondary-hover;
-      text-decoration-color: $color-secondary-hover;
-    }
+      font-weight: 500;
+      &:hover {
+          color: $color-accent;
+      }
   }
 }
 
-// ----- Generic Post List Styling (used on home, categories, tags) -----
 .post-list {
   list-style: none;
   padding: 0;
   margin: 0;
   li {
-    margin-bottom: $spacing-unit * 2;
-    padding-bottom: $spacing-unit * 2;
-    border-bottom: 1px solid $color-border-light; // Lighter separator
-    &:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+      margin: 0;
+      &:not(:last-child) {
+          margin-bottom: $spacing-unit * 2;
+      }
   }
 }
 
 .post-summary {
   display: flex;
-  gap: $spacing-unit * 1.5; // Increased gap for better separation
-  background-color: $color-background;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-  border-radius: $border-radius-base; // Add border-radius to summary items
-  // padding: $spacing-unit; // Optional: add padding for a card-like effect
-  // box-shadow: $box-shadow-subtle; // Optional: add shadow for a card-like effect
-  // &:hover {
-  //   transform: translateY(-3px);
-  //   box-shadow: $box-shadow-soft;
-  // }
+  gap: $spacing-unit * 1.5;
+  padding: $spacing-unit * 1.5;
+  border-radius: $border-radius-large;
+  border: 1px solid $color-border;
+  background-color: $color-white;
+  transition: $transition-base;
+  box-shadow: $box-shadow-sm;
 
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $box-shadow-md;
+    border-color: darken($color-border, 5%);
+  }
 
   .post-thumbnail {
     flex-shrink: 0;
-    width: 160px; // Slightly larger thumbnail
-    height: 120px; // Aspect ratio for thumbnail
+    width: 200px;
+    height: 140px;
     overflow: hidden;
-    border-radius: $border-radius-small; // Radius for thumbnail itself
+    border-radius: $border-radius;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 0;
-      transition: transform 0.3s ease;
-    }
-    a:hover img {
-      transform: scale(1.08); // Slightly more zoom
     }
   }
+
   .post-summary-content {
-    flex-grow: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
     h3 {
-      font-size: 1.5rem; // Title size for summary
-      margin-top: 0;
-      margin-bottom: $spacing-unit * 0.3;
-      font-family: $font-secondary; // Ensure heading font
-      color: $color-heading;
-      a {
-        color: inherit;
-        &:hover {
-          color: $color-primary;
-          text-decoration-color: $color-primary;
-        }
-      }
+      font-size: 1.4rem;
+      margin: 0 0 $spacing-unit * 0.25 0;
+      a { color: inherit; &:hover { color: $color-accent; text-decoration: none; } }
     }
-    .post-meta { 
+    .post-meta {
       font-size: 0.8rem;
-      color: $color-text-light;
-      margin-bottom: $spacing-unit * 0.6;
-      a {
-        color: $color-text-light;
-        &:hover {
-          color: $color-secondary;
-          text-decoration-color: $color-secondary;
-        }
-      }
+      color: $color-text-secondary;
+      margin-bottom: $spacing-unit * 0.75;
     }
     .post-excerpt {
-      font-size: 0.9rem; // Standardize excerpt font size
-      color: $color-text; // Use main text color for better readability
-      margin-bottom: $spacing-unit * 0.75;
-      flex-grow: 1;
+      font-size: 0.95rem;
+      color: $color-text-secondary;
+      margin-bottom: $spacing-unit;
       line-height: 1.6;
     }
     .read-more {
       font-size: 0.85rem;
-      font-weight: 700; // Bolder read-more
-      color: $color-secondary;
-      align-self: flex-start;
-      text-transform: uppercase; // Optional: make it stand out more
-      letter-spacing: 0.5px;   // Optional
-      &:hover {
-        color: $color-secondary-hover;
-        text-decoration-color: $color-secondary-hover;
-      }
+      font-weight: 700;
+      color: $color-accent;
     }
   }
 }
 
-// ----- Homepage Specific -----
 .homepage {
   .post-latest {
-    margin-bottom: $spacing-unit * 2.5;
-    padding-bottom: $spacing-unit * 2.5;
+    text-align: center;
+    padding-bottom: $spacing-unit * 3;
+    margin-bottom: $spacing-unit * 3;
     border-bottom: 1px solid $color-border;
-
-    .post-title { // Uses h1 from _base.scss
-      font-size: 2.8rem; // Ensure it's prominent
-      margin-bottom: $spacing-unit * 0.5;
-      color: $color-primary; 
-      font-family: $font-secondary;
-      a {
-        color: inherit;
-        &:hover {
-          color: $color-primary-hover;
-        }
-      }
-    }
-    .post-meta {
-      font-size: 0.9rem;
-      color: $color-text-light;
-      margin-bottom: $spacing-unit * 1.5;
-      a {
-        color: $color-text-light;
-        &:hover {
-          color: $color-secondary;
-          text-decoration-color: $color-secondary;
-        }
-      }
-    }
+    .post-title { font-size: 3rem; margin-bottom: $spacing-unit; }
+    .post-meta { font-size: 0.9rem; margin-bottom: $spacing-unit * 1.5; }
     .post-content-full {
-      font-size: 1rem; // Standard body font size
-      line-height: 1.75;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: $content-width - 100px;
+      margin: 0 auto;
     }
   }
-
-  .previous-posts {
-    h2 { // Uses h2 from _base.scss
-      margin-bottom: $spacing-unit * 1.5;
-      border-bottom: 2px solid $color-primary;
-      padding-bottom: $spacing-unit * 0.5;
-      display: inline-block;
-      color: $color-heading;
-    }
+  .previous-posts h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: $spacing-unit * 2;
   }
 }
 
-
-// ----- Post Specific -----
 .post {
   .post-header {
-    margin-bottom: $spacing-unit * 1.5;
-    border-bottom: 1px solid $color-border-light;
-    padding-bottom: $spacing-unit * 1.5;
-    .post-title { // Uses h1 from _base.scss
-      margin-bottom: $spacing-unit * 0.6;
-      color: $color-heading;
-      line-height: 1.25;
-    }
-    .post-meta {
-      font-size: 0.85rem;
-      color: $color-text-light;
-      a {
-        color: $color-text-light;
-        &:hover {
-          color: $color-secondary;
-          text-decoration-color: $color-secondary;
-        }
-      }
-    }
+    margin-bottom: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
+    border-bottom: 1px solid $color-border;
+    .post-title { line-height: 1.2; margin-bottom: $spacing-unit; }
+    .post-meta { font-size: 0.9rem; color: $color-text-secondary; }
   }
   .post-featured-image {
-    margin-bottom: $spacing-unit * 1.5;
-    img {
-      border-radius: $border-radius-base;
-      box-shadow: $box-shadow-soft;
-    }
+    margin-bottom: $spacing-unit * 2;
+    border-radius: $border-radius-large;
+    overflow: hidden;
   }
   .post-content {
-    font-size: 1.05rem; // Slightly larger text for posts
+    font-size: 1.1rem;
     line-height: 1.8;
-    color: $color-text;
-
-    h2, h3, h4, h5, h6 { // Sub-headings within post content
-      margin-top: $spacing-unit * 2;
-      margin-bottom: $spacing-unit * 0.8;
-      color: $color-heading; // Keep subheadings consistent
-    }
-    h2 { font-size: 1.9rem; } // Scale down slightly from page H2
-    h3 { font-size: 1.6rem; }
-    h4 { font-size: 1.3rem; }
-
-    img { 
-      margin: $spacing-unit * 1.5 auto; 
-      border-radius: $border-radius-base;
-      box-shadow: $box-shadow-soft;
-    }
-    p, ul, ol {
-      margin-bottom: $spacing-unit * 1.25;
-    }
+    color: $color-text-primary;
+    h2, h3 { margin-top: $spacing-unit * 2.5; }
+    img { margin: $spacing-unit * 2 auto; box-shadow: $box-shadow-md; }
   }
   .post-tags {
-    margin-top: $spacing-unit * 2;
+    margin-top: $spacing-unit * 3;
     padding-top: $spacing-unit * 1.5;
-    border-top: 1px dashed $color-border-light;
-    .tag {
+    border-top: 1px solid $color-border;
+    .tag { // Reusing sidebar style
       display: inline-block;
-      background-color: lighten($color-secondary, 38%);
-      color: darken($color-secondary, 25%);
-      padding: $spacing-unit*0.25 $spacing-unit*0.7;
-      margin-inline-end: $spacing-unit * 0.3;
-      margin-bottom: $spacing-unit * 0.3;
-      border-radius: $border-radius-small;
       font-size: 0.8rem;
+      background-color: $color-background;
+      color: $color-text-secondary;
+      padding: $spacing-unit * 0.25 $spacing-unit * 0.75;
+      border-radius: $border-radius-small;
+      border: 1px solid $color-border;
       font-weight: 500;
-      transition: all 0.2s ease;
-      &:hover {
-        background-color: $color-secondary;
-        color: white;
-        text-decoration: none;
-        transform: translateY(-1px);
-      }
+      transition: $transition-base;
+      &:hover { background-color: $color-accent; border-color: $color-accent; color: $color-white; text-decoration: none; }
     }
   }
-   .post-nav { // Next/Previous post navigation
+  .post-nav {
     display: flex;
     justify-content: space-between;
-    margin-top: $spacing-unit * 2.5;
-    padding-top: $spacing-unit * 1.5;
-    border-top: 1px solid $color-border-light;
-    font-size: 0.9rem;
-
-    a {
-      color: $color-primary;
-      font-weight: 500;
-      max-width: 48%; // Prevent overlap
-      &:hover {
-        color: $color-primary-hover;
-      }
-    }
-    .post-nav-prev {
-      text-align: start;
-    }
-    .post-nav-next {
-      text-align: end;
-    }
+    margin-top: $spacing-unit * 3;
+    padding-top: $spacing-unit * 2;
+    border-top: 1px solid $color-border;
+    a { max-width: 48%; }
   }
 }
 
-// ----- Categories & Tags Page Specific -----
-.categories-page, .tags-page { // Shared styling for both
-  h1 { // Uses h1 from _base.scss
-    margin-bottom: $spacing-unit * 1.5;
-    color: $color-primary;
-  }
-
-  .term-tabs { // Renamed from category-tabs for reusability
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-unit * 0.5;
-    margin-bottom: $spacing-unit * 2;
-    padding-bottom: $spacing-unit * 1.5;
-    border-bottom: 1px solid $color-border;
-
-    .term-tab-link { // Renamed
-      display: inline-block;
-      padding: $spacing-unit * 0.4 $spacing-unit * 0.8;
-      background-color: lighten($color-background, 3%);
-      border: 1px solid $color-border-light;
-      border-radius: $border-radius-base;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: $color-text;
-      transition: all 0.2s ease;
-
-      &:hover, &.active {
-        background-color: $color-primary;
-        color: white;
-        border-color: $color-primary;
-        text-decoration: none;
-        transform: translateY(-1px);
-      }
-    }
-  }
-
-  .term-section { // Renamed
-    margin-bottom: $spacing-unit * 2.5;
-    padding-top: $spacing-unit * 0.5; // For anchor link scroll
-    
-    .term-title-anchor {  // Renamed
-      font-size: 2rem; // Uses h2 from _base.scss
-      margin-bottom: $spacing-unit * 1.5;
-      color: $color-secondary;
-      border-bottom: 2px solid lighten($color-secondary, 30%);
-      padding-bottom: $spacing-unit * 0.4;
-      display: inline-block;
-    }
-  }
-  // Uses .post-list and .post-summary defined above
+.categories-page, .tags-page, .search-page {
+  h1 { text-align: center; }
 }
 
-
-// ----- Search Page Specific -----
-.search-page {
-  padding-top: $spacing-unit * 0.5; 
-  
-  h1 { // Uses h1 from _base.scss
-    margin-bottom: $spacing-unit * 1.5;
-    color: $color-primary;
-  }
-
-  #search-input-page { 
-    width: 100%;
-    padding: $spacing-unit * 0.7;
-    font-size: 1.1rem; // Slightly larger input text
+.page-404-container {
+    margin: ($spacing-unit * 4) auto;
+    max-width: 600px;
+    text-align: center;
+    padding: $spacing-unit * 3;
+    background-color: $color-white;
     border: 1px solid $color-border;
-    border-radius: $border-radius-base;
-    margin-bottom: $spacing-unit * 2;
-    background-color: lighten($color-background, 2%);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    &:focus {
-      outline: none;
-      border-color: $color-primary;
-      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
-      background-color: $color-background;
+    border-radius: $border-radius-large;
+    box-shadow: $box-shadow-md;
+
+    h1 {
+      margin: 0 0 $spacing-unit 0;
+      font-size: 6em;
+      line-height: 1;
+      color: $color-accent;
     }
-  }
-
-  .no-results-found, .search-error { 
-     text-align: center;
-     color: $color-text-light;
-     font-size: 1.05rem;
-     padding: $spacing-unit * 2 $spacing-unit;
-     border: 1px dashed $color-border-light;
-     border-radius: $border-radius-base;
-     background-color: lighten($color-background, 1%);
-     margin-top: $spacing-unit * 1.5;
-  }
-
-  #results-container {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .search-results-item {
-    border-bottom: 1px solid $color-border-light;
-    padding: $spacing-unit * 1.2 0;
-    margin-bottom: 0; 
-    
-    &:last-child {
-      border-bottom: none;
+    p {
+      font-size: 1.15em;
+      color: $color-text-secondary;
+      line-height: 1.6;
+      margin-bottom: $spacing-unit;
+      strong { color: $color-heading; font-weight: 700; }
     }
-
-    h3 {
-      margin-top: 0;
-      margin-bottom: $spacing-unit * 0.3;
-      font-size: 1.35rem; // Slightly larger result title
-      a {
-        color: $color-primary;
-        &:hover {
-          color: $color-primary-hover;
-          text-decoration-color: $color-primary-hover;
-        }
+    a.button-link {
+      display: inline-block;
+      margin-top: $spacing-unit * 1.5;
+      padding: $spacing-unit * 0.75 $spacing-unit * 1.5;
+      background-color: $color-accent;
+      color: white;
+      border-radius: $border-radius;
+      text-decoration: none;
+      font-weight: bold;
+      transition: $transition-base;
+      &:hover {
+        background-color: $color-accent-hover;
+        transform: translateY(-2px);
       }
     }
-    p { // Excerpt
-      font-size: 0.9rem;
-      color: $color-text;
-      margin-bottom: $spacing-unit * 0.5;
-    }
-    .search-meta {
-      font-size: 0.75rem;
-      color: $color-text-light;
-      display: block; 
-    }
-  }
 }
 
-// ----- רספונסיביות -----
-@media (max-width: $breakpoint-lg) { // ~992px
-  .container {
-    padding: 0 $spacing-unit;
-  }
-  .site-header .site-nav { // Stack nav under branding on medium-large screens if not enough space
-    order: 3; // After branding and search
-    width: 100%;
-    justify-content: center;
-    margin-top: $spacing-unit * 0.5;
-  }
+// Responsive adjustments
+@media (max-width: $breakpoint-lg) {
+  .main-content-wrapper { flex-direction: column; }
+  .sidebar { width: 100%; border-top: 1px solid $color-border; padding-top: $spacing-unit * 2; }
 }
 
-@media (max-width: $breakpoint-md) { // ~768px
-  .main-content-wrapper {
-    flex-direction: column; 
-    gap: $spacing-unit * 2;
+@media (max-width: $breakpoint-md) {
+  html { font-size: 15px; }
+  .site-header {
+    .header-content { flex-direction: column; gap: $spacing-unit; align-items: flex-start; }
+    .search-container { order: 3; width: 100%; }
+    .search-container .search-form { width: 100%; input { flex-grow: 1; }}
   }
-  .sidebar {
-    width: 100%;
-    border-inline-start: none; 
-    border-top: 1px solid $color-border; 
-    padding-inline-start: 0;
-    padding-top: $spacing-unit * 1.5;
-    margin-top: $spacing-unit * 2;
-  }
-  .site-header .header-content {
+  .post-summary {
     flex-direction: column;
-    align-items: flex-start; 
-    gap: $spacing-unit * 0.75;
+    .post-thumbnail { width: 100%; height: 220px; }
   }
-  .site-header .site-nav {
-    order: 2; // Between branding and search
-    width: auto; // Don't take full width if search is also there
-    margin-top: 0;
-    gap: $spacing-unit * 0.75;
-    flex-wrap: wrap; // Allow nav items to wrap
-  }
-  .site-header .search-container {
-    order: 3;
-    width: 100%; // Full width search on mobile
-    .search-form input[type="text"]{
-      min-width: 0; 
-      flex-grow: 1;
-    }
-  }
-  .post-summary { 
-      flex-direction: column;
-      gap: $spacing-unit;
-      .post-thumbnail {
-        width: 100%;
-        height: 200px; // Fixed height for mobile thumbnails
-        max-height: 220px;
-        margin-bottom: $spacing-unit * 0.8;
-      }
-  }
-  // Font adjustments for mobile
-  h1, .homepage .post-latest .post-title, .post .post-header .post-title { font-size: 2.2rem; }
-  h2, .categories-page .term-title-anchor, .tags-page .term-title-anchor, .homepage .previous-posts h2 { font-size: 1.8rem; }
-  h3, .post-summary h3 { font-size: 1.4rem; }
-
-  .post .post-content {
-    font-size: 1rem;
-    h2 {font-size: 1.7rem;}
-    h3 {font-size: 1.4rem;}
-  }
+  .post-nav { flex-direction: column; gap: $spacing-unit; a { max-width: 100%; text-align: center; }}
 }
 
-@media (max-width: $breakpoint-sm) { // ~576px
-  html {
-    font-size: 15px; 
-  }
-  .site-header .profile-image {
-    width: 45px;
-    height: 45px;
-  }
-  .site-header .site-titles .site-title {
-    font-size: 1.5rem;
-  }
-  .site-header .site-nav a {
-    font-size: 0.9rem;
-    gap: $spacing-unit * 0.5;
-  }
-  h1, .homepage .post-latest .post-title, .post .post-header .post-title { font-size: 2rem; }
-  h2, .categories-page .term-title-anchor, .tags-page .term-title-anchor, .homepage .previous-posts h2 { font-size: 1.6rem; }
-
-  .post-summary .post-thumbnail {
-    height: 180px;
-  }
-   .post-nav {
-    flex-direction: column;
-    gap: $spacing-unit * 0.5;
-    a {
-      max-width: 100%;
-    }
-    .post-nav-prev { text-align: center; }
-    .post-nav-next { text-align: center; }
-  }
+@media (max-width: $breakpoint-sm) {
+    h1, .homepage .post-latest .post-title { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .site-header .site-branding { flex-direction: column; align-items: flex-start; gap: $spacing-unit * 0.5; }
 }

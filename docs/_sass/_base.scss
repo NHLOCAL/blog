@@ -1,11 +1,9 @@
-// _sass/_base.scss
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 html {
-  font-size: 16px; // Base font size
+  font-size: 16px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,47 +11,47 @@ html {
 
 body {
   font-family: $font-primary;
-  line-height: 1.7;
-  color: $color-text;
-  background-color: $color-background;
+  line-height: 1.65;
+  color: $color-text-primary;
+  background-color: $color-white; // Use white for main bg, gray for content areas if needed
   margin: 0;
   padding: 0;
   direction: rtl;
-  text-align: start; // Replaces 'right' for better logical property support
+  text-align: start;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: $spacing-unit * 1.5; // Adjusted spacing
-  margin-bottom: $spacing-unit * 0.75;
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 1;
   font-family: $font-secondary;
   font-weight: 700;
-  line-height: 1.3; // Slightly tighter for headings
-  color: $color-heading; // Use a specific heading color
+  line-height: 1.3;
+  color: $color-heading;
+  letter-spacing: -0.5px;
 }
 
-h1 { font-size: 2.6rem; }
-h2 { font-size: 2.1rem; }
-h3 { font-size: 1.7rem; }
-h4 { font-size: 1.3rem; }
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.25rem; }
 h5 { font-size: 1.1rem; }
 h6 { font-size: 1rem; }
 
-
 p {
   margin-top: 0;
-  margin-bottom: $spacing-unit * 1; // Adjusted spacing
+  margin-bottom: $spacing-unit * 1.25;
 }
 
 a {
-  color: $color-primary;
+  color: $color-accent;
   text-decoration: none;
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition: $transition-base;
+  font-weight: 500;
 
   &:hover {
-    color: $color-primary-hover;
+    color: $color-accent-hover;
     text-decoration: underline;
-    text-decoration-color: $color-secondary;
-    text-decoration-thickness: 1.5px; // Slightly thinner underline
+    text-decoration-thickness: 1.5px;
   }
 }
 
@@ -61,53 +59,50 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: $border-radius-base; // Consistent border radius
+  border-radius: $border-radius;
 }
 
 ul, ol {
-  padding-inline-start: $spacing-unit * 1.25; // Standard list indent
+  padding-inline-start: $spacing-unit * 1.5;
   margin-bottom: $spacing-unit;
 }
 
 li {
-  margin-bottom: $spacing-unit * 0.25;
+  margin-bottom: $spacing-unit * 0.5;
 }
 
-// Code highlighting
 .highlight {
   background: $color-code-background;
-  padding: $spacing-unit * 0.8 $spacing-unit;
-  margin-bottom: $spacing-unit * 1.2;
+  padding: $spacing-unit * 1.25;
+  margin-bottom: $spacing-unit * 1.5;
   overflow-x: auto;
-  border-radius: $border-radius-base;
-  border: 1px solid $color-border-light; // Lighter border for code blocks
+  border-radius: $border-radius;
+  border: 1px solid $color-border;
   direction: ltr;
   text-align: left;
-  box-shadow: $box-shadow-subtle;
+  box-shadow: $box-shadow-sm;
 
   pre {
     margin: 0;
     font-family: $font-code;
-    font-size: 0.9rem; // Slightly smaller code font
+    font-size: 0.9rem;
     line-height: 1.6;
   }
 }
 
 blockquote {
-  margin: $spacing-unit 0 $spacing-unit * 1.5;
-  padding: $spacing-unit * 0.8 $spacing-unit;
-  padding-inline-start: $spacing-unit * 1.5;
-  border-inline-start: 5px solid $color-secondary;
-  background-color: $color-highlight-bg; // Softer background for quotes
-  color: $color-text; // Ensure good contrast
-  font-style: italic;
-  border-radius: 0 $border-radius-base $border-radius-base 0;
+  margin: $spacing-unit * 1.5 0;
+  padding: $spacing-unit $spacing-unit * 1.5;
+  padding-inline-start: $spacing-unit * 1.75;
+  border-inline-start: 4px solid $color-accent;
+  background-color: $color-background;
+  color: $color-text-secondary;
+  font-style: normal;
+  font-size: 1.1rem;
+  border-radius: 0 $border-radius $border-radius 0;
 
   p {
-    margin-bottom: $spacing-unit * 0.5;
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin: 0;
   }
 }
 
@@ -115,5 +110,5 @@ hr {
   border: 0;
   height: 1px;
   background-color: $color-border;
-  margin: $spacing-unit * 2.5 0; // More spacing around hr
+  margin: $spacing-unit * 3 0;
 }

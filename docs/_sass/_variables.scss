@@ -1,46 +1,52 @@
-// _sass/_variables.scss
-
-// Fonts - Updated
-$font-primary: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-secondary: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; // For headings
+// 1. Fonts
+// -----------------------------------------------------------------------------
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-secondary: 'Roboto Slab', 'Georgia', 'Times New Roman', serif;
 $font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-// Color Palette - Retained structure, minor adjustments for harmony
-$color-background: #FDFCFB;        // Light cream
-$color-text: #333D42;              // Dark grey for text, slightly softer
-$color-text-light: #65738B;        // Lighter grey for meta, etc.
-$color-heading: #2A3342;           // Specific color for headings, can be same as $color-text or darker
+// 2. Colors
+// -----------------------------------------------------------------------------
+// Base Palette
+$color-white: #ffffff;
+$gray-50:  #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-700: #374151;
+$gray-900: #111827;
+$blue-500: #3b82f6;
+$blue-600: #2563eb;
 
-$color-primary: #5D50A1;           // Deep purple (main accent)
-$color-primary-hover: darken($color-primary, 8%);
+// Semantic Colors
+$color-background: $gray-50;
+$color-text-primary: $gray-900;
+$color-text-secondary: $gray-500;
+$color-heading: $gray-900;
+$color-accent: $blue-500;
+$color-accent-hover: $blue-600;
+$color-border: $gray-200;
+$color-code-background: $gray-100;
 
-$color-secondary: #3B8EA5;         // Teal (secondary accent)
-$color-secondary-hover: darken($color-secondary, 10%);
+// 3. Layout & Sizing
+// -----------------------------------------------------------------------------
+$content-width: 800px;
+$sidebar-width: 280px;
+$spacing-unit: 16px; // FIX: Changed from 1rem to 16px for unit compatibility
+$border-radius: 6px;
+$border-radius-small: 4px;
+$border-radius-large: 8px;
 
-// $color-accent: #D4A373;         // Warm gold-brown (can be used for subtle highlights if needed)
-// $color-accent-light: lighten($color-accent, 25%);
+// 4. Effects
+// -----------------------------------------------------------------------------
+$box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$box-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$transition-base: all 0.2s ease-in-out;
 
-$color-border: #DDE1E6;            // Neutral border color
-$color-border-light: #E8EAEF;      // Lighter border for less prominent lines
-
-$color-code-background: #F7F8FA;   // Very light grey for code blocks
-$color-highlight-bg: lighten($color-secondary, 42%); // Soft background for blockquotes or highlights
-
-
-// Dimensions
-$content-width: 780px; // Slightly adjusted
-$sidebar-width: 260px; // Slightly adjusted
-$header-height: auto;
-$spacing-unit: 20px;   // Base unit for margins/paddings
-$border-radius-base: 5px; // Slightly softer radius
-$border-radius-small: 3px;
-
-// Shadows
-$box-shadow-soft: 0 5px 15px rgba($color-text, 0.07);
-$box-shadow-subtle: 0 2px 8px rgba($color-text, 0.05);
-
-// Breakpoints for Responsive Design
+// 5. Breakpoints
+// -----------------------------------------------------------------------------
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
-$breakpoint-lg: 992px; // Changed from 992 to 1024 for a bit more room before sidebar stacks
-$breakpoint-xl: 1200px;
+$breakpoint-lg: 1120px; // Adjusted for new content + sidebar width
+$breakpoint-xl: 1400px;
