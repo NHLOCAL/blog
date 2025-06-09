@@ -1,48 +1,31 @@
-//================================================
-// Layout Structure
-//================================================
+// =============================================================================
+// Layout SCSS - Rewritten for Enhanced Responsiveness
+// =============================================================================
 
+// --- Main Container ---
+// Sets the maximum width for the entire site content.
 .container {
   max-width: $content-width + $sidebar-width + ($spacing-unit * 4);
   margin: 0 auto;
   padding: 0 $spacing-unit;
-  // The container itself is now just a spacing wrapper on the main background
 }
 
-.main-content-wrapper {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: $spacing-unit * 3;
-  // This wrapper is now the main content "card"
-  background-color: $color-white;
-  padding: $spacing-unit * 2;
-  border-radius: $border-radius-large;
-  box-shadow: $box-shadow;
-  margin-bottom: $spacing-unit * 2;
-}
 
-.content-area {
-  flex: 1;
-  min-width: 0;
-}
-
-//================================================
-// Header
-//================================================
-
+// --- Site Header ---
+// The main header bar containing branding, navigation, and search.
 .site-header {
-  // The header is now a separate "card"
-  margin: $spacing-unit * 2 auto;
+  margin: $spacing-unit * 2 0;
   padding: $spacing-unit * 1.5;
   background-color: $color-white;
   border-radius: $border-radius-large;
-  box-shadow: $box-shadow;
   border: 1px solid $color-border;
-  
+  box-shadow: $box-shadow;
+
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: $spacing-unit * 1.5;
   }
 
   .site-branding {
@@ -67,115 +50,120 @@
     .site-description { margin: 0; font-size: 0.9rem; color: $color-text-secondary; }
   }
 
-  .site-nav a {
-    font-family: $font-primary;
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: $color-text-secondary;
-    position: relative;
-    padding-bottom: $spacing-unit * 0.35;
-
-    &:hover {
-      color: $color-heading;
-      text-decoration: none;
-      &::after { width: 100%; }
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 2px;
-      background-color: $color-accent;
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-  }
-  
   .site-nav {
     display: flex;
     gap: $spacing-unit * 1.5;
-  }
-
-  .search-container .search-form {
-    display: flex;
-    input[type="text"] {
-      padding: $spacing-unit * 0.5 $spacing-unit;
-      border: 1px solid $color-border;
-      border-radius: $border-radius 0 0 $border-radius;
-      background-color: $color-background;
-      transition: $transition-base;
-      &:focus {
-        outline: none;
-        border-color: $color-accent;
-        box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
-      }
-    }
-    button {
-      padding: $spacing-unit * 0.5 $spacing-unit;
-      border: 1px solid $color-accent;
-      background-color: $color-accent;
-      color: $color-white;
-      cursor: pointer;
-      border-radius: 0 $border-radius $border-radius 0;
-      transition: $transition-base;
-      &:hover { background-color: $color-accent-hover; border-color: $color-accent-hover; }
-    }
-  }
-}
-
-//================================================
-// Sidebar
-//================================================
-
-.sidebar {
-  width: $sidebar-width;
-  flex-shrink: 0;
-  padding-top: $spacing-unit * 0.5;
-
-  .sidebar-section {
-    margin-bottom: $spacing-unit * 2.5;
-
-    h4 {
-      font-family: $font-secondary;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: $spacing-unit;
-      padding-bottom: $spacing-unit * 0.5;
-      border-bottom: 1px solid $color-border;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    // Animated underline for sidebar links
-    .recent-posts-list li a,
-    .custom-links-list li a {
-      font-size: 0.9rem;
+    a {
+      font-family: $font-primary;
+      font-weight: 500;
+      font-size: 0.95rem;
       color: $color-text-secondary;
-      font-weight: 400;
-      padding: ($spacing-unit * 0.3) 0;
-      display: inline-block; // Important for underline to work
       position: relative;
-      text-decoration: none;
+      padding-bottom: $spacing-unit * 0.25;
+      transition: color 0.3s ease;
 
       &:hover {
-        color: $color-accent;
+        color: $color-heading;
         &::after { width: 100%; }
       }
 
       &::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         right: 0;
         width: 0;
-        height: 1px;
+        height: 2px;
+        background-color: $color-accent;
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .search-container .search-form {
+    display: flex;
+    input[type="text"] {
+      border: 1px solid $color-border;
+      &:focus {
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
+      }
+    }
+  }
+}
+
+
+// --- Main Layout Wrapper ---
+// This is the primary flex container for the two main columns: content and sidebar.
+.main-content-wrapper {
+  display: flex;
+  flex-direction: row-reverse; // Sidebar on the right
+  gap: $spacing-unit * 2;
+  align-items: flex-start;
+}
+
+
+// --- Content Area ---
+// The main content area card (posts, pages).
+.content-area {
+  flex: 1; // Takes up the remaining space
+  min-width: 0; // Prevents flexbox overflow issues
+  background: $color-white;
+  padding: $spacing-unit * 2.5;
+  border-radius: $border-radius-large;
+  border: 1px solid $color-border;
+  box-shadow: $box-shadow;
+}
+
+
+// --- Sidebar ---
+// The sidebar container. On desktop, it's a fixed-width column.
+// On smaller screens, it becomes a responsive grid.
+.sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 2; // Space between sidebar widgets
+
+  .sidebar-section {
+    background-color: $color-white;
+    padding: $spacing-unit * 1.25;
+    border-radius: $border-radius-large;
+    border: 1px solid $color-border;
+    box-shadow: $box-shadow;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: $spacing-unit;
+      padding-bottom: $spacing-unit * 0.5;
+      border-bottom: 1px solid $color-border;
+      font-size: 1.1rem;
+
+      a {
+        color: inherit;
+        &:hover { text-decoration: none; color: $color-accent; }
+      }
+    }
+
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { margin-bottom: $spacing-unit * 0.25; }
+
+    ul.custom-links-list li a,
+    .recent-posts-list li a {
+      // Link hover effect
+      position: relative;
+      display: inline-block;
+      padding: $spacing-unit * 0.25 0;
+      &:hover {
+        text-decoration: none;
+        color: $color-accent;
+        &::after { width: 100%; }
+      }
+      &::after {
+        content: ''; position: absolute; bottom: 0; right: 0;
+        width: 0; height: 1px;
         background-color: $color-accent;
         transition: width 0.3s ease;
       }
@@ -207,249 +195,150 @@
   }
 }
 
-//================================================
-// Post Lists & Summaries
-//================================================
 
+// --- Post Summaries (for lists on home, category, and tag pages) ---
 .post-list {
-  list-style: none;
   padding: 0;
   margin: 0;
-  li:not(:last-child) {
-    margin-bottom: $spacing-unit * 2;
-  }
+  list-style: none;
 }
 
 .post-summary {
-  display: flex;
+  display: flex; // Use flexbox for horizontal layout on larger screens
   gap: $spacing-unit * 1.5;
   padding: $spacing-unit * 1.5;
   border-radius: $border-radius;
-  border: 1px solid $color-border;
+  border: 1px solid transparent; // Transparent border to prevent layout shifts on hover
   background-color: $color-background;
   transition: $transition-base;
 
+  &:not(:last-child) {
+    margin-bottom: $spacing-unit * 1.5;
+  }
+
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: $box-shadow-sm;
     border-color: $color-soft-grey;
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-sm;
   }
 
   .post-thumbnail {
     flex-shrink: 0;
-    width: 200px;
-    height: 140px;
-    overflow: hidden;
-    border-radius: $border-radius;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    width: 150px;
+    height: 100px;
+    a, img { display: block; width: 100%; height: 100%; }
+    img { object-fit: cover; border-radius: $border-radius-small; }
   }
 
-  .post-summary-content {
-    h3 {
-      font-size: 1.4rem;
-      margin: 0 0 $spacing-unit * 0.25 0;
-      a { color: $color-heading; &:hover { color: $color-accent; text-decoration: none; } }
-    }
-    .post-meta {
-      font-size: 0.8rem;
-      color: $color-text-secondary;
-      margin-bottom: $spacing-unit * 0.75;
-    }
-    .post-excerpt {
-      font-size: 0.95rem;
-      color: $color-text-primary;
-      line-height: 1.6;
-    }
-    .read-more {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: $color-accent;
-      display: inline-block;
-      position: relative;
-      text-decoration: none;
-      
-      &:hover {
-        color: $color-accent-hover;
-        &::after { width: 100%; }
-      }
+  &.no-thumbnail .post-summary-content {
+    // Ensure content without a thumbnail aligns correctly
+    width: 100%;
+  }
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        right: 0;
-        width: 0;
-        height: 1.5px;
-        background-color: currentColor;
-        transition: width 0.3s ease;
-      }
-    }
-  }
-}
-
-//================================================
-// Page-specific Layouts
-//================================================
-
-.homepage .post-latest {
-  padding-bottom: $spacing-unit * 3;
-  margin-bottom: $spacing-unit * 3;
-  border-bottom: 1px solid $color-border;
-}
-
-.post {
-  .post-header {
-    margin-bottom: $spacing-unit * 2;
-    padding-bottom: $spacing-unit * 2;
-    border-bottom: 1px solid $color-border;
-  }
-  .post-featured-image {
-    margin-bottom: $spacing-unit * 2;
-    border-radius: $border-radius;
-    overflow: hidden;
-  }
-  .post-tags {
-    margin-top: $spacing-unit * 3;
-    padding-top: $spacing-unit * 1.5;
-    border-top: 1px solid $color-border;
-  }
-  .post-nav {
-    margin-top: $spacing-unit * 3;
-    padding-top: $spacing-unit * 2;
-    border-top: 1px solid $color-border;
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.categories-page, .tags-page {
-  .term-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: $spacing-unit * 0.75;
-    margin-bottom: $spacing-unit * 3;
-    padding-bottom: $spacing-unit * 1.5;
-    border-bottom: 1px solid $color-border;
-  }
-  .term-tab-link {
-    background-color: $color-background;
-    border: 1px solid $color-border;
-    padding: $spacing-unit * 0.5 $spacing-unit;
-    border-radius: $border-radius;
-    color: $color-text-secondary;
+  .read-more {
+    display: inline-block;
+    font-weight: 700;
+    // Hover effect for "Read More"
+    position: relative;
     &:hover {
-      background-color: $color-accent;
-      color: $color-white;
+      text-decoration: none;
+      color: $color-accent-hover;
+      &::after { width: 100%; }
+    }
+    &::after {
+      content: ''; position: absolute; bottom: -1px; right: 0;
+      width: 0; height: 1.5px;
+      background-color: $color-accent-hover;
+      transition: width 0.3s ease;
     }
   }
 }
 
-.page-404-container {
-    max-width: 600px;
-    margin: ($spacing-unit * 2) auto;
-    text-align: center;
-    padding: $spacing-unit * 3;
-    background-color: $color-white;
-    border-radius: $border-radius-large;
-    box-shadow: $box-shadow;
 
-    h1 {
-      font-size: 6em;
-      line-height: 1;
-      color: $color-accent;
-    }
-    a.button-link {
-      display: inline-block;
-      margin-top: $spacing-unit * 1.5;
-      padding: $spacing-unit * 0.75 $spacing-unit * 1.5;
-      background-color: $color-accent;
-      color: white;
-      border-radius: $border-radius;
-      &:hover {
-        background-color: $color-accent-hover;
-        transform: translateY(-2px);
-      }
-    }
-}
-
-//================================================
-// Footer
-//================================================
-
+// --- Site Footer ---
 .site-footer {
-  border-top: none;
-  padding: $spacing-unit * 2 0;
-  margin-top: $spacing-unit;
+  padding: $spacing-unit * 3 0;
+  margin-top: $spacing-unit * 2;
   text-align: center;
   font-size: 0.9rem;
   color: $color-text-secondary;
-  background-color: transparent; // Sits on the main page background
 }
 
-//================================================
-// Global & Helper Classes
-//================================================
 
-.bi {
-  margin-inline-end: 0.4em;
-  vertical-align: -0.1em;
-}
+// =============================================================================
+// Responsive Design - Media Queries
+// =============================================================================
 
-//================================================
-// Responsive Media Queries
-//================================================
-
+// --- Large Breakpoint (Tablets in landscape, smaller desktops) ---
 @media (max-width: $breakpoint-lg) {
   .main-content-wrapper {
-    flex-direction: column;
+    flex-direction: column; // Stack main content on top of the sidebar
   }
+
+  // **IMPROVEMENT**: The sidebar now becomes a responsive grid container.
+  // Instead of a single long column, widgets will arrange themselves
+  // into columns if space allows, which is ideal for tablets.
   .sidebar {
     width: 100%;
-    border-top: 1px solid $color-border;
-    padding-top: $spacing-unit * 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-unit * 2;
+  }
+
+  .sidebar .sidebar-section {
+    margin-bottom: 0; // Gap is now handled by the parent grid
   }
 }
 
+
+// --- Medium Breakpoint (Tablets in portrait, large phones) ---
 @media (max-width: $breakpoint-md) {
   html {
-    font-size: 15px;
+    font-size: 15px; // Adjust base font size for better readability
   }
+
   .site-header .header-content {
     flex-direction: column;
-    gap: $spacing-unit * 1.5;
-    align-items: flex-start;
+    align-items: stretch; // Items stretch to full width
+    gap: $spacing-unit;
   }
+  
   .site-header .search-container {
-    width: 100%;
+      order: -1; // **IMPROVEMENT**: Move search bar to the top for better mobile UX
+      width: 100%;
   }
+  
+  .site-header .site-branding {
+      align-self: flex-start;
+  }
+
+  .site-header .site-nav {
+    flex-wrap: wrap; // Allow nav links to wrap onto the next line
+    justify-content: flex-start;
+    gap: $spacing-unit;
+  }
+
+  // On medium screens, post summaries stack vertically
   .post-summary {
     flex-direction: column;
     .post-thumbnail {
       width: 100%;
-      height: 220px;
-    }
-  }
-  .post .post-nav {
-    flex-direction: column;
-    gap: $spacing-unit;
-    a {
-      max-width: 100%;
-      justify-content: center;
+      height: 200px; // A taller image for vertical layout
     }
   }
 }
 
+
+// --- Small Breakpoint (Mobile phones) ---
 @media (max-width: $breakpoint-sm) {
-    h1, .homepage .post-latest .post-title { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    .site-header .site-branding {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: $spacing-unit * 0.5;
-    }
+  h1, .homepage .post-latest .post-title { font-size: 2.1rem; }
+  h2 { font-size: 1.8rem; }
+  
+  .content-area, .sidebar .sidebar-section {
+    // Reduce padding on the smallest screens
+    padding: $spacing-unit * 1.5;
+  }
+
+  // On mobile, the sidebar grid will naturally become a single column
+  // due to the minmax() function, so no extra rules are needed here.
 }

@@ -4,7 +4,7 @@ $font-secondary: 'Frank Ruhl Libre', 'Georgia', 'Times New Roman', serif;
 $font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
 
-// New User-Defined Color Palette
+// User-Defined Color Palette (No changes in this step)
 $color-dark-navy: #192A34;        // For primary text - almost black, very readable.
 $color-slate-blue: #4E626E;       // For headings.
 $color-accent-blue: #175377;      // Main accent color for links, buttons.
@@ -24,19 +24,19 @@ $color-heading: $color-slate-blue;
 $color-accent: $color-accent-blue;
 $color-accent-hover: $color-bright-accent-blue;
 $color-border: $color-light-border;
-$color-code-background: $color-dark-bg-element; // Using the dark element color for code blocks
+$color-code-background: $color-dark-bg-element;
 
 
 // Sizing and Spacing
 $content-width: 800px;
 $sidebar-width: 280px;
 $spacing-unit: 16px;
-$border-radius: 6px; // Slightly rounded corners
+$border-radius: 6px;
 $border-radius-small: 4px;
-$border-radius-large: 10px; // For larger cards like the header
+$border-radius-large: 10px;
 
 
-// Shadows (subtle, as before)
+// Shadows
 $box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 $box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
 $box-shadow-md: 0 5px 10px -2px rgba(0, 0, 0, 0.08), 0 3px 6px -3px rgba(0, 0, 0, 0.05);
