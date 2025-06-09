@@ -156,6 +156,16 @@ body.nav-open .site-nav {
   }
 }
 
+.post-tags {
+  margin-top: 2.5rem; // רווח גדול יותר מעל התגיות (בין post-nav ל-post-tags)
+  margin-bottom: 1.5rem;
+}
+
+// הוספת רווח קטן בין תוכן הפוסט לתגיות
+.post-content + .post-tags {
+  margin-top: 1.25rem;
+}
+
 
 // --- Site Footer ---
 .site-footer {
