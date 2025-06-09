@@ -1,18 +1,19 @@
 ---
 layout: post
-title:  "הי, עצור! עידן AI חדש לפניך!"
-date:   2024-10-12 03:28:30 +0300
-categories: jekyll update
+title: "הי, עצור! עידן AI חדש לפניך!"
+date: 2024-10-12 03:28:30 +0300
+categories: AI
+tags: AI OpenAI ChatGPT LLM
+featured_image: "/assets/images/o1-openai.webp"
 ---
-## |- **חברת OPENAI שחררו מודל חדש ניסיוני בשם O1!**-|
+## **חברת OPENAI שחררו מודל חדש ניסיוני בשם O1!**
 
 נכון לעכשיו הוא זמין למנויים בתשלום דרך צ'אט GPT, בעתיד הוא צפוי להיות משוחרר לכלל המשתמשים.
 
 שימו לב למדדים שלו בהשוואה לדגם האחרון שלהם - GPT4O
 מדובר בקפיצה בלתי נתפסת ביכולות כמו קידוד, מתמטיקה, מדעים, פיזיקה ועוד!
 
-![9f52ca06-908b-4faa-a4c5-d50b9dabdf9b-image.png](/assets/uploads/files/1726170848713-9f52ca06-908b-4faa-a4c5-d50b9dabdf9b-image.png) 
-
+<img src="/assets/images/o1-evals.png" alt="תיאור התמונה" style="max-width:70%;">
 ### הסבר מפורט על הגרפים
 **(הסיכום נכתב באמצעות צ'אט GPT, השתדלתי לתקן את הסיכום, אך יתכן וישנם עדיין טעויות קלות במספרים):**
 
@@ -70,6 +71,6 @@ GPT-4o השיג 56.1% בשאלות מדעיות מסובכות ברמה אקדמ
 
 #### מידע נוסף:
 
-- https://azure.microsoft.com/en-us/blog/introducing-o1-openais-new-reasoning-model-series-for-developers-and-enterprises-on-azure/
-- https://techcrunch.com/2024/09/12/openai-unveils-a-model-that-can-fact-check-itself/
-- https://platform.openai.com/docs/guides/reasoning
+- [Introducing O1: OpenAI’s new reasoning model series for developers and enterprises on Azure](https://azure.microsoft.com/en-us/blog/introducing-o1-openais-new-reasoning-model-series-for-developers-and-enterprises-on-azure/){:target="_blank" rel="noopener"}
+- [OpenAI unveils a model that can fact-check itself (TechCrunch)](https://techcrunch.com/2024/09/12/openai-unveils-a-model-that-can-fact-check-itself/){:target="_blank" rel="noopener"}
+- [OpenAI Platform Docs: Reasoning](https://platform.openai.com/docs/guides/reasoning){:target="_blank" rel="noopener"}
