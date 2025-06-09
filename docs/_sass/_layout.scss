@@ -1,255 +1,157 @@
 // =============================================================================
-// Layout SCSS - Rewritten for Enhanced Responsiveness
+// Layout SCSS - Final Responsive Version with Restored Original Styles
 // =============================================================================
 
-// --- Main Container ---
-// Sets the maximum width for the entire site content.
+// --- Global Layout Structure ---
 .container {
   max-width: $content-width + $sidebar-width + ($spacing-unit * 4);
   margin: 0 auto;
   padding: 0 $spacing-unit;
 }
 
+body.nav-open {
+  overflow: hidden; // Prevent scrolling when mobile nav is open
+}
+
 
 // --- Site Header ---
-// The main header bar containing branding, navigation, and search.
 .site-header {
-  margin: $spacing-unit * 2 0;
-  padding: $spacing-unit * 1.5;
+  margin: $spacing-unit 0;
+  padding: $spacing-unit;
   background-color: $color-white;
   border-radius: $border-radius-large;
   border: 1px solid $color-border;
   box-shadow: $box-shadow;
 
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: $spacing-unit * 1.5;
-  }
-
-  .site-branding {
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit;
-  }
-
-  .profile-image {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 2px solid $color-border;
-  }
-
+  .header-content { display: flex; justify-content: space-between; align-items: center; }
+  .site-branding { display: flex; align-items: center; gap: $spacing-unit; }
+  .profile-image { width: 50px; height: 50px; border-radius: 50%; border: 2px solid $color-border; }
   .site-titles {
-    .site-title {
-      margin: 0;
-      font-size: 1.5rem;
-      a { color: $color-heading; &:hover { color: $color-accent; text-decoration: none; } }
-    }
-    .site-description { margin: 0; font-size: 0.9rem; color: $color-text-secondary; }
+    .site-title { margin: 0; font-size: 1.3rem; a { color: $color-heading; } }
+    .site-description { margin: 0; font-size: 0.85rem; color: $color-text-secondary; }
   }
+}
 
-  .site-nav {
-    display: flex;
-    gap: $spacing-unit * 1.5;
-    a {
-      font-family: $font-primary;
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: $color-text-secondary;
-      position: relative;
-      padding-bottom: $spacing-unit * 0.25;
-      transition: color 0.3s ease;
+// --- Mobile Navigation (Hamburger Menu) ---
+.menu-toggle-button {
+  display: flex; flex-direction: column; justify-content: space-around;
+  width: 30px; height: 30px; background: transparent; border: none; cursor: pointer; padding: 0;
+  z-index: 1001;
+  .bar { width: 100%; height: 3px; background-color: $color-heading; border-radius: 3px; transition: all 0.3s ease-in-out; }
+  &.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  &.is-active .bar:nth-child(2) { opacity: 0; }
+  &.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
 
-      &:hover {
-        color: $color-heading;
-        &::after { width: 100%; }
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        right: 0;
-        width: 0;
-        height: 2px;
-        background-color: $color-accent;
-        transition: width 0.3s ease;
-        border-radius: 2px;
-      }
-    }
+.site-nav {
+  position: fixed; top: 0; right: 0; width: 100%; height: 100%;
+  background-color: rgba($color-dark-navy, 0.98); backdrop-filter: blur(5px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1000;
+  a {
+    color: $color-white; font-size: 1.75rem; font-weight: 700; margin: $spacing-unit 0;
+    opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;
   }
+}
 
-  .search-container .search-form {
-    display: flex;
-    input[type="text"] {
-      border: 1px solid $color-border;
-      &:focus {
-        border-color: $color-accent;
-        box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
-      }
-    }
+body.nav-open .site-nav {
+  transform: translateX(0);
+  a { opacity: 1; transform: translateY(0);
+    @for $i from 1 through 5 { &:nth-child(#{$i}) { transition-delay: #{0.1 + $i * 0.05}s; } }
   }
 }
 
 
-// --- Main Layout Wrapper ---
-// This is the primary flex container for the two main columns: content and sidebar.
+// --- Main Content & Sidebar Layout ---
 .main-content-wrapper {
-  display: flex;
-  flex-direction: row-reverse; // Sidebar on the right
-  gap: $spacing-unit * 2;
-  align-items: flex-start;
+  display: flex; flex-direction: column; gap: $spacing-unit * 2; margin-top: $spacing-unit;
 }
 
-
-// --- Content Area ---
-// The main content area card (posts, pages).
-.content-area {
-  flex: 1; // Takes up the remaining space
-  min-width: 0; // Prevents flexbox overflow issues
-  background: $color-white;
-  padding: $spacing-unit * 2.5;
-  border-radius: $border-radius-large;
-  border: 1px solid $color-border;
-  box-shadow: $box-shadow;
+.content-area, .sidebar-section {
+  background: $color-white; border-radius: $border-radius-large;
+  border: 1px solid $color-border; box-shadow: $box-shadow;
 }
+.content-area { padding: $spacing-unit * 2; }
 
 
 // --- Sidebar ---
-// The sidebar container. On desktop, it's a fixed-width column.
-// On smaller screens, it becomes a responsive grid.
 .sidebar {
-  width: $sidebar-width;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-unit * 2; // Space between sidebar widgets
-
-  .sidebar-section {
-    background-color: $color-white;
+  width: 100%; display: flex; flex-direction: column; gap: $spacing-unit * 2;
+}
+.sidebar-section {
     padding: $spacing-unit * 1.25;
-    border-radius: $border-radius-large;
-    border: 1px solid $color-border;
-    box-shadow: $box-shadow;
-
     h4 {
-      margin-top: 0;
-      margin-bottom: $spacing-unit;
-      padding-bottom: $spacing-unit * 0.5;
-      border-bottom: 1px solid $color-border;
-      font-size: 1.1rem;
-
-      a {
-        color: inherit;
-        &:hover { text-decoration: none; color: $color-accent; }
-      }
+      margin-top: 0; margin-bottom: $spacing-unit; padding-bottom: $spacing-unit * 0.5;
+      border-bottom: 1px solid $color-border; font-size: 1.1rem;
+      a { color: inherit; &:hover { text-decoration: none; color: $color-accent; } }
     }
-
     ul { list-style: none; padding: 0; margin: 0; }
-    li { margin-bottom: $spacing-unit * 0.25; }
 
-    ul.custom-links-list li a,
-    .recent-posts-list li a {
-      // Link hover effect
-      position: relative;
-      display: inline-block;
-      padding: $spacing-unit * 0.25 0;
+    // **RESTORED**: Link hover animation for sidebar links
+    ul.custom-links-list li a, .recent-posts-list li a {
+      position: relative; display: inline-block; padding: $spacing-unit * 0.25 0;
       &:hover {
-        text-decoration: none;
-        color: $color-accent;
+        text-decoration: none; color: $color-accent;
         &::after { width: 100%; }
       }
       &::after {
-        content: ''; position: absolute; bottom: 0; right: 0;
-        width: 0; height: 1px;
-        background-color: $color-accent;
-        transition: width 0.3s ease;
+        content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 1px;
+        background-color: $color-accent; transition: width 0.3s ease;
       }
     }
-
-    .tags-list, .categories-list-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $spacing-unit * 0.6;
+    .tags-list, .categories-list-flex { // Styles for tag/category badges
+      display: flex; flex-wrap: wrap; gap: $spacing-unit * 0.6;
       .tag-item, .category-item-badge {
-        font-size: 0.8rem;
-        background-color: $color-background;
-        color: $color-text-secondary;
-        padding: $spacing-unit * 0.3 $spacing-unit * 0.75;
-        border-radius: $border-radius;
-        border: 1px solid $color-border;
-        font-weight: 500;
-        transition: $transition-base;
+        font-size: 0.8rem; background-color: $color-background; color: $color-text-secondary;
+        padding: $spacing-unit * 0.3 $spacing-unit * 0.75; border-radius: $border-radius;
+        border: 1px solid $color-border; font-weight: 500; transition: $transition-base;
         &:hover {
-          background-color: $color-accent;
-          border-color: $color-accent;
-          color: $color-white;
-          text-decoration: none;
-          transform: translateY(-2px);
-          box-shadow: $box-shadow-sm;
+          background-color: $color-accent; border-color: $color-accent; color: $color-white;
+          text-decoration: none; transform: translateY(-2px); box-shadow: $box-shadow-sm;
         }
       }
     }
-  }
 }
 
 
-// --- Post Summaries (for lists on home, category, and tag pages) ---
-.post-list {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
+// --- Post Summaries ---
+.post-list { padding: 0; margin: 0; list-style: none; }
 .post-summary {
-  display: flex; // Use flexbox for horizontal layout on larger screens
-  gap: $spacing-unit * 1.5;
+  // **RESTORED**: Original card styling
   padding: $spacing-unit * 1.5;
   border-radius: $border-radius;
-  border: 1px solid transparent; // Transparent border to prevent layout shifts on hover
+  border: 1px solid $color-border;
   background-color: $color-background;
   transition: $transition-base;
+  display: flex;
+  flex-direction: column; // Mobile-first: start as a vertical stack
+  gap: $spacing-unit;
 
-  &:not(:last-child) {
-    margin-bottom: $spacing-unit * 1.5;
-  }
+  &:not(:last-child) { margin-bottom: $spacing-unit * 1.5; }
 
   &:hover {
     border-color: $color-soft-grey;
     transform: translateY(-2px);
     box-shadow: $box-shadow-sm;
   }
-
+  
   .post-thumbnail {
-    flex-shrink: 0;
-    width: 150px;
-    height: 100px;
-    a, img { display: block; width: 100%; height: 100%; }
-    img { object-fit: cover; border-radius: $border-radius-small; }
-  }
-
-  &.no-thumbnail .post-summary-content {
-    // Ensure content without a thumbnail aligns correctly
     width: 100%;
+    height: 200px;
+    img { width: 100%; height: 100%; object-fit: cover; border-radius: $border-radius-small; }
   }
-
+  
+  // **RESTORED**: Original "Read More" link animation
   .read-more {
-    display: inline-block;
-    font-weight: 700;
-    // Hover effect for "Read More"
-    position: relative;
+    position: relative; display: inline-block; font-weight: 700;
     &:hover {
-      text-decoration: none;
-      color: $color-accent-hover;
+      text-decoration: none; color: $color-accent-hover;
       &::after { width: 100%; }
     }
     &::after {
-      content: ''; position: absolute; bottom: -1px; right: 0;
-      width: 0; height: 1.5px;
-      background-color: $color-accent-hover;
-      transition: width 0.3s ease;
+      content: ''; position: absolute; bottom: -1px; right: 0; width: 0; height: 1.5px;
+      background-color: $color-accent-hover; transition: width 0.3s ease;
     }
   }
 }
@@ -257,88 +159,60 @@
 
 // --- Site Footer ---
 .site-footer {
-  padding: $spacing-unit * 3 0;
-  margin-top: $spacing-unit * 2;
-  text-align: center;
-  font-size: 0.9rem;
-  color: $color-text-secondary;
+  padding: $spacing-unit * 3 0; margin-top: $spacing-unit * 2; text-align: center;
+  font-size: 0.9rem; color: $color-text-secondary;
 }
 
 
 // =============================================================================
-// Responsive Design - Media Queries
+// Desktop & Tablet Overrides (using min-width)
 // =============================================================================
 
-// --- Large Breakpoint (Tablets in landscape, smaller desktops) ---
-@media (max-width: $breakpoint-lg) {
-  .main-content-wrapper {
-    flex-direction: column; // Stack main content on top of the sidebar
-  }
-
-  // **IMPROVEMENT**: The sidebar now becomes a responsive grid container.
-  // Instead of a single long column, widgets will arrange themselves
-  // into columns if space allows, which is ideal for tablets.
-  .sidebar {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: $spacing-unit * 2;
-  }
-
-  .sidebar .sidebar-section {
-    margin-bottom: 0; // Gap is now handled by the parent grid
-  }
-}
-
-
-// --- Medium Breakpoint (Tablets in portrait, large phones) ---
-@media (max-width: $breakpoint-md) {
-  html {
-    font-size: 15px; // Adjust base font size for better readability
-  }
-
-  .site-header .header-content {
-    flex-direction: column;
-    align-items: stretch; // Items stretch to full width
-    gap: $spacing-unit;
-  }
+@media (min-width: $breakpoint-md) {
+  .site-header { margin: $spacing-unit * 2 0; }
   
-  .site-header .search-container {
-      order: -1; // **IMPROVEMENT**: Move search bar to the top for better mobile UX
-      width: 100%;
-  }
-  
-  .site-header .site-branding {
-      align-self: flex-start;
-  }
-
-  .site-header .site-nav {
-    flex-wrap: wrap; // Allow nav links to wrap onto the next line
-    justify-content: flex-start;
-    gap: $spacing-unit;
-  }
-
-  // On medium screens, post summaries stack vertically
   .post-summary {
-    flex-direction: column;
-    .post-thumbnail {
-      width: 100%;
-      height: 200px; // A taller image for vertical layout
+    flex-direction: row; // Switch to horizontal layout for tablets and up
+    gap: $spacing-unit * 1.5;
+    .post-thumbnail { flex-shrink: 0; width: 150px; height: 100px; }
+  }
+}
+
+// On large screens, hide mobile menu and show desktop nav
+@media (min-width: $breakpoint-lg) {
+  // Hide hamburger button
+  .menu-toggle-button { display: none; }
+
+  // **RESTORED & FIXED**: Restore desktop navigation with original styles
+  .site-nav {
+    position: static; transform: none; flex-direction: row;
+    width: auto; height: auto; background: none; backdrop-filter: none;
+    z-index: auto; gap: $spacing-unit * 1.5;
+    
+    a {
+      font-family: $font-primary; font-size: 0.95rem; color: $color-text-secondary;
+      font-weight: 500; margin: 0; opacity: 1; transform: none;
+      position: relative; padding-bottom: $spacing-unit * 0.25;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $color-heading;
+        text-decoration: none;
+        &::after { width: 100%; }
+      }
+      // The underline animation
+      &::after {
+        content: ''; position: absolute; bottom: -2px; right: 0; width: 0;
+        height: 2px; background-color: $color-accent;
+        transition: width 0.3s ease; border-radius: 2px;
+      }
     }
   }
-}
 
-
-// --- Small Breakpoint (Mobile phones) ---
-@media (max-width: $breakpoint-sm) {
-  h1, .homepage .post-latest .post-title { font-size: 2.1rem; }
-  h2 { font-size: 1.8rem; }
-  
-  .content-area, .sidebar .sidebar-section {
-    // Reduce padding on the smallest screens
-    padding: $spacing-unit * 1.5;
+  // Restore main layout
+  .main-content-wrapper {
+    flex-direction: row-reverse; align-items: flex-start;
   }
-
-  // On mobile, the sidebar grid will naturally become a single column
-  // due to the minmax() function, so no extra rules are needed here.
+  .content-area { flex: 1; min-width: 0; }
+  .sidebar { width: $sidebar-width; flex-shrink: 0; }
 }

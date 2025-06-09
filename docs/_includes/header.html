@@ -2,7 +2,9 @@
   <div class="header-content">
     <div class="site-branding">
       {% if site.custom_settings.profile_image %}
-      <img src="{{ site.custom_settings.profile_image | relative_url }}" alt="תמונת פרופיל" class="profile-image">
+      <a href="{{ "/" | relative_url }}" class="profile-link">
+        <img src="{{ site.custom_settings.profile_image | relative_url }}" alt="תמונת פרופיל" class="profile-image">
+      </a>
       {% endif %}
       <div class="site-titles">
         <h1 class="site-title"><a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h1>
@@ -16,15 +18,14 @@
         <a href="{{ "/" | relative_url }}">בית</a>
         <a href="{{ "/categories/" | relative_url }}">קטגוריות</a>
         <a href="{{ "/tags/" | relative_url }}">תגיות</a>
+        <a href="{{ "/search/" | relative_url }}">חיפוש</a>
         <a href="{{ "/about/" | relative_url }}">אודות</a>
     </nav>
 
-    <div class="search-container">
-      <!-- שדה חיפוש ב-Header - מפנה לדף החיפוש -->
-      <form id="header-search-form" class="search-form" action="{{ "/search/" | relative_url }}" method="get">
-          <input type="text" id="header-search-input" name="query" placeholder="חיפוש..." aria-label="חיפוש" autocomplete="off">
-          <button type="submit" aria-label="בצע חיפוש"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
-      </form>
-    </div>
+    <button id="menu-toggle" class="menu-toggle-button" aria-label="פתח תפריט" aria-controls="site-nav" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   </div>
 </header>

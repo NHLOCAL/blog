@@ -18,6 +18,8 @@ body {
   padding: 0;
   direction: rtl;
   text-align: start;
+  // **IMPROVEMENT:** Prevent horizontal scroll caused by breaking elements
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -53,7 +55,7 @@ a {
   }
 }
 
-// Animated underline for links inside post content
+
 .post-content a {
   position: relative;
   text-decoration: none;
