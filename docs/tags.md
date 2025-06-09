@@ -23,7 +23,7 @@ permalink: /tags/
       {% assign tag_name = tag_array[0] %}
       {% assign posts_with_tag = tag_array[1] | sort: 'date' | reverse %}
       <section id="{{ tag_name | slugify }}" class="term-section">
-        <h2 class="term-title-anchor">{{ tag_name }}</h2> {# Using shared class name #}
+        <h2 class="term-title-anchor">{{ tag_name }}</h2>
         {% if posts_with_tag.size == 0 %}
           <p>אין פוסטים עם תגית זו עדיין.</p>
         {% else %}

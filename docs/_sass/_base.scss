@@ -12,7 +12,7 @@ html {
 body {
   font-family: $font-primary;
   line-height: 1.65;
-  color: $color-text-primary;
+  color: $color-text-primary; // Will now be blackish
   background-color: $color-background;
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-secondary;
   font-weight: 700;
   line-height: 1.3;
-  color: $color-heading;
+  color: $color-heading; // Uses the slate-grey for style
   letter-spacing: -0.5px;
 }
 
@@ -95,13 +95,12 @@ blockquote {
   margin: $spacing-unit * 1.5 0;
   padding: $spacing-unit $spacing-unit * 1.5;
   padding-inline-start: $spacing-unit * 1.75;
-  border-inline-start: 4px solid $color-silver-grey; // Softer border color
+  border-inline-start: 4px solid $color-border; // Using the border color for a neutral look
   background-color: $color-white;
-  color: $color-text-secondary;
+  color: $color-text-secondary; // Secondary text is darker now
   font-style: normal;
   font-size: 1.1rem;
   border-radius: 0 $border-radius $border-radius 0;
-  box-shadow: $box-shadow-sm;
 
   p {
     margin: 0;
