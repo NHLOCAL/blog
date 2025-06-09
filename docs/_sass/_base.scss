@@ -12,7 +12,7 @@ html {
 body {
   font-family: $font-primary;
   line-height: 1.65;
-  color: $color-text-primary; // Will now be blackish
+  color: $color-text-primary;
   background-color: $color-background;
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-secondary;
   font-weight: 700;
   line-height: 1.3;
-  color: $color-heading; // Uses the slate-grey for style
+  color: $color-heading;
   letter-spacing: -0.5px;
 }
 
@@ -50,11 +50,25 @@ a {
 
   &:hover {
     color: $color-accent-hover;
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 3px;
   }
 }
+
+// Animated underline for links inside post content
+.post-content a {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size .3s ease;
+
+  &:hover, &:focus {
+    background-size: 100% 1px;
+    color: $color-accent-hover;
+  }
+}
+
 
 img {
   max-width: 100%;
@@ -74,11 +88,11 @@ li {
 
 .highlight {
   background: $color-code-background;
+  color: #e2e8f0; // Light text for dark code background
   padding: $spacing-unit * 1.25;
   margin-bottom: $spacing-unit * 1.5;
   overflow-x: auto;
   border-radius: $border-radius;
-  border: 1px solid $color-border;
   direction: ltr;
   text-align: left;
   box-shadow: $box-shadow-sm;
@@ -95,9 +109,9 @@ blockquote {
   margin: $spacing-unit * 1.5 0;
   padding: $spacing-unit $spacing-unit * 1.5;
   padding-inline-start: $spacing-unit * 1.75;
-  border-inline-start: 4px solid $color-border; // Using the border color for a neutral look
+  border-inline-start: 4px solid $color-border;
   background-color: $color-white;
-  color: $color-text-secondary; // Secondary text is darker now
+  color: $color-text-secondary;
   font-style: normal;
   font-size: 1.1rem;
   border-radius: 0 $border-radius $border-radius 0;
