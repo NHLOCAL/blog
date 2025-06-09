@@ -13,7 +13,7 @@ body {
   font-family: $font-primary;
   line-height: 1.65;
   color: $color-text-primary;
-  background-color: $color-white; // Use white for main bg, gray for content areas if needed
+  background-color: $color-background;
   margin: 0;
   padding: 0;
   direction: rtl;
@@ -52,6 +52,7 @@ a {
     color: $color-accent-hover;
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
   }
 }
 
@@ -94,12 +95,13 @@ blockquote {
   margin: $spacing-unit * 1.5 0;
   padding: $spacing-unit $spacing-unit * 1.5;
   padding-inline-start: $spacing-unit * 1.75;
-  border-inline-start: 4px solid $color-accent;
-  background-color: $color-background;
+  border-inline-start: 4px solid $color-silver-grey; // Softer border color
+  background-color: $color-white;
   color: $color-text-secondary;
   font-style: normal;
   font-size: 1.1rem;
   border-radius: 0 $border-radius $border-radius 0;
+  box-shadow: $box-shadow-sm;
 
   p {
     margin: 0;

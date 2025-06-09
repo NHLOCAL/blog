@@ -2,7 +2,7 @@
   max-width: $content-width + $sidebar-width + ($spacing-unit * 4);
   margin: 0 auto;
   padding: 0 $spacing-unit;
-  background-color: $color-white;
+  background-color: $color-white; // Main content area remains white for clarity
 }
 
 .main-content-wrapper {
@@ -24,7 +24,7 @@
 
   .sidebar-section {
     margin-bottom: $spacing-unit * 2.5;
-    
+
     h4 {
       font-family: $font-secondary;
       font-size: 1.2rem;
@@ -33,7 +33,7 @@
       margin-bottom: $spacing-unit;
       padding-bottom: $spacing-unit * 0.5;
       border-bottom: 1px solid $color-border;
-      
+
       a {
         color: $color-heading;
         font-weight: 700;
@@ -45,14 +45,14 @@
         }
       }
     }
-    
+
     ul.custom-links-list li a {
       display: flex;
       align-items: center;
       gap: 0.6em;
       .bi { margin-inline-end: 0; }
     }
-    
+
     ul {
       list-style: none;
       padding: 0;
@@ -61,20 +61,21 @@
         font-size: 0.9rem;
         color: $color-text-secondary;
         font-weight: 400;
-        padding: ($spacing-unit * 0.25) 0;
+        padding: ($spacing-unit * 0.35) 0;
         display: block;
+        border-radius: $border-radius-small;
         &:hover { color: $color-accent; text-decoration: none; }
       }
     }
     .tags-list, .categories-list-flex {
       display: flex;
       flex-wrap: wrap;
-      gap: $spacing-unit * 0.5;
+      gap: $spacing-unit * 0.6;
       .tag-item, .category-item-badge {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         background-color: $color-background;
         color: $color-text-secondary;
-        padding: $spacing-unit * 0.2 $spacing-unit * 0.6;
+        padding: $spacing-unit * 0.3 $spacing-unit * 0.75;
         border-radius: $border-radius-small;
         border: 1px solid $color-border;
         font-weight: 500;
@@ -84,7 +85,8 @@
           border-color: $color-accent;
           color: $color-white;
           text-decoration: none;
-          transform: translateY(-1px);
+          transform: translateY(-2px);
+          box-shadow: $box-shadow-sm;
         }
       }
     }
@@ -94,6 +96,7 @@
 .site-header {
   padding: $spacing-unit * 1.5 0;
   border-bottom: 1px solid $color-border;
+  background-color: $color-white; // Ensure header is white
   .header-content {
     display: flex;
     justify-content: space-between;
@@ -105,8 +108,8 @@
     gap: $spacing-unit;
   }
   .profile-image {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     border: 2px solid $color-border;
   }
@@ -131,12 +134,13 @@
       &::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         right: 0;
         width: 0;
-        height: 2px;
-        background-color: $color-accent;
+        height: 3px;
+        background-color: $color-silver-grey; // Underline hover is now the softer grey
         transition: width 0.3s ease;
+        border-radius: 2px;
       }
       &:hover {
         color: $color-heading;
@@ -148,8 +152,9 @@
   .search-container .search-form {
     display: flex;
     input[type="text"] {
-      padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
+      padding: $spacing-unit * 0.5 $spacing-unit;
       border: 1px solid $color-border;
+      border-right-width: 0;
       border-radius: $border-radius 0 0 $border-radius;
       background-color: $color-background;
       transition: $transition-base;
@@ -157,17 +162,18 @@
         outline: none;
         border-color: $color-accent;
         box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
+        background-color: $color-white;
       }
     }
     button {
-      padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
+      padding: $spacing-unit * 0.5 $spacing-unit;
       border: 1px solid $color-accent;
       background-color: $color-accent;
       color: $color-white;
       cursor: pointer;
       border-radius: 0 $border-radius $border-radius 0;
       transition: $transition-base;
-      &:hover { background-color: $color-accent-hover; }
+      &:hover { background-color: $color-accent-hover; border-color: $color-accent-hover; }
     }
   }
 }
@@ -179,14 +185,16 @@
   text-align: center;
   font-size: 0.9rem;
   color: $color-text-secondary;
+  background-color: $color-background;
   p { margin: 0; }
   .back-to-top {
       font-weight: 500;
       display: inline-flex;
       align-items: center;
+      color: $color-accent;
       .bi { font-size: 1.1em; }
       &:hover {
-          color: $color-accent;
+          color: $color-accent-hover;
       }
   }
 }
@@ -215,8 +223,8 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: $box-shadow-md;
-    border-color: darken($color-border, 5%);
+    box-shadow: $box-shadow;
+    border-color: $color-silver-grey; // A more subtle hover border
   }
 
   .post-thumbnail {
@@ -248,12 +256,11 @@
     }
     .post-excerpt {
       font-size: 0.95rem;
-      color: $color-text-secondary;
-      margin-bottom: $spacing-unit;
+      color: $color-text-primary; // Slightly darker excerpt text for readability
       line-height: 1.6;
     }
     .read-more {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: $color-accent;
       display: inline-flex;
@@ -263,8 +270,10 @@
         margin-inline-end: 0;
         transition: transform 0.2s ease-out;
       }
-      &:hover .bi {
-        transform: translateX(-4px);
+      &:hover {
+        color: $color-accent-yellow; // The yellow pop!
+        text-decoration: none;
+        .bi { transform: translateX(-4px); }
       }
     }
   }
@@ -275,14 +284,14 @@
     padding-bottom: $spacing-unit * 3;
     margin-bottom: $spacing-unit * 3;
     border-bottom: 1px solid $color-border;
-    .post-title { 
-        font-size: 3rem; 
-        margin-bottom: $spacing-unit; 
+    .post-title {
+        font-size: 3rem;
+        margin-bottom: $spacing-unit;
         text-align: center;
     }
-    .post-meta { 
-        font-size: 0.9rem; 
-        margin-bottom: $spacing-unit * 1.5; 
+    .post-meta {
+        font-size: 0.9rem;
+        margin-bottom: $spacing-unit * 1.5;
         text-align: center;
         display: flex;
         justify-content: center;
@@ -293,8 +302,6 @@
       max-width: $content-width - 50px;
       margin: 0 auto;
       text-align: justify;
-      -webkit-hyphens: auto;
-      -ms-hyphens: auto;
       hyphens: auto;
     }
   }
@@ -328,13 +335,14 @@
     margin-bottom: $spacing-unit * 2;
     border-radius: $border-radius-large;
     overflow: hidden;
+    box-shadow: $box-shadow;
   }
   .post-content {
     font-size: 1.1rem;
     line-height: 1.8;
     color: $color-text-primary;
     h2, h3 { margin-top: $spacing-unit * 2.5; }
-    img { margin: $spacing-unit * 2 auto; box-shadow: $box-shadow-md; }
+    img { margin: $spacing-unit * 2 auto; box-shadow: $box-shadow; }
   }
   .post-tags {
     margin-top: $spacing-unit * 3;
@@ -349,12 +357,12 @@
       font-size: 0.8rem;
       background-color: $color-background;
       color: $color-text-secondary;
-      padding: $spacing-unit * 0.25 $spacing-unit * 0.75;
+      padding: $spacing-unit * 0.35 $spacing-unit * 0.85;
       border-radius: $border-radius-small;
       border: 1px solid $color-border;
       font-weight: 500;
       transition: $transition-base;
-      &:hover { background-color: $color-accent; border-color: $color-accent; color: $color-white; text-decoration: none; }
+      &:hover { background-color: $color-accent; border-color: $color-accent; color: $color-white; text-decoration: none; transform: translateY(-1px); }
     }
   }
   .post-nav {
@@ -375,6 +383,39 @@
 
 .categories-page, .tags-page, .search-page {
   h1 { text-align: center; }
+  .term-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-unit * 0.75;
+    margin-bottom: $spacing-unit * 3;
+    padding-bottom: $spacing-unit * 1.5;
+    border-bottom: 1px solid $color-border;
+  }
+  .term-tab-link {
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    padding: $spacing-unit * 0.5 $spacing-unit;
+    border-radius: $border-radius;
+    color: $color-text-secondary;
+    font-weight: 500;
+    box-shadow: $box-shadow-sm;
+    &:hover {
+      background-color: $color-accent;
+      color: $color-white;
+      border-color: $color-accent;
+      text-decoration: none;
+    }
+  }
+  .term-section {
+    padding-top: $spacing-unit * 2;
+    margin-top: -$spacing-unit * 2;
+    h2 {
+      margin-bottom: $spacing-unit * 2;
+      padding-bottom: $spacing-unit;
+      border-bottom: 1px solid $color-border;
+    }
+  }
 }
 
 .page-404-container {
@@ -385,7 +426,7 @@
     background-color: $color-white;
     border: 1px solid $color-border;
     border-radius: $border-radius-large;
-    box-shadow: $box-shadow-md;
+    box-shadow: $box-shadow;
 
     h1 {
       margin: 0 0 $spacing-unit 0;
@@ -410,9 +451,11 @@
       text-decoration: none;
       font-weight: bold;
       transition: $transition-base;
+      box-shadow: $box-shadow-sm;
       &:hover {
         background-color: $color-accent-hover;
-        transform: translateY(-2px);
+        transform: translateY(-3px);
+        box-shadow: $box-shadow;
       }
     }
 }
@@ -422,7 +465,7 @@
   vertical-align: -0.1em;
 }
 
-// Responsive adjustments
+
 @media (max-width: $breakpoint-lg) {
   .main-content-wrapper { flex-direction: column; }
   .sidebar { width: 100%; border-top: 1px solid $color-border; padding-top: $spacing-unit * 2; }

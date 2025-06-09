@@ -1,52 +1,48 @@
-// 1. Fonts
-// -----------------------------------------------------------------------------
+// Fonts
 $font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 $font-secondary: 'Frank Ruhl Libre', 'Georgia', 'Times New Roman', serif;
 $font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-// 2. Colors
-// -----------------------------------------------------------------------------
-// Base Palette
+
+// New Refined Color Palette
+$color-slate-grey: #4D606D;      // Dark, muted grey for primary text
+$color-silver-grey: #99A1AB;     // Lighter, soft grey for secondary text/elements
+$color-deep-blue: #2864A6;       // The main accent color
+$color-bright-blue: #53A2E8;     // Accent hover
+$color-accent-yellow: #FBCB43;    // Subtle pop of color for specific hovers
+$color-light-bg: #F5F7F9;         // A very light, almost white, cool grey background
+$color-light-border: #E2E8F0;    // A soft border color
 $color-white: #ffffff;
-$gray-50:  #f9fafb;
-$gray-100: #f3f4f6;
-$gray-200: #e5e7eb;
-$gray-400: #9ca3af;
-$gray-500: #6b7280;
-$gray-700: #374151;
-$gray-900: #111827;
-$blue-500: #3b82f6;
-$blue-600: #2563eb;
 
-// Semantic Colors
-$color-background: $gray-50;
-$color-text-primary: $gray-900;
-$color-text-secondary: $gray-500;
-$color-heading: $gray-900;
-$color-accent: $blue-500;
-$color-accent-hover: $blue-600;
-$color-border: $gray-200;
-$color-code-background: $gray-100;
+// Mapping new palette to theme variables
+$color-background: $color-light-bg;
+$color-text-primary: $color-slate-grey;
+$color-text-secondary: $color-silver-grey;
+$color-heading: $color-slate-grey;
+$color-accent: $color-deep-blue;
+$color-accent-hover: $color-bright-blue;
+$color-border: $color-light-border;
+$color-code-background: $color-white;
 
-// 3. Layout & Sizing
-// -----------------------------------------------------------------------------
+
+// Sizing and Spacing
 $content-width: 800px;
 $sidebar-width: 280px;
-$spacing-unit: 16px; // Base spacing unit
-$border-radius: 6px;
-$border-radius-small: 4px;
-$border-radius-large: 8px;
+$spacing-unit: 16px;
+$border-radius: 10px;
+$border-radius-small: 6px;
+$border-radius-large: 12px;
 
-// 4. Effects
-// -----------------------------------------------------------------------------
-$box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-$box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-$box-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-$transition-base: all 0.2s ease-in-out;
 
-// 5. Breakpoints
-// -----------------------------------------------------------------------------
+// Shadows (made even more subtle)
+$box-shadow-sm: 0 1px 2px 0 rgba($color-silver-grey, 0.1);
+$box-shadow: 0 3px 6px -1px rgba($color-silver-grey, 0.1), 0 2px 4px -2px rgba($color-silver-grey, 0.06);
+$box-shadow-md: 0 5px 10px -2px rgba($color-silver-grey, 0.12), 0 3px 6px -3px rgba($color-silver-grey, 0.08);
+$transition-base: all 0.25s ease-in-out;
+
+
+// Breakpoints
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
-$breakpoint-lg: 1120px; // Adjusted for new content + sidebar width
+$breakpoint-lg: 1120px;
 $breakpoint-xl: 1400px;
