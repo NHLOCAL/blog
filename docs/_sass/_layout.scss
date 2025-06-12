@@ -1,8 +1,3 @@
-// =============================================================================
-// Layout SCSS - Final Responsive Version with Restored Original Styles
-// =============================================================================
-
-// --- Global Layout Structure ---
 .container {
   max-width: $content-width + $sidebar-width + ($spacing-unit * 4);
   margin: 0 auto;
@@ -10,11 +5,11 @@
 }
 
 body.nav-open {
-  overflow: hidden; // Prevent scrolling when mobile nav is open
+  overflow: hidden;
 }
 
 
-// --- Site Header ---
+
 .site-header {
   margin: $spacing-unit 0;
   padding: $spacing-unit;
@@ -32,7 +27,7 @@ body.nav-open {
   }
 }
 
-// --- Mobile Navigation (Hamburger Menu) ---
+
 .menu-toggle-button {
   display: flex; flex-direction: column; justify-content: space-around;
   width: 30px; height: 30px; background: transparent; border: none; cursor: pointer; padding: 0;
@@ -63,7 +58,7 @@ body.nav-open .site-nav {
 }
 
 
-// --- Main Content & Sidebar Layout ---
+
 .main-content-wrapper {
   display: flex; flex-direction: column; gap: $spacing-unit * 2; margin-top: $spacing-unit;
 }
@@ -75,7 +70,7 @@ body.nav-open .site-nav {
 .content-area { padding: $spacing-unit * 2; }
 
 
-// --- Sidebar ---
+
 .sidebar {
   width: 100%; display: flex; flex-direction: column; gap: $spacing-unit * 2;
 }
@@ -88,7 +83,7 @@ body.nav-open .site-nav {
     }
     ul { list-style: none; padding: 0; margin: 0; }
 
-    // **RESTORED**: Link hover animation for sidebar links
+
     ul.custom-links-list li a, .recent-posts-list li a {
       position: relative; display: inline-block; padding: $spacing-unit * 0.25 0;
       &:hover {
@@ -103,7 +98,7 @@ body.nav-open .site-nav {
     .tags-list, .categories-list-flex { // Styles for tag/category badges
       display: flex; flex-wrap: wrap; gap: $spacing-unit * 0.6;
       .tag-item, .category-item-badge {
-        font-size: 0.8rem; background-color: $color-background; color: $color-text-secondary;
+        font-size: 0.8rem; background-color: $color-background; color: $color-text-primary; // UPDATED: Changed to primary text color
         padding: $spacing-unit * 0.3 $spacing-unit * 0.75; border-radius: $border-radius;
         border: 1px solid $color-border; font-weight: 500; transition: $transition-base;
         &:hover {
@@ -135,13 +130,13 @@ body.nav-open .site-nav {
     transform: translateY(-2px);
     box-shadow: $box-shadow-sm;
   }
-  
+
   .post-thumbnail {
     width: 100%;
     height: 200px;
     img { width: 100%; height: 100%; object-fit: cover; border-radius: $border-radius-small; }
   }
-  
+
   // **RESTORED**: Original "Read More" link animation
   .read-more {
     position: relative; display: inline-block; font-weight: 700;
@@ -180,7 +175,7 @@ body.nav-open .site-nav {
 
 @media (min-width: $breakpoint-md) {
   .site-header { margin: $spacing-unit * 2 0; }
-  
+
   .post-summary {
     flex-direction: row; // Switch to horizontal layout for tablets and up
     gap: $spacing-unit * 1.5;
@@ -198,15 +193,15 @@ body.nav-open .site-nav {
     position: static; transform: none; flex-direction: row;
     width: auto; height: auto; background: none; backdrop-filter: none;
     z-index: auto; gap: $spacing-unit * 1.5;
-    
+
     a {
-      font-family: $font-primary; font-size: 0.95rem; color: $color-text-secondary;
+      font-family: $font-primary; font-size: 0.95rem; color: $color-heading; // UPDATED: Changed from secondary to heading color
       font-weight: 500; margin: 0; opacity: 1; transform: none;
       position: relative; padding-bottom: $spacing-unit * 0.25;
       transition: color 0.3s ease;
-      
+
       &:hover {
-        color: $color-heading;
+        color: $color-accent; // UPDATED: Changed hover to accent color
         text-decoration: none;
         &::after { width: 100%; }
       }
@@ -219,7 +214,7 @@ body.nav-open .site-nav {
     }
   }
 
-  // Restore main layout
+
   .main-content-wrapper {
     flex-direction: row-reverse; align-items: flex-start;
   }
