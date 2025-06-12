@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "הי, עצור! עידן AI חדש לפניך!"
-date: 2024-10-12 03:28:30 +0300
+date: 2024-09-12
 categories: AI
 tags: AI OpenAI ChatGPT LLM
 featured_image: "/assets/images/o1-openai.webp"
