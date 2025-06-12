@@ -1,0 +1,26 @@
+# backend מגדיר את שיטת החיבור והאימות. במקרה שלנו, GitHub.
+backend:
+  name: github
+  repo: nhlocal/blog # שנה לשם המשתמש והרפוזיטורי שלך!
+  branch: main # או master, תלוי בענף הראשי שלך
+
+# הגדרות כלליות למערכת הניהול
+media_folder: "assets/images/uploads" # תיקייה שאליה יועלו תמונות מהממשק הגרפי
+public_folder: "/assets/images/uploads" # הנתיב הציבורי לתמונות שהועלו
+
+# collections מגדיר את סוגי התוכן שניתן לנהל. כרגע, רק פוסטים.
+collections:
+  - name: "posts" # מזהה פנימי
+    label: "פוסטים" # שם שיוצג בממשק
+    folder: "_posts" # התיקייה שבה שמורים קבצי הפוסטים
+    create: true # אפשר יצירת פוסטים חדשים
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md" # פורמט שם הקובץ לפוסט חדש
+    fields: # השדות שיופיעו בעורך הגרפי של כל פוסט
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "כותרת", name: "title", widget: "string", required: true }
+      - { label: "תאריך פרסום", name: "date", widget: "datetime", required: true }
+      - { label: "תמונה ראשית", name: "featured_image", widget: "image", required: false }
+      - { label: "קטגוריות", name: "categories", widget: "list", required: false }
+      - { label: "תגיות", name: "tags", widget: "list", required: false }
+      - { label: "שם המחבר", name: "author", widget: "string", required: false, default: "nh local" }
+      - { label: "גוף הפוסט", name: "body", widget: "markdown", required: true }
