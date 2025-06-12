@@ -38,6 +38,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-minifier
+  - jekyll-sitemap
 
 # Minifier settings
 jekyll-minifier:

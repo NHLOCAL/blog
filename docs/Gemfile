@@ -12,8 +12,9 @@ gem "jekyll", "~> 4.3.4" # Or your preferred Jekyll version
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-seo-tag" # For better SEO meta tags
-  gem "jekyll-minifier" # To minify HTML, JS, CSS
+  gem "jekyll-seo-tag"      # For better SEO meta tags
+  gem "jekyll-minifier"     # To minify HTML, JS, CSS
+  gem "jekyll-sitemap"      # To automatically generate a sitemap.xml
 end
 
 gem "jekyll-sass-converter", "~> 3.0" # Ensure this is present for SCSS processing
