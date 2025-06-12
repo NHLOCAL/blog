@@ -6,7 +6,40 @@
   <title>Content Manager</title>
 </head>
 <body>
-  <!-- The script is now at the end of the body -->
+  <!-- This script will now load the configuration directly from this page -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "nhlocal/blog", // Your repo
+          branch: "jekyll", // Your branch
+          auth_type: "pkce",
+        },
+        media_folder: "assets/images/uploads",
+        public_folder: "/assets/images/uploads",
+        collections: [
+          {
+            name: "posts",
+            label: "פוסטים",
+            folder: "_posts",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md",
+            fields: [
+              { label: "Layout", name: "layout", widget: "hidden", default: "post" },
+              { label: "כותרת", name: "title", widget: "string" },
+              { label: "תאריך פרסום", name: "date", widget: "datetime" },
+              { label: "תמונה ראשית", name: "featured_image", widget: "image", required: false },
+              { label: "קטגוריות", name: "categories", widget: "list", required: false },
+              { label: "תגיות", name: "tags", widget: "list", required: false },
+              { label: "שם המחבר", name: "author", widget: "string", required: false, default: "nh local" },
+              { label: "גוף הפוסט", name: "body", widget: "markdown" },
+            ],
+          },
+        ],
+      },
+    });
+  </script>
 </body>
 </html>
