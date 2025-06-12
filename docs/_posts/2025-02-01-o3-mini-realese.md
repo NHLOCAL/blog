@@ -4,7 +4,7 @@ title:  "o3 mini - מודל ה-AI המתקדם של OpenAI שוחרר לכולם
 date: 2025-02-01
 categories: AI
 tags: AI OpenAI ChatGPT LLM
-featured_image: "/assets/images/o3-openai.webp"
+featured_image: "/assets/images/o3-mini.webp"
 ---
 
 [לאחר שחרור המודל deepseek R1](https://mitmachim.top/post/909330) והתחרות הגודלת, OpenAI חוזרת ובגדול עם המודל המתקדם ביותר שלהם o3 mini, שמשוחרר גם למשתמשים בחינם.
