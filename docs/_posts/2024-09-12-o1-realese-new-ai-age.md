@@ -3,7 +3,7 @@ layout: post
 title: "הי, עצור! עידן AI חדש לפניך!"
 date: 2024-09-12
 categories: AI
-tags: AI OpenAI ChatGPT LLM
+tags: AI OpenAI ChatGPT LLM o1
 featured_image: "/assets/images/o1-openai.webp"
 ---
 ## **חברת OPENAI שחררו מודל חדש ניסיוני בשם O1!**
