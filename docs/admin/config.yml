@@ -1,21 +1,22 @@
-# backend מגדיר את שיטת החיבור והאימות. במקרה שלנו, GitHub.
+# backend מגדיר את שיטת החיבור והאימות.
 backend:
   name: github
-  repo: nhlocal/blog # שנה לשם המשתמש והרפוזיטורי שלך!
-  branch: main # או master, תלוי בענף הראשי שלך
+  repo: nhlocal/blog # ודא שזה שם המשתמש והרפוזיטורי שלך
+  branch: jekyll # או master
+  auth_type: pkce # <- השורה החשובה והחדשה! היא מורה להשתמש באימות ישיר.
 
 # הגדרות כלליות למערכת הניהול
-media_folder: "assets/images/uploads" # תיקייה שאליה יועלו תמונות מהממשק הגרפי
-public_folder: "/assets/images/uploads" # הנתיב הציבורי לתמונות שהועלו
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
-# collections מגדיר את סוגי התוכן שניתן לנהל. כרגע, רק פוסטים.
+# collections מגדיר את סוגי התוכן שניתן לנהל.
 collections:
-  - name: "posts" # מזהה פנימי
-    label: "פוסטים" # שם שיוצג בממשק
-    folder: "_posts" # התיקייה שבה שמורים קבצי הפוסטים
-    create: true # אפשר יצירת פוסטים חדשים
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md" # פורמט שם הקובץ לפוסט חדש
-    fields: # השדות שיופיעו בעורך הגרפי של כל פוסט
+  - name: "posts"
+    label: "פוסטים"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
+    fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "כותרת", name: "title", widget: "string", required: true }
       - { label: "תאריך פרסום", name: "date", widget: "datetime", required: true }
