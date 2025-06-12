@@ -1,10 +1,13 @@
+# This is the crucial part for GitHub Pages integration
 backend:
-  name: github
-  repo: nhlocal/blog # ודא שזה שם המשתמש והרפוזיטורי שלך
-  branch: jekyll # או master, תלוי בענף הראשי שלך
-  auth_type: implicit # <-- הוספנו את השורה הזו
-  app_id: Ov23liVTGo8G9ClPRL1H  # <-- הוספנו את השורה הזו. יש להחליף את הטקסט!
+  name: git-gateway
+  branch: main # or master, depending on your main branch
 
+# This setting enables the workflow UI, allowing you to save drafts and publish them.
+# It's also essential for the git-gateway to function correctly without Netlify.
+publish_mode: editorial_workflow
+
+# The rest of your configuration remains the same
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
