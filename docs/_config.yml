@@ -15,6 +15,10 @@ sass:
   sass_dir: _sass
   style: compressed
 
+# Tell Jekyll to include the admin folder in the final build
+include:
+  - admin
+
 defaults:
   - scope:
       path: ""
