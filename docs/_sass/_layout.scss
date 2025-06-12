@@ -113,6 +113,12 @@ body.nav-open .site-nav {
     }
 }
 
+.post-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .post-summary {
   padding: $spacing-unit * 1.5; border-radius: $border-radius; border: 1px solid var(--color-border);
   background-color: var(--color-background); transition: $transition-base;
