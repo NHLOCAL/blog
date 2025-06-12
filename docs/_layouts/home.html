@@ -13,7 +13,7 @@ layout: default
       <p class="post-meta">
         <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ latest_post.date | date_to_xmlschema }}">{{ latest_post.date | date: "%d/%m/%Y" }}</time></span>
         {% if latest_post.categories.size > 0 %}
-          <span class="meta-item"><i class="bi bi-folder"></i> קטגוריות:
+          <span class="meta-item" style="margin-inline-start: 0.75rem;"><i class="bi bi-folder"></i> קטגוריות:
           {% for category in latest_post.categories %}
             <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
           {% endfor %}
