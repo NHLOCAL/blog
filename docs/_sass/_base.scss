@@ -12,13 +12,13 @@ html {
 body {
   font-family: $font-primary;
   line-height: 1.65;
-  color: $color-text-primary;
-  background-color: $color-background;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
   margin: 0;
   padding: 0;
   direction: rtl;
   text-align: start;
-  // **IMPROVEMENT:** Prevent horizontal scroll caused by breaking elements
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-secondary;
   font-weight: 700;
   line-height: 1.3;
-  color: $color-heading;
+  color: var(--color-heading);
   letter-spacing: -0.5px;
 }
 
@@ -45,16 +45,15 @@ p {
 }
 
 a {
-  color: $color-accent;
+  color: var(--color-accent);
   text-decoration: none;
   transition: $transition-base;
   font-weight: 500;
 
   &:hover {
-    color: $color-accent-hover;
+    color: var(--color-accent-hover);
   }
 }
-
 
 .post-content a {
   position: relative;
@@ -67,10 +66,9 @@ a {
 
   &:hover, &:focus {
     background-size: 100% 1px;
-    color: $color-accent-hover;
+    color: var(--color-accent-hover);
   }
 }
-
 
 img {
   max-width: 100%;
@@ -89,8 +87,9 @@ li {
 }
 
 .highlight {
-  background: $color-code-background;
-  color: #e2e8f0;
+  position: relative; // For positioning the copy button
+  background: var(--color-code-background);
+  color: var(--color-code-text);
   padding: $spacing-unit * 1.25;
   margin-bottom: $spacing-unit * 1.5;
   overflow-x: auto;
@@ -111,9 +110,9 @@ blockquote {
   margin: $spacing-unit * 1.5 0;
   padding: $spacing-unit $spacing-unit * 1.5;
   padding-inline-start: $spacing-unit * 1.75;
-  border-inline-start: 4px solid $color-border;
-  background-color: $color-white;
-  color: $color-text-secondary;
+  border-inline-start: 4px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
   font-style: normal;
   font-size: 1.1rem;
   border-radius: 0 $border-radius $border-radius 0;
@@ -126,6 +125,6 @@ blockquote {
 hr {
   border: 0;
   height: 1px;
-  background-color: $color-border;
+  background-color: var(--color-border);
   margin: $spacing-unit * 3 0;
 }

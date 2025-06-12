@@ -1,49 +1,57 @@
+// Font Stacks
 $font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 $font-secondary: 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 $font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
+// CSS Custom Properties for Theming (Dark Mode Support)
+:root {
+  // Light Theme (Default)
+  --color-background: #F0F2F5;
+  --color-text-primary: #192A34;
+  --color-text-secondary: #969FA6;
+  --color-heading: #4E626E;
+  --color-accent: #175377;
+  --color-accent-hover: #25A3D0;
+  --color-border: #DDE3E8;
+  --color-surface: #ffffff; // For cards, headers, etc.
+  --color-code-background: #182735;
+  --color-code-text: #e2e8f0;
+  --box-shadow-color: rgba(0, 0, 0, 0.07);
+  --box-shadow-color-sm: rgba(0, 0, 0, 0.04);
+}
 
+[data-theme='dark'] {
+  // Dark Theme
+  --color-background: #111921;
+  --color-text-primary: #E0E7F0;
+  --color-text-secondary: #969FA6;
+  --color-heading: #BCC8D3;
+  --color-accent: #38BDF8; // A lighter blue for better contrast on dark bg
+  --color-accent-hover: #7DD3FC;
+  --color-border: #334155;
+  --color-surface: #1E293B;
+  --color-code-background: #0F172A;
+  --color-code-text: #e2e8f0;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+  --box-shadow-color-sm: rgba(0, 0, 0, 0.15);
+}
 
-$color-dark-navy: #192A34;
-$color-slate-blue: #4E626E;
-$color-accent-blue: #175377;
-$color-bright-accent-blue: #25A3D0;
-$color-soft-grey: #969FA6;
-$color-dark-bg-element: #182735;
-
-$color-light-bg: #F0F2F5;
-$color-light-border: #DDE3E8;
-$color-white: #ffffff;
-
-
-$color-background: $color-light-bg;
-$color-text-primary: $color-dark-navy;
-$color-text-secondary: $color-soft-grey;
-$color-heading: $color-slate-blue;
-$color-accent: $color-accent-blue;
-$color-accent-hover: $color-bright-accent-blue;
-$color-border: $color-light-border;
-$color-code-background: $color-dark-bg-element;
-
-
-
+// Layout Dimensions
 $content-width: 800px;
 $sidebar-width: 280px;
 $spacing-unit: 16px;
+
+// Borders & Shadows
 $border-radius: 6px;
 $border-radius-small: 4px;
 $border-radius-large: 10px;
+$box-shadow-sm: 0 1px 2px 0 var(--box-shadow-color-sm);
+$box-shadow: 0 3px 6px -1px var(--box-shadow-color), 0 2px 4px -2px var(--box-shadow-color-sm);
 
-
-
-$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-$box-shadow-md: 0 5px 10px -2px rgba(0, 0, 0, 0.08), 0 3px 6px -3px rgba(0, 0, 0, 0.05);
+// Transitions
 $transition-base: all 0.25s ease-in-out;
 
-
-
+// Breakpoints
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1120px;
-$breakpoint-xl: 1400px;

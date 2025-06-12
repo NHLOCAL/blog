@@ -34,7 +34,7 @@ permalink: /tags/
                   {% if post.featured_image %}
                   <div class="post-thumbnail">
                     <a href="{{ post.url | relative_url }}">
-                      <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title | escape }}">
+                      <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
                     </a>
                   </div>
                   {% endif %}
