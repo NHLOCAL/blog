@@ -1,15 +1,13 @@
-# backend מגדיר את שיטת החיבור והאימות.
 backend:
   name: github
   repo: nhlocal/blog # ודא שזה שם המשתמש והרפוזיטורי שלך
-  branch: jekyll # או master
-  auth_type: pkce # <- השורה החשובה והחדשה! היא מורה להשתמש באימות ישיר.
+  branch: jekyll # או master, תלוי בענף הראשי שלך
+  auth_type: implicit # <-- הוספנו את השורה הזו
+  app_id: Ov23liVTGo8G9ClPRL1H  # <-- הוספנו את השורה הזו. יש להחליף את הטקסט!
 
-# הגדרות כלליות למערכת הניהול
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-# collections מגדיר את סוגי התוכן שניתן לנהל.
 collections:
   - name: "posts"
     label: "פוסטים"
