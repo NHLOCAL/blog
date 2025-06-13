@@ -1,0 +1,74 @@
+# שם תהליך העבודה, יוצג בלשונית Actions ב-GitHub
+name: Build and Deploy Jekyll Site with Pagefind
+
+# הגדרת הטריגרים להפעלת התהליך
+on:
+  # הפעלה אוטומטית בכל דחיפה (push) לענף jekyll
+  push:
+    branches:
+      - jekyll
+
+  # מאפשר הפעלה ידנית מהממשק של GitHub
+  workflow_dispatch:
+
+# הרשאות נדרשות כדי לאפשר לתהליך לכתוב לענף gh-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# הגדרת המשימות (Jobs) שירוצו
+jobs:
+  build_and_deploy:
+    # הגדרת סביבת הריצה
+    runs-on: ubuntu-latest
+
+    # הגדרת הצעדים (Steps) במשימה
+    steps:
+      # 1. שכפול קוד המקור מהענף שלך (jekyll)
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # 2. הגדרת סביבת Ruby והתקנת תלויות Jekyll עם קאשינג למהירות
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1' # גרסה מומלצת ותואמת ל-Jekyll 4
+          bundler-cache: true # מאיץ את התהליך בריצות הבאות
+
+      # 3. הגדרת סביבת Node.js והתקנת Pagefind
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # גרסת LTS יציבה
+      - name: Install Pagefind
+        run: npm install -g pagefind
+
+      # 4. בניית האתר עם Jekyll בסביבת production
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      # 5. הרצת Pagefind כדי ליצור את אינדקס החיפוש
+      - name: Run Pagefind to create search index
+        run: pagefind --site "_site"
+
+      # 6. פריסת האתר הבנוי אל ענף gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # טוקן ברירת מחדל, אין צורך לשנות
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # הענף שאליו נפרוס את האתר
+          publish_branch: gh-pages
+          
+          # התיקייה המקומית שמכילה את האתר הבנוי
+          publish_dir: ./_site
+          
+          # (חשוב!) התיקייה בענף היעד שאליה יועבר התוכן
+          destination_dir: ./docs
+          
+          # ניהול אוטומטי של קובץ ה-CNAME שלך
+          cname: blog.ze-kal.top
