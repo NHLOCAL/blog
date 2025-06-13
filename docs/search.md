@@ -5,17 +5,13 @@ permalink: /search/
 sitemap: false
 ---
 
-<!-- הוספת קובץ העיצוב של ממשק החיפוש של Pagefind -->
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
 
 <div class="search-page">
   <h1>חיפוש באתר</h1>
-  
-  <!-- אלמנט זה ישמש כמיכל עבור ממשק החיפוש -->
   <div id="search"></div>
 </div>
 
-<!-- הוספת קובץ הסקריפט של ממשק החיפוש של Pagefind -->
 <script src="/pagefind/pagefind-ui.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', (event) => {
@@ -24,7 +20,6 @@ sitemap: false
             const pagefindInstance = new PagefindUI({
                 element: "#search",
                 showSubResults: true,
-                // הערה: הסרנו את הפונקציה 'processResult' כדי למנוע קונפליקטים.
                 lang: "he",
                 translations: {
                     placeholder: "הקלד לחיפוש...",
@@ -37,41 +32,41 @@ sitemap: false
                 }
             });
 
-            // --- הגישה החדשה והבטוחה ---
-            // אנו מאזינים לאירוע ש-Pagefind מפעיל אחרי שהתוצאות הועלו לדף.
+            // --- התיקון הקריטי מתחיל כאן ---
+            // 1. קרא את פרמטר החיפוש מכתובת ה-URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+
+            // 2. אם קיים מונח חיפוש, הכנס אותו לתיבת החיפוש והפעל חיפוש
+            if (query) {
+                const searchInput = searchElement.querySelector('input');
+                if (searchInput) {
+                    searchInput.value = query;
+                    // pagefindInstance.triggerSearch(query); // Pagefind אמור לעשות זאת אוטומטית, אך נשאיר למקרה הצורך
+                }
+            }
+            // --- התיקון הקריטי מסתיים כאן ---
+
+
             searchElement.addEventListener('search:results', (e) => {
                 const results = e.detail.results;
-                
-                // ניצור מפה של התוצאות לגישה מהירה לפי מזהה ייחודי
                 const resultMap = new Map(results.map(res => [res.id, res]));
-                
-                // נמצא את כל רכיבי התוצאה ש-Pagefind יצר בדף
                 const resultElements = searchElement.querySelectorAll('.pagefind-ui__result');
                 
                 resultElements.forEach(el => {
                     const resultId = el.dataset.pagefindResultId;
                     const resultData = resultMap.get(resultId);
 
-                    // בדוק אם יש תמונה במטא-דאטה של התוצאה
                     if (resultData && resultData.meta && resultData.meta.image) {
                         const imageUrl = resultData.meta.image;
                         const title = resultData.meta.title;
                         
-                        // ודא שלא הוספנו כבר תמונה לרכיב זה
-                        if (el.querySelector('.search-result-thumbnail')) {
-                            return;
-                        }
+                        if (el.querySelector('.search-result-thumbnail')) return;
 
-                        // צור את רכיב התמונה
                         const imageBlock = document.createElement('div');
                         imageBlock.className = 'search-result-thumbnail';
-                        imageBlock.innerHTML = `
-                            <a href="${resultData.url}">
-                                <img src="${imageUrl}" alt="${title}" loading="lazy">
-                            </a>
-                        `;
+                        imageBlock.innerHTML = `<a href="${resultData.url}"><img src="${imageUrl}" alt="${title}" loading="lazy"></a>`;
                         
-                        // הוסף את התמונה בתחילת התוצאה והוסף קלאס לעיצוב
                         const innerContent = el.querySelector('.pagefind-ui__result-inner');
                         if (innerContent) {
                             innerContent.prepend(imageBlock);
@@ -90,33 +85,26 @@ sitemap: false
 </script>
 
 <style>
-/* 
-  סגנונות חדשים כדי לעצב את התוצאות עם התמונות שהוספנו דינמית
-*/
 .pagefind-ui__result.has-thumbnail .pagefind-ui__result-inner {
     display: flex;
-    flex-direction: row-reverse; /* כדי שהתמונה תהיה מימין */
+    flex-direction: row-reverse;
     gap: 1.5rem;
     align-items: flex-start;
 }
-
 .search-result-thumbnail {
     flex-shrink: 0;
     width: 150px;
     height: 100px;
 }
-
 .search-result-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius-small);
 }
-
-/* התאמות למסכים קטנים */
 @media (max-width: 768px) {
     .pagefind-ui__result.has-thumbnail .pagefind-ui__result-inner {
-        flex-direction: column; /* הצג את התמונה מעל הטקסט */
+        flex-direction: column;
         gap: 1rem;
     }
     .search-result-thumbnail {
