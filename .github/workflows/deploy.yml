@@ -22,6 +22,12 @@ jobs:
   build_and_deploy:
     # הגדרת סביבת הריצה
     runs-on: ubuntu-latest
+    
+    # --- התיקון המרכזי: הגדרת תיקיית עבודה ראשית ---
+    # כל הפקודות 'run' ירוצו מתוך תיקיית docs
+    defaults:
+      run:
+        working-directory: ./docs
 
     # הגדרת הצעדים (Steps) במשימה
     steps:
@@ -29,28 +35,33 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      # 2. הגדרת סביבת Ruby והתקנת תלויות Jekyll עם קאשינג למהירות
+      # 2. הגדרת סביבת Ruby והתקנת תלויות Jekyll
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # גרסה מומלצת ותואמת ל-Jekyll 4
-          bundler-cache: true # מאיץ את התהליך בריצות הבאות
+          ruby-version: '3.1'
+          bundler-cache: true
+          # (חשוב) אנו מציינים במפורש היכן נמצא ה-Gemfile
+          working-directory: ./docs
 
       # 3. הגדרת סביבת Node.js והתקנת Pagefind
+      # הפקודה תרוץ ב-./docs בגלל ה-defaults שהוגדר למעלה
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # גרסת LTS יציבה
+          node-version: '20'
       - name: Install Pagefind
         run: npm install -g pagefind
 
-      # 4. בניית האתר עם Jekyll בסביבת production
+      # 4. בניית האתר עם Jekyll
+      # הפקודה תרוץ ב-./docs, תמצא את Gemfile ותבנה את האתר לתוך docs/_site
       - name: Build Jekyll site
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      # 5. הרצת Pagefind כדי ליצור את אינדקס החיפוש
+      # 5. הרצת Pagefind על תיקיית הפלט
+      # הפקודה תרוץ ב-./docs ותמצא את תיקיית הפלט היחסית '_site'
       - name: Run Pagefind to create search index
         run: pagefind --site "_site"
 
@@ -58,17 +69,13 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # טוקן ברירת מחדל, אין צורך לשנות
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-          # הענף שאליו נפרוס את האתר
           publish_branch: gh-pages
           
-          # התיקייה המקומית שמכילה את האתר הבנוי
-          publish_dir: ./_site
+          # (חשוב) תיקיית המקור לפריסה היא תוצאת הבנייה: docs/_site
+          publish_dir: ./docs/_site
           
-          # (חשוב!) התיקייה בענף היעד שאליה יועבר התוכן
+          # תיקיית היעד בענף gh-pages נשארת docs
           destination_dir: ./docs
           
-          # ניהול אוטומטי של קובץ ה-CNAME שלך
           cname: blog.ze-kal.top
