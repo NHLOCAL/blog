@@ -1,0 +1,28 @@
+# This is the crucial part for GitHub Pages integration
+backend:
+  name: git-gateway
+  branch: main # or master, depending on your main branch
+
+# This setting enables the workflow UI, allowing you to save drafts and publish them.
+# It's also essential for the git-gateway to function correctly without Netlify.
+publish_mode: editorial_workflow
+
+# The rest of your configuration remains the same
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "פוסטים"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "כותרת", name: "title", widget: "string", required: true }
+      - { label: "תאריך פרסום", name: "date", widget: "datetime", required: true }
+      - { label: "תמונה ראשית", name: "featured_image", widget: "image", required: false }
+      - { label: "קטגוריות", name: "categories", widget: "list", required: false }
+      - { label: "תגיות", name: "tags", widget: "list", required: false }
+      - { label: "שם המחבר", name: "author", widget: "string", required: false, default: "nh local" }
+      - { label: "גוף הפוסט", name: "body", widget: "markdown", required: true }
