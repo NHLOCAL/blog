@@ -7,8 +7,6 @@ on:
       - jekyll
   workflow_dispatch:
 
-# --- התיקון המרכזי כאן ---
-# שינינו את הרשאות התוכן ל-write כדי לאפשר push
 permissions:
   contents: write
   pages: write
@@ -56,5 +54,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./docs/_site
-          destination_dir: ./docs
+          # --- השורה הבאה נמחקה! ---
+          # destination_dir: ./docs 
           cname: blog.ze-kal.top
