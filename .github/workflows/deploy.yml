@@ -1,51 +1,42 @@
-# שם תהליך העבודה, יוצג בלשונית Actions ב-GitHub
+# שם תהליך העבודה
 name: Build and Deploy Jekyll Site with Pagefind
 
-# הגדרת הטריגרים להפעלת התהליך
 on:
-  # הפעלה אוטומטית בכל דחיפה (push) לענף jekyll
   push:
     branches:
       - jekyll
-
-  # מאפשר הפעלה ידנית מהממשק של GitHub
   workflow_dispatch:
 
-# הרשאות נדרשות כדי לאפשר לתהליך לכתוב לענף gh-pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# הגדרת המשימות (Jobs) שירוצו
 jobs:
   build_and_deploy:
-    # הגדרת סביבת הריצה
     runs-on: ubuntu-latest
-    
-    # --- התיקון המרכזי: הגדרת תיקיית עבודה ראשית ---
-    # כל הפקודות 'run' ירוצו מתוך תיקיית docs
     defaults:
       run:
         working-directory: ./docs
 
-    # הגדרת הצעדים (Steps) במשימה
     steps:
-      # 1. שכפול קוד המקור מהענף שלך (jekyll)
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      # 2. הגדרת סביבת Ruby והתקנת תלויות Jekyll
+      # --- התיקון המרכזי מתחיל כאן ---
+      # 1. נוסיף צעד שמסיר את קובץ ה-Gemfile.lock הקיים
+      - name: Remove Gemfile.lock to allow for cross-platform builds
+        run: rm -f Gemfile.lock
+
+      # 2. נעדכן את צעד התקנת ה-Ruby
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: true
-          # (חשוב) אנו מציינים במפורש היכן נמצא ה-Gemfile
           working-directory: ./docs
+      # --- התיקון המרכזי מסתיים כאן ---
 
-      # 3. הגדרת סביבת Node.js והתקנת Pagefind
-      # הפקודה תרוץ ב-./docs בגלל ה-defaults שהוגדר למעלה
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -53,29 +44,19 @@ jobs:
       - name: Install Pagefind
         run: npm install -g pagefind
 
-      # 4. בניית האתר עם Jekyll
-      # הפקודה תרוץ ב-./docs, תמצא את Gemfile ותבנה את האתר לתוך docs/_site
       - name: Build Jekyll site
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      # 5. הרצת Pagefind על תיקיית הפלט
-      # הפקודה תרוץ ב-./docs ותמצא את תיקיית הפלט היחסית '_site'
       - name: Run Pagefind to create search index
         run: pagefind --site "_site"
 
-      # 6. פריסת האתר הבנוי אל ענף gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          
-          # (חשוב) תיקיית המקור לפריסה היא תוצאת הבנייה: docs/_site
           publish_dir: ./docs/_site
-          
-          # תיקיית היעד בענף gh-pages נשארת docs
           destination_dir: ./docs
-          
           cname: blog.ze-kal.top
