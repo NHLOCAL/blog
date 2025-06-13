@@ -2,43 +2,126 @@
 layout: default
 title: חיפוש באתר
 permalink: /search/
-sitemap: false # מומלץ למנוע מדף זה מלהופיע במפת האתר
+sitemap: false
 ---
+
+<!-- הוספת קובץ העיצוב של ממשק החיפוש של Pagefind -->
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
 
 <div class="search-page">
   <h1>חיפוש באתר</h1>
-  <input type="text" id="search-input-page" placeholder="הקלד מילות מפתח..." aria-label="הקלד מילות מפתח לחיפוש">
   
-  <div id="results-container">
-      <!-- התוצאות יופיעו כאן -->
-      <!-- אפשר להוסיף הודעת טעינה ראשונית אם רוצים -->
-      <!-- <p>הזן מונח חיפוש למעלה...</p> -->
-  </div>
+  <!-- אלמנט זה ישמש כמיכל עבור ממשק החיפוש -->
+  <div id="search"></div>
 </div>
 
-
+<!-- הוספת קובץ הסקריפט של ממשק החיפוש של Pagefind -->
+<script src="/pagefind/pagefind-ui.js"></script>
 <script>
-  window.searchData = [
-    {% for post in site.posts %}
-      {
-        "title"     : {{ post.title | jsonify }},
-        "url"       : "{{ post.url | relative_url }}",
-        "date"      : "{{ post.date | date_to_xmlschema }}", // פורמט תאריך סטנדרטי
-        "categories": {{ post.categories | join: ', ' | jsonify }},
-        "tags"      : {{ post.tags | join: ', ' | jsonify }},
-        // היזהר עם post.content. אם הוא ארוך מאוד, זה יכול להכביד.
-        // אולי עדיף להשתמש בתקציר מורחב או רק בחלק מהתוכן.
-        // נשתמש ב-excerpt כדי לשמור על גודל סביר.
-        "excerpt"   : {{ post.excerpt | strip_html | strip_newlines | truncatewords: 40 | jsonify }}
-        // אם אתה רוצה לחפש בתוכן המלא, שקול את ההשלכות על גודל הדף.
-        // "content"   : {{ post.content | strip_html | strip_newlines | truncatewords: 150 | jsonify }} 
-      }
-      {% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-  // הדפס ל-console כדי לוודא שהנתונים נוצרו
-  // console.log('Search data embedded:', window.searchData); 
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const searchElement = document.querySelector("#search");
+        if (window.PagefindUI && searchElement) {
+            const pagefindInstance = new PagefindUI({
+                element: "#search",
+                showSubResults: true,
+                // הערה: הסרנו את הפונקציה 'processResult' כדי למנוע קונפליקטים.
+                lang: "he",
+                translations: {
+                    placeholder: "הקלד לחיפוש...",
+                    search_title: "חיפוש",
+                    filters_title: "מסננים",
+                    clear_search: "נקה חיפוש",
+                    load_more: "טען תוצאות נוספות",
+                    search_results: "{{count}} תוצאות עבור \"{{query}}\"",
+                    result_count: "{{count}} תוצאות"
+                }
+            });
+
+            // --- הגישה החדשה והבטוחה ---
+            // אנו מאזינים לאירוע ש-Pagefind מפעיל אחרי שהתוצאות הועלו לדף.
+            searchElement.addEventListener('search:results', (e) => {
+                const results = e.detail.results;
+                
+                // ניצור מפה של התוצאות לגישה מהירה לפי מזהה ייחודי
+                const resultMap = new Map(results.map(res => [res.id, res]));
+                
+                // נמצא את כל רכיבי התוצאה ש-Pagefind יצר בדף
+                const resultElements = searchElement.querySelectorAll('.pagefind-ui__result');
+                
+                resultElements.forEach(el => {
+                    const resultId = el.dataset.pagefindResultId;
+                    const resultData = resultMap.get(resultId);
+
+                    // בדוק אם יש תמונה במטא-דאטה של התוצאה
+                    if (resultData && resultData.meta && resultData.meta.image) {
+                        const imageUrl = resultData.meta.image;
+                        const title = resultData.meta.title;
+                        
+                        // ודא שלא הוספנו כבר תמונה לרכיב זה
+                        if (el.querySelector('.search-result-thumbnail')) {
+                            return;
+                        }
+
+                        // צור את רכיב התמונה
+                        const imageBlock = document.createElement('div');
+                        imageBlock.className = 'search-result-thumbnail';
+                        imageBlock.innerHTML = `
+                            <a href="${resultData.url}">
+                                <img src="${imageUrl}" alt="${title}" loading="lazy">
+                            </a>
+                        `;
+                        
+                        // הוסף את התמונה בתחילת התוצאה והוסף קלאס לעיצוב
+                        const innerContent = el.querySelector('.pagefind-ui__result-inner');
+                        if (innerContent) {
+                            innerContent.prepend(imageBlock);
+                            el.classList.add('has-thumbnail');
+                        }
+                    }
+                });
+            });
+
+        } else {
+            if(searchElement) {
+                searchElement.innerHTML = "<p style='color: red;'>שגיאה: רכיב החיפוש (Pagefind) לא הצליח להיטען.</p>";
+            }
+        }
+    });
 </script>
 
-<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-<script src="{{ "/assets/js/search.js" | relative_url }}"></script>
+<style>
+/* 
+  סגנונות חדשים כדי לעצב את התוצאות עם התמונות שהוספנו דינמית
+*/
+.pagefind-ui__result.has-thumbnail .pagefind-ui__result-inner {
+    display: flex;
+    flex-direction: row-reverse; /* כדי שהתמונה תהיה מימין */
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.search-result-thumbnail {
+    flex-shrink: 0;
+    width: 150px;
+    height: 100px;
+}
+
+.search-result-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-small);
+}
+
+/* התאמות למסכים קטנים */
+@media (max-width: 768px) {
+    .pagefind-ui__result.has-thumbnail .pagefind-ui__result-inner {
+        flex-direction: column; /* הצג את התמונה מעל הטקסט */
+        gap: 1rem;
+    }
+    .search-result-thumbnail {
+        width: 100%;
+        height: 180px;
+    }
+}
+</style>

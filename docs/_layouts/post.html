@@ -22,7 +22,7 @@ layout: default
 
   {% if page.featured_image %}
   <div class="post-featured-image">
-    <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title | escape }}" loading="lazy">
+    <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title | escape }}" loading="lazy" data-pagefind-meta="image[src]">
   </div>
   {% endif %}
 

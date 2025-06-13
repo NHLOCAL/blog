@@ -5,13 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (menuToggle && siteNav) {
         menuToggle.addEventListener('click', function () {
-            // Toggle classes for active state
             menuToggle.classList.toggle('is-active');
             body.classList.toggle('nav-open');
-
-            // Toggle ARIA attributes for accessibility
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !isExpanded);
         });
     }
+
+    // --- START: Header Search Logic ---
+    const headerSearchForm = document.getElementById('header-search-form');
+    const headerSearchInput = document.getElementById('header-search-input');
+
+    if (headerSearchForm && headerSearchInput) {
+        headerSearchForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // מנע את שליחת הטופס הדיפולטיבית
+            const query = headerSearchInput.value.trim();
+            if (query) {
+                // העבר את המשתמש לדף החיפוש עם פרמטר החיפוש ב-URL
+                window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+            }
+        });
+    }
+    // --- END: Header Search Logic ---
 });

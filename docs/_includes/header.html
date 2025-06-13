@@ -15,6 +15,12 @@
     </div>
 
     <nav class="site-nav">
+        <!-- Search Form Added Here -->
+        <form class="header-search-form" action="{{ "/search/" | relative_url }}" method="get" role="search">
+          <input type="search" name="q" placeholder="חיפוש באתר..." aria-label="חיפוש באתר">
+          <button type="submit" aria-label="בצע חיפוש"><i class="bi bi-search"></i></button>
+        </form>
+        
         <a href="{{ "/" | relative_url }}">בית</a>
         <a href="{{ "/categories/" | relative_url }}">קטגוריות</a>
         <a href="{{ "/tags/" | relative_url }}">תגיות</a>

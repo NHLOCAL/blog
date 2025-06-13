@@ -1,3 +1,5 @@
+@use 'variables' as *; // Make all variables from _variables.scss available in this file.
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -87,7 +89,7 @@ li {
 }
 
 .highlight {
-  position: relative; // For positioning the copy button
+  position: relative;
   background: var(--color-code-background);
   color: var(--color-code-text);
   padding: $spacing-unit * 1.25;
