@@ -7,8 +7,10 @@ on:
       - jekyll
   workflow_dispatch:
 
+# --- התיקון המרכזי כאן ---
+# שינינו את הרשאות התוכן ל-write כדי לאפשר push
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -23,19 +25,15 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      # --- התיקון המרכזי מתחיל כאן ---
-      # 1. נוסיף צעד שמסיר את קובץ ה-Gemfile.lock הקיים
       - name: Remove Gemfile.lock to allow for cross-platform builds
         run: rm -f Gemfile.lock
 
-      # 2. נעדכן את צעד התקנת ה-Ruby
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: true
           working-directory: ./docs
-      # --- התיקון המרכזי מסתיים כאן ---
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
