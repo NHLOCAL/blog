@@ -15,6 +15,7 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"      # For better SEO meta tags
   gem "jekyll-minifier"     # To minify HTML, JS, CSS
   gem "jekyll-sitemap"      # To automatically generate a sitemap.xml
+  gem 'jekyll-admin'
 end
 
 gem "jekyll-sass-converter", "~> 3.0" # Ensure this is present for SCSS processing
