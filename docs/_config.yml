@@ -6,6 +6,7 @@ url: "https://blog.ze-kal.top"
 baseurl: ""
 
 lang: "he"
+future: true
 
 markdown: kramdown
 highlighter: rouge
