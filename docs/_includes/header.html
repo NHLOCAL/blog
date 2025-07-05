@@ -16,7 +16,7 @@
 
     <nav class="site-nav">
 
-        <!-- ודא שהטופס נראה כך. ללא צורך ב-ID -->
+
         <form class="header-search-form" action="{{ "/search/" | relative_url }}" method="get" role="search">
           <input type="search" name="q" placeholder="חיפוש באתר..." aria-label="חיפוש באתר">
           <button type="submit" aria-label="בצע חיפוש"><i class="bi bi-search"></i></button>
@@ -26,6 +26,7 @@
         <a href="{{ "/categories/" | relative_url }}">קטגוריות</a>
         <a href="{{ "/tags/" | relative_url }}">תגיות</a>
         <a href="{{ "/search/" | relative_url }}">חיפוש</a>
+        <a href="#" id="feedback-link-header">משוב</a>
         <a href="{{ "/about/" | relative_url }}">אודות</a>
     </nav>
 

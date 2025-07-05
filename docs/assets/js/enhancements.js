@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Reading Progress Bar
+
     const progressBar = document.getElementById('reading-progress-bar');
     if (progressBar) {
         window.addEventListener('scroll', () => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 2. Code Block "Copy" Button
+
     const codeBlocks = document.querySelectorAll('div.highlight');
     codeBlocks.forEach(block => {
         const copyButton = document.createElement('button');
@@ -30,4 +30,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // --- Dynamic Feedback Link ---
+    (function setDynamicFeedbackLink() {
+        const email = 'nh.local11@gmail.com';
+        const subject = encodeURIComponent('משוב על הבלוג');
+        const body = encodeURIComponent('שלום,');
+        
+        const isWindows = navigator.platform.toLowerCase().indexOf('win') > -1;
+        
+        let feedbackUrl;
+        if (isWindows) {
+            // Use Gmail link for Windows users
+            feedbackUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+        } else {
+            // Use standard mailto for other OS (Mac, Linux, iOS, Android)
+            feedbackUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+        }
+
+        const headerLink = document.getElementById('feedback-link-header');
+        if (headerLink) {
+            headerLink.href = feedbackUrl;
+            // Open in new tab for external Gmail link
+            if(isWindows) headerLink.target = '_blank';
+        }
+
+        const sidebarLink = document.getElementById('feedback-link-sidebar');
+        if (sidebarLink) {
+            sidebarLink.href = feedbackUrl;
+             // Open in new tab for external Gmail link
+            if(isWindows) sidebarLink.target = '_blank';
+        }
+    })();
 });
