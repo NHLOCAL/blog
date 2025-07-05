@@ -42,15 +42,17 @@ permalink: /categories/
                     <h3>
                       <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
                     </h3>
-                    <p class="post-meta">
-                      <time datetime="{{ post.date | date_to_xmlschema }}">
-                        {{ post.date | date: "%d/%m/%Y" }}
-                      </time>
-                    </p>
                     <p class="post-excerpt">
                       {{ post.excerpt | strip_html | truncatewords: 25 }}
                     </p>
-                    <a href="{{ post.url | relative_url }}" class="read-more">קרא עוד »</a>
+                    <div class="post-summary-footer">
+                      <p class="post-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                          {{ post.date | date: "%d/%m/%Y" }}
+                        </time>
+                      </p>
+                      <a href="{{ post.url | relative_url }}" class="read-more">קרא עוד <i class="bi bi-arrow-left-short"></i></a>
+                    </div>
                   </div>
                 </article>
               </li>

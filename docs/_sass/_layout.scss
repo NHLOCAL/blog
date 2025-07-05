@@ -1,4 +1,4 @@
-@use 'variables' as *; // Make all variables from _variables.scss available in this file.
+@use 'variables' as *;
 
 .container {
   max-width: $content-width + $sidebar-width + ($spacing-unit * 4);
@@ -200,12 +200,128 @@ div.highlight:hover .copy-code-button {
   opacity: 1;
 }
 
+// ===== NEW/UPDATED STYLES START HERE =====
+
+// Related Posts and Post Navigation (Next/Prev)
 .related-posts {
   margin-top: $spacing-unit * 3;
   h3 { margin-bottom: $spacing-unit; }
-  ul { list-style: none; padding: 0; }
-  li a { font-weight: 700; }
+  ul {
+    list-style: none; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-unit;
+  }
+  li a {
+    display: block; font-weight: 700;
+    padding: $spacing-unit;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius;
+    transition: $transition-base;
+    height: 100%;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $box-shadow-sm;
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+  }
 }
+
+.post-nav {
+  margin-top: $spacing-unit * 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-unit;
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-unit;
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius;
+    background-color: var(--color-surface);
+    transition: $transition-base;
+    font-weight: 700;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $box-shadow;
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+  }
+  .post-nav-prev {
+    text-align: right;
+    align-items: flex-end;
+  }
+  .post-nav-next {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+// Compact list items for Tags and Categories pages
+.tags-page, .categories-page {
+  .post-summary {
+    flex-direction: row;
+    padding: $spacing-unit;
+    gap: $spacing-unit;
+    align-items: center;
+
+    &.no-thumbnail .post-summary-content {
+      width: 100%;
+    }
+  }
+
+  .post-thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+  }
+
+  .post-summary-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 0 0 $spacing-unit * 0.25 0;
+    }
+    .post-excerpt {
+      font-size: 0.9rem;
+      margin: 0 0 $spacing-unit * 0.5 0;
+      color: var(--color-text-secondary);
+      flex-grow: 1;
+    }
+    .post-summary-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    .post-meta {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+    .read-more {
+      font-size: 0.85rem;
+      font-weight: 700;
+      &::after { content: none; } // remove underline animation for compact view
+    }
+  }
+}
+
+
+// ===== NEW/UPDATED STYLES END HERE =====
 
 @media (min-width: $breakpoint-md) {
   .site-header { margin: $spacing-unit * 2 0; }
@@ -241,18 +357,18 @@ div.highlight:hover .copy-code-button {
   .sidebar { width: $sidebar-width; flex-shrink: 0; }
 }
 
-// Header Search Form
-// -----------------------------------------------------------------------------
+
+
 .header-search-form {
   display: flex;
   align-items: center;
   position: relative;
-  
-  // Mobile styles (inside the overlay)
+
+
   width: 90%;
   max-width: 400px;
   margin: 0 auto $spacing-unit * 3 auto;
-  order: -1; // Show the search bar at the top of the mobile menu
+  order: -1;
 
   input[type="search"] {
     width: 100%;
@@ -265,7 +381,7 @@ div.highlight:hover .copy-code-button {
     font-family: $font-primary;
     font-size: 1rem;
     transition: $transition-base;
-    -webkit-appearance: none; // Removes default iOS styling
+    -webkit-appearance: none;
 
     &:focus {
       border-color: var(--color-accent);
@@ -294,13 +410,13 @@ div.highlight:hover .copy-code-button {
   }
 }
 
-// Desktop styles
+
 @media (min-width: $breakpoint-lg) {
   .header-search-form {
     width: 100%;
     max-width: 240px;
     margin: 0;
-    order: 0; // Reset order for desktop layout
+    order: 0;
 
     input[type="search"] {
       height: 38px;
@@ -313,7 +429,7 @@ div.highlight:hover .copy-code-button {
     }
   }
 
-  // Adjust nav links to make space for the search form
+
   .site-nav {
     gap: $spacing-unit * 1.25;
     flex-grow: 1;
