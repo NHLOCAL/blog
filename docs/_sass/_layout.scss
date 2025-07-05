@@ -53,7 +53,8 @@ body.nav-open {
   transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 1000;
   a {
-    color: var(--color-background); font-size: 1.75rem; font-weight: 700; margin: $spacing-unit 0;
+    color: #E0E7F0;
+    font-size: 1.75rem; font-weight: 700; margin: $spacing-unit 0;
     opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
@@ -305,7 +306,7 @@ div.highlight:hover .copy-code-button {
       transition: color 0.2s ease;
     }
   }
-  
+
   .post-nav-prev {
     .post-nav-content { text-align: right; }
   }
