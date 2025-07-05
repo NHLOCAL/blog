@@ -431,6 +431,7 @@ div.highlight:hover .copy-code-button {
     font-size: 1rem;
     transition: $transition-base;
     -webkit-appearance: none;
+    appearance: none;
 
     &:focus {
       border-color: var(--color-accent);
