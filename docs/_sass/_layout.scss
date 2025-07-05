@@ -47,15 +47,18 @@ body.nav-open {
 
 .site-nav {
   position: fixed; top: 0; right: 0; width: 100%; height: 100%;
-  background-color: rgba(17, 25, 33, 0.98);
+  background-color: rgba(var(--color-surface-rgb), 0.98);
   backdrop-filter: blur(5px);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 1000;
   a {
-    color: #E0E7F0;
+    color: var(--color-heading);
     font-size: 1.75rem; font-weight: 700; margin: $spacing-unit 0;
-    opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    &:hover {
+      color: var(--color-accent);
+    }
   }
 }
 
