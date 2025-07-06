@@ -1,13 +1,14 @@
 ---
-title: "כך בניתי ערוץ שלם ביוטיוב תוך יומיים - עם 98% בינה מלאכותית"
-date: 2024-10-31
+title: כך בניתי ערוץ שלם ביוטיוב תוך יומיים - עם 98% בינה מלאכותית
+date: '2024-10-31'
 categories: AI וידאו
 tags:
-  - AI
-  - o1
-  - לימוד-אנגלית
-  - יוטיוב
-featured_image: "https://i.ytimg.com/vi/0uCrCUXi7Vo/maxresdefault.jpg"
+- AI
+- o1
+- לימוד-אנגלית
+- יוטיוב
+- o-series
+featured_image: https://i.ytimg.com/vi/0uCrCUXi7Vo/maxresdefault.jpg
 ---
 
 לפני חודש וחצי **[העליתי כאן סקירה](https://mitmachim.top/post/850443)** על **המודל החדש של OpenAI, המכונה o1**.

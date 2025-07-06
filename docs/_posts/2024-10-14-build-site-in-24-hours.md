@@ -1,9 +1,17 @@
 ---
+title: העתיד כבר כאן - תוך פחות מ-24 שעות בניתי אתר שלם ללימוד מושגים במחשבים וטכנולוגיה
 layout: post
-title: "העתיד כבר כאן - תוך פחות מ-24 שעות בניתי אתר שלם ללימוד מושגים במחשבים וטכנולוגיה"
-date: 2024-10-14
-categories: ["AI", "עיצוב אתרים"]
-tags: AI OpenAI ChatGPT LLM o1
+date: '2024-10-14'
+categories:
+- AI
+- עיצוב אתרים
+tags:
+- AI
+- OpenAI
+- ChatGPT
+- LLM
+- o1
+- o-series
 ---
 
 **לפני חודש [העליתי כאן סקירה](https://mitmachim.top/post/850443) על המודל החדש של OpenAI, המכונה o1.**

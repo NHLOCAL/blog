@@ -1,9 +1,16 @@
 ---
+title: מרוץ ה-AI מתקדם במהירות האור - OpenAI הציגה את מודל o3
 layout: post
-title:  "מרוץ ה-AI מתקדם במהירות האור - OpenAI הציגה את מודל o3"
-date: 2024-12-21
-categories: AI
-tags: AI OpenAI ChatGPT LLM
+date: '2024-12-21'
+categories:
+- AI
+tags:
+- OpenAI
+- ChatGPT
+- LLM
+- o-series
+- o1
+- o3
 featured_image: "/assets/images/o3-openai.webp"
 ---
 

@@ -1,11 +1,18 @@
 ---
+title: הי, עצור! עידן AI חדש לפניך!
 layout: post
-title: "הי, עצור! עידן AI חדש לפניך!"
-date: 2024-09-12
-categories: AI
-tags: AI OpenAI ChatGPT LLM o1
+date: '2024-09-12'
+categories:
+- AI
+tags:
+- OpenAI
+- ChatGPT
+- LLM
+- o1
+- o-series
 featured_image: "/assets/images/o1-openai.webp"
 ---
+
 ## **חברת OPENAI שחררו מודל חדש ניסיוני בשם O1!**
 
 נכון לעכשיו הוא זמין למנויים בתשלום דרך צ'אט GPT, בעתיד הוא צפוי להיות משוחרר לכלל המשתמשים.

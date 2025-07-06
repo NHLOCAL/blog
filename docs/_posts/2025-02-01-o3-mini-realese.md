@@ -1,9 +1,17 @@
 ---
+title: o3 mini - מודל ה-AI המתקדם של OpenAI שוחרר לכולם! כן, גם למשתמשים החינמיים!
 layout: post
-title:  "o3 mini - מודל ה-AI המתקדם של OpenAI שוחרר לכולם! כן, גם למשתמשים החינמיים!"
-date: 2025-02-01
-categories: AI
-tags: AI OpenAI ChatGPT LLM
+date: '2025-02-01'
+categories:
+- AI
+tags:
+- AI
+- OpenAI
+- ChatGPT
+- LLM
+- o1
+- o-series
+- o3
 featured_image: "/assets/images/o3-mini.webp"
 ---
 
