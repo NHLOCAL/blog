@@ -12,6 +12,7 @@ tags:
 - podcast
 - tools
 - tts
+featured_image: "/assets/images/gemini-podcasts.webp"
 ---
 
 ## **יוצר הפודקאסטים - גמיש, פשוט לשימוש ובשליטה המלאה שלכם**
