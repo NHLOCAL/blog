@@ -5,3 +5,11 @@
 - name: "RSS Feed"
   url: "/feed.xml"
   icon: "rss"
+
+- name: "האתר הרשמי"
+  url: "https://nhlocal.github.io"
+  icon: "person-vcard"
+
+- name: "ארגז כלים"
+  url: "https://tools.ze-kal.top"
+  icon: "tools"
