@@ -8,6 +8,7 @@ tags:
 - LLM
 - xAI
 - grok
+featured_image: "/assets/images/ai-race-gork-now.png"
 ---
 
 האמת היא שזה הופך לאירוע כמעט משעמם וצפוי מראש.
