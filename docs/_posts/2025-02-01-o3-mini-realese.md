@@ -9,7 +9,6 @@ tags:
 - OpenAI
 - ChatGPT
 - LLM
-- o1
 - o-series
 - o3
 featured_image: "/assets/images/o3-mini.webp"
