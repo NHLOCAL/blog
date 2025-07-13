@@ -62,9 +62,3 @@ description: "חברת xAI של אילון מאסק משחררת את Grok 4, מ
 - [מאסק חושף את Grok 4 כמודל הבינה המלאכותית החדש של xAI שעולה על OpenAI וגוגל במבחנים מרכזיים](https://the-decoder.com/musk-unveils-grok-4-as-xais-new-ai-model-that-beats-openai-and-google-on-major-benchmarks/)
 
 - [הסבר על מדדי Grok 4 - גרוק 4 הוא עכשיו הבינה המלאכותית הטובה ביותר אי פעם](https://medium.com/data-science-in-your-pocket/grok-4-benchmarks-explained-55572135449c)
-
-***
-
-### הכנסו לבלוג שלי למאמרים ותגליות אחרות:
-
-[https://blog.ze-kal.top](https://blog.ze-kal.top)
