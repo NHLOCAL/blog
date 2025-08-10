@@ -21,9 +21,28 @@ layout: default
         {% endif %}
       </p>
     </header>
-    <div class="post-content-full">
-      {{ latest_post.content }}
+
+    {%- assign content_parts = latest_post.content | split: '</p>' -%}
+    {%- assign paragraph_limit = 3 -%}
+
+    {%- if content_parts.size > paragraph_limit -%}
+      {%- assign limited_content = content_parts | slice: 0, paragraph_limit | join: '</p>' | append: '</p>' -%}
+      {%- assign show_read_more = true -%}
+    {%- else -%}
+      {%- assign limited_content = latest_post.content -%}
+      {%- assign show_read_more = false -%}
+    {%- endif -%}
+
+    <div class="post-content">
+      {{ limited_content }}
     </div>
+
+    {%- if show_read_more -%}
+      <div class="latest-post-read-more">
+        <a href="{{ latest_post.url | relative_url }}" class="read-more">קרא עוד <i class="bi bi-arrow-left-short"></i></a>
+      </div>
+    {%- endif -%}
+
   </article>
   {% endif %}
 

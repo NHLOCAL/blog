@@ -35,6 +35,10 @@ body.nav-open {
   &:hover { color: var(--color-accent); }
 }
 
+.latest-post-read-more {
+  margin-top: $spacing-unit * 1.5;
+}
+
 .menu-toggle-button {
   display: flex; flex-direction: column; justify-content: space-around;
   width: 30px; height: 30px; background: transparent; border: none; cursor: pointer; padding: 0;
