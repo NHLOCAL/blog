@@ -31,15 +31,31 @@
   <div class="sidebar-section">
     <h4><a href="{{ "/tags/" | relative_url }}"><i class="bi bi-tags"></i> תגיות</a></h4>
     <div class="tags-list">
-      {% assign sorted_tags = site.tags | sort %}
-      {% for tag_item in sorted_tags limit: 15 %}
-        {% assign tag_name = tag_item[0] %}
-        {% assign tag_posts_count = tag_item[1].size %}
-        <a href="{{ site.baseurl }}/tags/#{{ tag_name | slugify }}" class="tag-item">
-          {{ tag_name }} ({{ tag_posts_count }})
-        </a>
-      {% endfor %}
-       {% if sorted_tags.size > 15 %}
+
+      {%- assign max_size = 0 -%}
+      {%- for tag in site.tags -%}
+        {%- if tag[1].size > max_size -%}
+          {%- assign max_size = tag[1].size -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- assign output_count = 0 -%}
+      {%- for i in (1..max_size) reversed -%}
+        {%- for tag in site.tags -%}
+          {%- if tag[1].size == i -%}
+            {%- if output_count < 15 -%}
+              {%- assign tag_name = tag[0] -%}
+              {%- assign tag_posts_count = tag[1].size -%}
+              <a href="{{ site.baseurl }}/tags/#{{ tag_name | slugify }}" class="tag-item">
+                {{ tag_name }} ({{ tag_posts_count }})
+              </a>
+              {%- assign output_count = output_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+
+       {% if site.tags.size > 15 %}
         <a href="{{ site.baseurl }}/tags/" class="tag-item more-link">כל התגיות...</a>
       {% endif %}
     </div>
