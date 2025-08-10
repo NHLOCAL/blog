@@ -67,7 +67,7 @@ GPT 5 משולב חשיבה - היה המודל החינמי הראשון בצ'�
 
 אז סליחה שאתם מאוכזבים כי קוראים לזה GPT-5 וציפיתם להיות יותר המומים. אבל מאז GPT-4 קרו הרבה דברים, ואין ספק שהפער בין GPT-5 ל-GPT-4 דומה לפער בין GPT-4 ל-GPT-3. רק שעכשיו ההתקדמות היא כל כך מהירה, שעולם לא נחווה שוב את ההלם ש-GPT-4 נתן. 
 
-[[מקור והשראה לקטע זה](https://www.reddit.com/r/singularity/comments/1mkiswz/it_hasnt_been_two_years_a_rant/)]
+<a href="https://www.reddit.com/r/singularity/comments/1mkiswz/it_hasnt_been_two_years_a_rant/" target="_blank">מקור והשראה לקטע זה</a>
 
 ### GPT 4 נגד GPT 5 - הנתונים
 
@@ -81,7 +81,7 @@ GPT 5 משולב חשיבה - היה המודל החינמי הראשון בצ'�
 
 את שאר המדדים לא היה ניתן להשוות – או כי הם ישנים וקלים מדי, או כי הם כה קשים כך ש-GPT-4 היה מקבל בהם קרוב ל־0%. כך או כך, העובדה הזו רק מחדדת את הפערים האדירים בין המודלים...
 
-[[מדדים נוספים בצורה מסודרת](https://llm-stats.com/models/compare/gpt-4-0613-vs-gpt-5-2025-08-07)]
+<a href="https://llm-stats.com/models/compare/gpt-4-0613-vs-gpt-5-2025-08-07" target="_blank">מדדים נוספים בצורה מסודרת</a>
 
 ### תסתכלו על מדד ההזיות
 
@@ -93,16 +93,15 @@ GPT 5 משולב חשיבה - היה המודל החינמי הראשון בצ'�
 לדעתי, זה אירוע דרמטי בסדר גודל, כי זה מאפשר להשתמש ב-AI גם בתעשיות הדורשות אמינות גבוהה, כמו רפואה למשל, או תחומים רגישים אחרים הכוללים סיכונים.
 
 ![gpt-5-hallmarks-1.png](/assets/images/gpt-5-hallmarks-1.png)
+
 ![gpt-5-hallmarks-2.png](/assets/images/gpt-5-hallmarks-2.png)
 
 
 ## העשרה נוספת ומקורות
 
-- מאמר הצגת gpt 5 של OpenAI:
-https://openai.com/index/introducing-gpt-5
+- <a href="https://openai.com/index/introducing-gpt-5" target="_blank">מאמר הצגת gpt 5 של OpenAI</a>
 
-- סקירה מעניינת עם שימוש בעולם האמיתי
-https://www.latent.space/p/gpt-5-review
+- <a href="https://www.latent.space/p/gpt-5-review" target="_blank">סקירה מעניינת עם שימוש בעולם האמיתי</a>
 
 ***
 
