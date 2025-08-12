@@ -148,7 +148,7 @@ body.nav-open .site-nav {
   padding-top: $spacing-unit * 1;
   border-top: 3px solid var(--color-accent);
   h4 {
-    color: var(--color-accent);
+    a { color: var(--color-accent); }
     border-bottom-color: rgba(var(--color-accent-rgb), 0.3);
   }
 }
@@ -391,7 +391,7 @@ div.highlight:hover .copy-code-button {
 }
 
 // Compact list items for Tags and Categories pages
-.tags-page, .categories-page {
+.tags-page, .categories-page, .recommended-page {
   .post-summary {
     flex-direction: row;
     padding: $spacing-unit;
