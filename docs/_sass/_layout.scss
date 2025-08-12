@@ -123,6 +123,38 @@ body.nav-open .site-nav {
     }
 }
 
+.popular-posts-section {
+  padding-top: $spacing-unit * 1;
+  border-top: 3px solid var(--color-accent);
+  h4 {
+    color: var(--color-accent);
+    border-bottom-color: rgba(var(--color-accent-rgb), 0.3);
+  }
+}
+.popular-posts-list li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $spacing-unit * 0.5;
+  font-weight: 500;
+  padding: $spacing-unit * 0.35 0;
+  transition: color 0.2s ease;
+
+  &::before {
+    content: "★";
+    color: var(--color-accent);
+    font-size: 0.9em;
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+  }
+  &:hover {
+    color: var(--color-accent-hover);
+    &::before {
+      color: var(--color-accent-hover);
+    }
+  }
+}
+
 .post-list {
   padding: 0;
   margin: 0;

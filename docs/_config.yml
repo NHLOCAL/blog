@@ -17,7 +17,7 @@ sass:
   sass_dir: _sass
   style: compressed
 
-# Tell Jekyll to include the admin folder in the final build
+
 include:
   - admin
 
@@ -37,16 +37,17 @@ custom_settings:
   profile_image: "https://nhlocal.github.io/NH.LOCAL.jpg"
   posts_per_page_home: 5
   recent_posts_sidebar_count: 7
-  # Social links moved to _data/social.yml
+  popular_posts_sidebar_count: 5
 
-# Added Plugins
+
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-minifier
   - jekyll-sitemap
 
-# Minifier settings
+
 jekyll-minifier:
   uglifier_args:
     harmony: true
