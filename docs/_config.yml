@@ -36,7 +36,7 @@ defaults:
 custom_settings:
   profile_image: "https://nhlocal.github.io/NH.LOCAL.jpg"
   posts_per_page_home: 5
-  recent_posts_sidebar_count: 7
+  recent_posts_sidebar_count: 5
   popular_posts_sidebar_count: 5
 
 

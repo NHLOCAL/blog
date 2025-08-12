@@ -276,6 +276,12 @@ div.highlight:hover .copy-code-button {
 }
 
 // ===== NEW/UPDATED STYLES START HERE =====
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-top: -($spacing-unit * 0.5);
+  margin-bottom: $spacing-unit * 2.5;
+}
 
 // Related Posts
 .related-posts {
@@ -391,7 +397,7 @@ div.highlight:hover .copy-code-button {
 }
 
 // Compact list items for Tags and Categories pages
-.tags-page, .categories-page, .recommended-page {
+.tags-page, .categories-page {
   .post-summary {
     flex-direction: row;
     padding: $spacing-unit;
