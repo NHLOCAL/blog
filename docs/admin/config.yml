@@ -21,7 +21,7 @@ collections:
       - { label: "כותרת", name: "title", widget: "string", required: true }
       - { label: "תאריך פרסום", name: "date", widget: "datetime", required: true }
       - { label: "תמונה ראשית", name: "featured_image", widget: "image", required: false }
-      - { label: "פוסט פופולרי?", name: "popular", widget: "boolean", required: false, default: false }
+      - { label: "פוסט מומלץ?", name: "popular", widget: "boolean", required: false, default: false }
       - { label: "קטגוריות", name: "categories", widget: "list", required: false }
       - { label: "תגיות", name: "tags", widget: "list", required: false }
       - { label: "שם המחבר", name: "author", widget: "string", required: false, default: "nh local" }

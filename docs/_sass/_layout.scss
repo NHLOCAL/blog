@@ -32,7 +32,28 @@ body.nav-open {
 .post-latest .post-title a {
   font-weight: 700;
   color: inherit;
-  &:hover { color: var(--color-accent); }
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  
+  &:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
 }
 
 .latest-post-read-more {
@@ -123,7 +144,7 @@ body.nav-open .site-nav {
     }
 }
 
-.popular-posts-section {
+.recommended-posts-section {
   padding-top: $spacing-unit * 1;
   border-top: 3px solid var(--color-accent);
   h4 {
@@ -131,27 +152,41 @@ body.nav-open .site-nav {
     border-bottom-color: rgba(var(--color-accent-rgb), 0.3);
   }
 }
-.popular-posts-list li a {
+.recommended-posts-list li a {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: $spacing-unit * 0.5;
+  display: inline-block;
   font-weight: 500;
-  padding: $spacing-unit * 0.35 0;
-  transition: color 0.2s ease;
+  padding: ($spacing-unit * 0.35) 0;
+  text-decoration: none;
 
   &::before {
-    content: "★";
+    content: "✔";
     color: var(--color-accent);
     font-size: 0.9em;
-    padding-bottom: 2px;
+    margin-inline-end: $spacing-unit * 0.5;
     transition: color 0.2s ease;
   }
+
   &:hover {
     color: var(--color-accent-hover);
+    text-decoration: none;
     &::before {
       color: var(--color-accent-hover);
     }
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--color-accent-hover);
+    transition: width 0.3s ease;
   }
 }
 
