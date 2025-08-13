@@ -450,135 +450,81 @@ div.highlight:hover .copy-code-button {
   }
 }
 
-
-// ===== QUOTES STYLES START HERE =====
-
-// Sidebar quotes
-.recent-quotes-list {
+// Quote summary card (for lists)
+.quote-summary {
+  padding: $spacing-unit * 1.5;
+  border-radius: $border-radius;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  transition: $transition-base;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: $spacing-unit * 1.5;
-  li a {
+
+  &:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-sm;
+  }
+  
+  .quote-summary-link {
     display: block;
-    padding: $spacing-unit;
-    border-right: 3px solid var(--color-border);
-    background-color: var(--color-background);
-    border-radius: 0 $border-radius $border-radius 0;
-    transition: $transition-base;
-    
-    &:hover {
-      text-decoration: none;
-      border-color: var(--color-accent);
-      background-color: var(--color-surface);
-      transform: translateX(-4px);
-    }
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
   }
-  .quote-text {
-    font-size: 0.9rem;
+
+  .quote-icon {
+    position: absolute;
+    top: $spacing-unit;
+    right: $spacing-unit;
+    font-size: 2rem;
+    color: var(--color-border);
+    line-height: 1;
+  }
+
+  blockquote {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-right: $spacing-unit * 2.5; // space for icon
+    font-size: 1.05rem;
+    line-height: 1.6;
     color: var(--color-text-primary);
-    margin-bottom: $spacing-unit * 0.5;
-    line-height: 1.5;
   }
-  .quote-author {
-    font-size: 0.8rem;
-    color: var(--color-text-secondary);
+  figcaption {
     text-align: left;
-    &::before {
-      content: "— ";
-    }
+    margin-top: $spacing-unit;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
   }
 }
 
-// Single Quote Page
-.quote-page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  .quote-card-large {
-    width: 100%;
-    max-width: 650px;
-    margin: $spacing-unit * 2 0;
-    padding: $spacing-unit * 2;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: $border-radius;
-    position: relative;
-    &::before {
-      content: '“';
-      position: absolute;
-      top: 0.5rem;
-      right: 1.5rem;
-      font-size: 5rem;
-      color: var(--color-border);
-      z-index: 1;
-      line-height: 1;
-    }
+// Large Quote on Homepage
+.quote-latest {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
+
+  .quote-content {
     blockquote {
-      border: none;
-      padding: 0;
+      border-right: 3px solid var(--color-accent);
+      padding-right: $spacing-unit * 1.5;
       margin: 0;
-      position: relative;
-      z-index: 2;
-      font-size: 1.75rem;
+      font-size: 1.4rem;
       font-weight: 500;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--color-heading);
     }
     figcaption {
-      margin-top: $spacing-unit * 1.5;
-      font-size: 1.1rem;
-      color: var(--color-text-secondary);
-      z-index: 2;
-      position: relative;
-    }
-  }
-  .quote-meta {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-  }
-  .back-to-quotes-link {
-    margin-top: $spacing-unit * 2;
-    font-weight: 700;
-  }
-}
-
-// All Quotes Page (`/quotes/`)
-.all-quotes-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-unit * 1.5;
-
-  .quote-card-link {
-    display: block;
-    height: 100%;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: $spacing-unit * 1.5;
-    border-radius: $border-radius;
-    transition: $transition-base;
-    
-    &:hover {
-      text-decoration: none;
-      transform: translateY(-4px);
-      box-shadow: $box-shadow;
-      border-color: var(--color-accent);
-    }
-    blockquote {
-      font-size: 1.1rem;
-      color: var(--color-text-primary);
-      border: none;
-      padding: 0;
-      margin: 0 0 $spacing-unit 0;
-    }
-    figcaption {
-      font-size: 0.9rem;
-      color: var(--color-text-secondary);
       text-align: left;
+      margin-top: $spacing-unit;
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
     }
+  }
+  .post-meta {
+    margin-top: $spacing-unit;
+    font-size: 0.9rem;
   }
 }
 

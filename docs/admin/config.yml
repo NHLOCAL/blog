@@ -39,3 +39,4 @@ collections:
       - { label: "תוכן הציטוט", name: "quote_text", widget: "text", required: true }
       - { label: "דובר / מקור הציטוט", name: "author", widget: "string", required: true }
       - { label: "קישור למקור (אופציונלי)", name: "source_url", widget: "string", required: false }
+      - { label: "ציטוט מומלץ?", name: "popular", widget: "boolean", required: false, default: false }
