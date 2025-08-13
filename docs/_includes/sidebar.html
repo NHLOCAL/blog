@@ -30,8 +30,8 @@
       {% for quote in recent_quotes limit: quotes_limit %}
       <li>
         <a href="{{ quote.url | relative_url }}">
-          <p class="quote-text">{{ quote.quote_text | truncatewords: 15 }}</p>
-          <p class="quote-author">{{ quote.author }}</p>
+          <div class="quote-text">"{{ quote.quote_text | markdownify | strip_html | truncatewords: 12 }}"</div>
+          <div class="quote-author">{{ quote.author }}</div>
         </a>
       </li>
       {% endfor %}
