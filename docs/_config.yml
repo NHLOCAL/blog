@@ -21,6 +21,12 @@ sass:
 include:
   - admin
 
+# הגדרת סוגי תוכן (Collections)
+collections:
+  quotes:
+    output: true
+    permalink: /quotes/:title/
+
 defaults:
   - scope:
       path: ""
@@ -32,13 +38,18 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+  - scope:
+      path: ""
+      type: "quotes"
+    values:
+      layout: "quote"
 
 custom_settings:
   profile_image: "https://nhlocal.github.io/NH.LOCAL.jpg"
   posts_per_page_home: 5
   recent_posts_sidebar_count: 5
   popular_posts_sidebar_count: 5
-
+  recent_quotes_sidebar_count: 3
 
 
 plugins:

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<article class="quote-page-container">
+  <div class="quote-card-large">
+    <blockquote>{{ page.quote_text }}</blockquote>
+    <figcaption>
+      — 
+      {% if page.source_url %}
+        <a href="{{ page.source_url }}" target="_blank" rel="noopener noreferrer">{{ page.author }}</a>
+      {% else %}
+        {{ page.author }}
+      {% endif %}
+    </figcaption>
+  </div>
+  <p class="quote-meta">
+    פורסם בתאריך: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time>
+  </p>
+  <a href="{{ "/quotes/" | relative_url }}" class="back-to-quotes-link">
+    <i class="bi bi-quote"></i> חזרה לכל הציטוטים
+  </a>
+</article>

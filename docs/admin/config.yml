@@ -26,3 +26,16 @@ collections:
       - { label: "תגיות", name: "tags", widget: "list", required: false }
       - { label: "שם המחבר", name: "author", widget: "string", required: false, default: "nh local" }
       - { label: "גוף הפוסט", name: "body", widget: "markdown", required: true }
+  
+  - name: "quotes"
+    label: "ציטוטים"
+    folder: "_quotes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "quote" }
+      - { label: "כותרת (לצורך הקישור והזיהוי)", name: "title", widget: "string", required: true }
+      - { label: "תאריך", name: "date", widget: "datetime", required: true }
+      - { label: "תוכן הציטוט", name: "quote_text", widget: "text", required: true }
+      - { label: "דובר / מקור הציטוט", name: "author", widget: "string", required: true }
+      - { label: "קישור למקור (אופציונלי)", name: "source_url", widget: "string", required: false }

@@ -35,7 +35,7 @@ body.nav-open {
   position: relative;
   display: inline-block;
   padding-bottom: 2px;
-  
+
   &:hover {
     color: var(--color-accent);
     text-decoration: none;
@@ -451,7 +451,138 @@ div.highlight:hover .copy-code-button {
 }
 
 
-// ===== NEW/UPDATED STYLES END HERE =====
+// ===== QUOTES STYLES START HERE =====
+
+// Sidebar quotes
+.recent-quotes-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 1.5;
+  li a {
+    display: block;
+    padding: $spacing-unit;
+    border-right: 3px solid var(--color-border);
+    background-color: var(--color-background);
+    border-radius: 0 $border-radius $border-radius 0;
+    transition: $transition-base;
+    
+    &:hover {
+      text-decoration: none;
+      border-color: var(--color-accent);
+      background-color: var(--color-surface);
+      transform: translateX(-4px);
+    }
+  }
+  .quote-text {
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    margin-bottom: $spacing-unit * 0.5;
+    line-height: 1.5;
+  }
+  .quote-author {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    text-align: left;
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+// Single Quote Page
+.quote-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .quote-card-large {
+    width: 100%;
+    max-width: 650px;
+    margin: $spacing-unit * 2 0;
+    padding: $spacing-unit * 2;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius;
+    position: relative;
+    &::before {
+      content: '“';
+      position: absolute;
+      top: 0.5rem;
+      right: 1.5rem;
+      font-size: 5rem;
+      color: var(--color-border);
+      z-index: 1;
+      line-height: 1;
+    }
+    blockquote {
+      border: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--color-heading);
+    }
+    figcaption {
+      margin-top: $spacing-unit * 1.5;
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      z-index: 2;
+      position: relative;
+    }
+  }
+  .quote-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+  .back-to-quotes-link {
+    margin-top: $spacing-unit * 2;
+    font-weight: 700;
+  }
+}
+
+// All Quotes Page (`/quotes/`)
+.all-quotes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-unit * 1.5;
+
+  .quote-card-link {
+    display: block;
+    height: 100%;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: $spacing-unit * 1.5;
+    border-radius: $border-radius;
+    transition: $transition-base;
+    
+    &:hover {
+      text-decoration: none;
+      transform: translateY(-4px);
+      box-shadow: $box-shadow;
+      border-color: var(--color-accent);
+    }
+    blockquote {
+      font-size: 1.1rem;
+      color: var(--color-text-primary);
+      border: none;
+      padding: 0;
+      margin: 0 0 $spacing-unit 0;
+    }
+    figcaption {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+  }
+}
+
+// ===== QUOTES STYLES END HERE =====
 
 @media (min-width: $breakpoint-md) {
   .site-header { margin: $spacing-unit * 2 0; }
