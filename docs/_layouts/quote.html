@@ -3,16 +3,18 @@ layout: default
 ---
 
 <article class="quote-page-container">
-  <div class="quote-card-large">
-    <blockquote>{{ page.quote_text }}</blockquote>
-    <figcaption>
-      — 
-      {% if page.source_url %}
-        <a href="{{ page.source_url }}" target="_blank" rel="noopener noreferrer">{{ page.author }}</a>
-      {% else %}
-        {{ page.author }}
-      {% endif %}
-    </figcaption>
+  <div class="quote-card--large">
+    <div class="quote-content-wrapper">
+      <blockquote>{{ page.quote_text | markdownify }}</blockquote>
+      <figcaption>
+        — 
+        {% if page.source_url %}
+          <a href="{{ page.source_url }}" target="_blank" rel="noopener noreferrer">{{ page.author }}</a>
+        {% else %}
+          {{ page.author }}
+        {% endif %}
+      </figcaption>
+    </div>
   </div>
   <p class="quote-meta">
     פורסם בתאריך: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time>

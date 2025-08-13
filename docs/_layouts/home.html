@@ -9,8 +9,8 @@ layout: default
   {% if latest_item %}
     {% if latest_item.collection == "quotes" %}
       {% assign quote = latest_item %}
-      <article class="quote-latest">
-        <div class="quote-content">
+      <article class="quote-card--large">
+        <div class="quote-content-wrapper">
           <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
           <figcaption>— {{ quote.author }}</figcaption>
         </div>
@@ -69,9 +69,9 @@ layout: default
       <li>
         {% if item.collection == "quotes" %}
           {% assign quote = item %}
-          <a href="{{ quote.url | relative_url }}" class="quote-summary">
+          <a href="{{ quote.url | relative_url }}" class="quote-card--list-item">
             <article>
-              <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+              <blockquote>{{ quote.quote_text | markdownify | strip_html | truncatewords: 45 }}</blockquote>
               <figcaption>— {{ quote.author }}</figcaption>
             </article>
           </a>

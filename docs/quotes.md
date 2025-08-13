@@ -16,13 +16,11 @@ permalink: /quotes/
     <ul class="all-quotes-list">
       {% for quote in all_quotes %}
         <li>
-          <a href="{{ quote.url | relative_url }}" class="quote-card-link">
+          <a href="{{ quote.url | relative_url }}" class="quote-card--list-item">
             <article>
-              <div class="quote-content-wrapper">
-                <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+              <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+              <div class="quote-footer">
                 <figcaption>— {{ quote.author }}</figcaption>
-              </div>
-              <div class="quote-meta">
                 <time datetime="{{ quote.date | date_to_xmlschema }}">
                   <i class="bi bi-calendar-event"></i> {{ quote.date | date: "%d/%m/%Y" }}
                 </time>
