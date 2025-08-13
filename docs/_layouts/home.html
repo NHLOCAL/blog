@@ -3,22 +3,20 @@ layout: default
 ---
 
 <div class="homepage">
-  {% comment %} שלב 1: איחוד ומיון של פוסטים וציטוטים {% endcomment %}
   {% assign all_items = site.posts | concat: site.quotes | sort: 'date' | reverse %}
   {% assign latest_item = all_items | first %}
 
   {% if latest_item %}
-    {% comment %} שלב 2: הצגת הפריט האחרון (יכול להיות פוסט או ציטוט) {% endcomment %}
     {% if latest_item.collection == "quotes" %}
       {% assign quote = latest_item %}
       <article class="quote-latest">
         <div class="quote-content">
-          <blockquote>{{ quote.quote_text }}</blockquote>
+          <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
           <figcaption>— {{ quote.author }}</figcaption>
         </div>
         <p class="post-meta">
           <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ quote.date | date_to_xmlschema }}">{{ quote.date | date: "%d/%m/%Y" }}</time></span>
-          <span class="meta-item"><i class="bi bi-quote"></i> <a href="{{ quote.url | relative_url }}">קישור ישיר</a></span>
+          <span class="meta-item"><i class="bi bi-link-45deg"></i> <a href="{{ quote.url | relative_url }}">קישור ישיר</a></span>
         </p>
       </article>
     {% else %}
@@ -60,7 +58,6 @@ layout: default
     {% endif %}
   {% endif %}
 
-  {% comment %} שלב 3: הצגת רשימת הפריטים הישנים יותר {% endcomment %}
   {% assign older_items_count = site.custom_settings.posts_per_page_home | default: 5 %}
   {% assign items_to_show = all_items | shift | limit: older_items_count %}
 
@@ -72,13 +69,12 @@ layout: default
       <li>
         {% if item.collection == "quotes" %}
           {% assign quote = item %}
-          <article class="quote-summary">
-            <a href="{{ quote.url | relative_url }}" class="quote-summary-link">
-              <i class="bi bi-quote quote-icon"></i>
-              <blockquote>{{ quote.quote_text | truncatewords: 45 }}</blockquote>
+          <a href="{{ quote.url | relative_url }}" class="quote-summary">
+            <article>
+              <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
               <figcaption>— {{ quote.author }}</figcaption>
-            </a>
-          </article>
+            </article>
+          </a>
         {% else %}
           {% assign post = item %}
           <article class="post-summary{% unless post.featured_image %} no-thumbnail{% endunless %}">

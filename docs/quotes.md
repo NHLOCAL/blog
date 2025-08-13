@@ -18,8 +18,15 @@ permalink: /quotes/
         <li>
           <a href="{{ quote.url | relative_url }}" class="quote-card-link">
             <article>
-              <blockquote>{{ quote.quote_text }}</blockquote>
-              <figcaption>— {{ quote.author }}</figcaption>
+              <div class="quote-content-wrapper">
+                <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+                <figcaption>— {{ quote.author }}</figcaption>
+              </div>
+              <div class="quote-meta">
+                <time datetime="{{ quote.date | date_to_xmlschema }}">
+                  <i class="bi bi-calendar-event"></i> {{ quote.date | date: "%d/%m/%Y" }}
+                </time>
+              </div>
             </article>
           </a>
         </li>

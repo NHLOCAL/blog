@@ -36,7 +36,7 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "quote" }
       - { label: "כותרת (לצורך הקישור והזיהוי)", name: "title", widget: "string", required: true }
       - { label: "תאריך", name: "date", widget: "datetime", required: true }
-      - { label: "תוכן הציטוט", name: "quote_text", widget: "text", required: true }
+      - { label: "תוכן הציטוט", name: "quote_text", widget: "markdown", required: true }
       - { label: "דובר / מקור הציטוט", name: "author", widget: "string", required: true }
       - { label: "קישור למקור (אופציונלי)", name: "source_url", widget: "string", required: false }
       - { label: "ציטוט מומלץ?", name: "popular", widget: "boolean", required: false, default: false }
