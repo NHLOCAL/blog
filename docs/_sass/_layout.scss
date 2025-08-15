@@ -537,7 +537,7 @@ div.highlight:hover .copy-code-button {
       font-size: 1.0rem;
       font-weight: 400;
       line-height: 1.65;
-      color: var(--color-heading);
+      color: var(--color-quote-text);
       margin-bottom: 1em;
       &:last-child { margin-bottom: 0; }
     }
@@ -572,7 +572,7 @@ div.highlight:hover .copy-code-button {
     transition: border-color 0.2s ease;
     p { 
       font-size: 1.05rem; line-height: 1.6; 
-      color: var(--color-text-primary);
+      color: var(--color-quote-text);
       margin: 0 0 1em 0;
       &:last-child { margin-bottom: 0; }
     }
