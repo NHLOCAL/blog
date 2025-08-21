@@ -1,26 +1,15 @@
 @echo off
+pushd "%~dp0docs"
 
-echo [1/3] Cleaning previous build...
-if exist "_site" (
-    rmdir /s /q "_site"
-)
+:: הפעלת השרת
+start "" cmd /c "bundle exec jekyll serve"
 
-echo.
-echo [2/3] Building the site with Jekyll...
-bundle exec jekyll build
+:: המתנה קלה כדי לוודא שהשרת עלה
+timeout /t 3 > nul
 
-echo.
-echo [3/3] Indexing the built site with Pagefind...
-rem Using the modern --site flag instead of the deprecated --source
-pagefind --site "_site"
+:: פתיחת דפדפן בכתובת Jekyll המקומית
+start http://localhost:4000/admin
 
-echo.
-echo --- Build and Indexing Complete ---
-echo Starting the local server. It will NOT rebuild the site on changes.
-echo Your site is available at http://127.0.0.1:4000
-echo To see new changes, you must stop the server (Ctrl+C) and run this script again.
-echo.
+popd
 
-rem Serve the STATIC _site directory without any rebuilding.
-start http://127.0.0.1:4000
-bundle exec jekyll serve --skip-initial-build
+exit
