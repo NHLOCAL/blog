@@ -62,7 +62,10 @@ def download_images_and_update_html(html_content, base_url, image_dir, image_bas
                         f.write(chunk)
             
             # הנתיב שייכתב ב-Markdown יהיה יחסי לקובץ
-            relative_path = os.path.join(image_dir, new_filename).replace("\\", "/")
+            relative_path = os.path.join(image_dir, new_filename).replace("", "/")
+            if relative_path.startswith('docs/'):
+                relative_path = '/' + relative_path[len('docs/'):]
+            img_tag['src'] = relative_path
             img_tag['src'] = relative_path
             
             image_counter += 1
@@ -182,7 +185,7 @@ def main():
         final_title = args.title or original_title
         output_filename = args.output or f"{date.today().strftime('%Y-%m-%d')}-{slugify(final_title)}.md"
         
-        post_base_name = os.path.splitext(output_filename)[0]
+        post_base_name = os.path.splitext(os.path.basename(output_filename))[0]
         # הגדרת תיקיית התמונות: מותאמת אישית או ברירת מחדל
         image_output_dir = args.image_dir or post_base_name
         
