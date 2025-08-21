@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="he"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://blog.ze-kal.top/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.ze-kal.top/" rel="alternate" type="text/html" hreflang="he" /><updated>2025-08-21T20:46:56+00:00</updated><id>https://blog.ze-kal.top/feed.xml</id><title type="html">הבלוג של NHLOCAL</title><subtitle>לגלות דברים חדשים זה קל!</subtitle><author><name>NH Local</name></author><entry><title type="html">GPT 5 הגיע - הסקירה המלאה עם כל מה שחשוב לדעת</title><link href="https://blog.ze-kal.top/ai/2025/08/09/gpt-5-realese/" rel="alternate" type="text/html" title="GPT 5 הגיע - הסקירה המלאה עם כל מה שחשוב לדעת" /><published>2025-08-09T21:01:26+00:00</published><updated>2025-08-09T21:01:26+00:00</updated><id>https://blog.ze-kal.top/ai/2025/08/09/gpt-5-realese</id><content type="html" xml:base="https://blog.ze-kal.top/ai/2025/08/09/gpt-5-realese/"><![CDATA[<p>לפני מספר ימים פרסמתי פוסט המבשר על השחרור הקרב ובא של GPT 5. ביחס לדקות הספורות שהשקעתי בכתיבה שלו - זה כנראה הפוסט שקיבל הכי הרבה לייקים והתעניינות… מה שאומר דבר פשוט אחד: GPT 5 מעניין את הציבור כאן, וכמו שכתבתי - לפניכם הסקירה המלאה:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="he"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://blog.ze-kal.top/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.ze-kal.top/" rel="alternate" type="text/html" hreflang="he" /><updated>2025-08-21T21:18:22+00:00</updated><id>https://blog.ze-kal.top/feed.xml</id><title type="html">הבלוג של NHLOCAL</title><subtitle>לגלות דברים חדשים זה קל!</subtitle><author><name>NH Local</name></author><entry><title type="html">תוסף לייצוא שרשורים מפורומים - כלי מושלם עבור הקשר ל-AI</title><link href="https://blog.ze-kal.top/tools/ai/2025/08/21/nodebb-thread-exporter/" rel="alternate" type="text/html" title="תוסף לייצוא שרשורים מפורומים - כלי מושלם עבור הקשר ל-AI" /><published>2025-08-21T00:00:00+00:00</published><updated>2025-08-21T00:00:00+00:00</updated><id>https://blog.ze-kal.top/tools/ai/2025/08/21/nodebb-thread-exporter</id><content type="html" xml:base="https://blog.ze-kal.top/tools/ai/2025/08/21/nodebb-thread-exporter/"><![CDATA[<p>במסגרת העבודה שלי על <a href="/ai/תורני/מדריכים/2025/07/27/torah-lessons-transcript/">המערכת לתמלול שיעורים</a>, קיבלתי עשרות תגובות בשרשור ארוך ומסובך בפורום מתמחים טופ, עם רעיונות, עצות, באגים שנמצאו והמלצות שונות ומשונות.</p>
+
+<p>רציתי להפוך את כל המידע הזה לרשימה מאורגנת שיהיה ניתן ליישם בפועל.<br />
+לצורך כך אני משתמש כמובן ב-AI Studio, הכלי המושלם למשימות הכוללות ניתוח של הקשר ארוך.</p>
+
+<h3 id="אבל-איך-מעתיקים-את-כל-המידע-מהשרשור-בפורום">אבל איך מעתיקים את כל המידע מהשרשור בפורום?</h3>
+
+<p>הדרך הישנה והגרועה, היתה פשוט לעבור על השרשור ולבצע העתקה ידנית של כל התוכן. הדרך הזו מייגעת, ועשויה לקחת הרבה זמן ולדרוש המון גלילה, במיוחד בשרשורים ארוכים מאוד.</p>
+
+<p>כדי להקל על הבעיה, יצרתי תוסף כרום קטן ב<a href="/quotes/karpathy-vibe-coding/">קידוד וייב</a>, שעושה בדיוק את זה!
+התוסף עובד ישירות מול ה-API של NodeBB. התהליך מהיר, אמין, ולא תלוי בשינויים עיצוביים באתר.
+לא נותר לכם אלא להעביר את המידע ישירות ל-AI Studio, ולבקש שיארגן אותה לקובץ תוכנית עבודה עם רשימה מסודרת!</p>
+
+<h3 id="היתרון-המרכזי---חיסכון-בטוקנים">היתרון המרכזי - חיסכון בטוקנים</h3>
+
+<p>כדי להפוך את הפלט שמתקבל לשימושי, התוסף כולל המרה של התוכן מה-API לפורמט json משולב MD, והסרה של כל תוכן לא רלוונטי. התוסף המעודכן מקטין את גודל הפלט עד פי 10 מהיקף התוכן המקורי המתקבל מה-API</p>
+
+<p>ניסיתי להשתמש <strong>בסימניה של @יום_שמח</strong> עבור <a href="https://mitmachim.top/post/941094"><strong>השרשור הזה</strong></a> (באורך כולל של 388 פוסטים), העלתי את הקובץ שהורד ל-AI Studio, וספירת האסימונים עמדה על <strong>559,430 טוקנים</strong>!</p>
+
+<p>עם <a href="https://tools.ze-kal.top/#nodebb-thread-exporter"><strong>התוסף המעודכן שלי</strong></a> עבור אותו שרשור בדיוק, הגעתי ל-<strong><del>65,597</del> 50,825 טוקנים בלבד</strong>. גם ארוך, אבל הרבה יותר סביר.</p>
+
+<p>זה מתבטא גם בגודל הקובץ - 1.3 MB (ענק במושגי AI) לעומת <del>154</del> 129 KB בלבד</p>
+
+<h3 id="איך-משתמשים">איך משתמשים?</h3>
+
+<p>תוכלו להוריד את התוסף ישירות מ<a href="https://tools.ze-kal.top">ארגז הכלים שלי</a></p>
+
+<p><a href="https://tools.ze-kal.top/#nodebb-thread-exporter">https://tools.ze-kal.top/#nodebb-thread-exporter</a></p>
+
+<ol>
+  <li>התקינו את התוסף בדפדפן כרום.</li>
+  <li>גשו לעמוד שרשור באתר נתמך (למשל, <code class="language-plaintext highlighter-rouge">mitmachim.top/topic/...</code>).</li>
+  <li>לחצו על סמל התוסף בסרגל הכלים של הדפדפן.</li>
+  <li>בחרו באפשרות הרצויה: <strong>“העתק ללוח”</strong> או <strong>“הורד כקובץ JSON”</strong>.</li>
+  <li>התוסף יפנה ל-API ברקע ויאסוף את כל הפוסטים. התהליך מהיר מאוד ואינו דורש גלילה פיזית של הדף.</li>
+  <li>בסיום, הקובץ ירד למחשב או שהתוכן יחכה לכם בלוח, מוכן להדבקה.</li>
+</ol>
+
+<p><img src="/assets/images/2025-08-21-nodebb-thread-exporter-1.png" alt="88f65d3d-106f-4ccb-ab64-dd852a3a6aea-image.png" /></p>]]></content><author><name>NH Local</name></author><category term="Tools" /><category term="AI" /><category term="NodeBB" /><category term="Chrome Extension" /><category term="AI Studio" /><category term="API" /><category term="AI" /><category term="tools" /><summary type="html"><![CDATA[תוסף כרום חדש לייצוא שרשורים מלאים מפורומים מבוססי NodeBB לקובץ JSON, מושלם לשימוש עם כלי בינה מלאכותית.]]></summary></entry><entry><title type="html">GPT 5 הגיע - הסקירה המלאה עם כל מה שחשוב לדעת</title><link href="https://blog.ze-kal.top/ai/2025/08/09/gpt-5-realese/" rel="alternate" type="text/html" title="GPT 5 הגיע - הסקירה המלאה עם כל מה שחשוב לדעת" /><published>2025-08-09T21:01:26+00:00</published><updated>2025-08-09T21:01:26+00:00</updated><id>https://blog.ze-kal.top/ai/2025/08/09/gpt-5-realese</id><content type="html" xml:base="https://blog.ze-kal.top/ai/2025/08/09/gpt-5-realese/"><![CDATA[<p>לפני מספר ימים פרסמתי פוסט המבשר על השחרור הקרב ובא של GPT 5. ביחס לדקות הספורות שהשקעתי בכתיבה שלו - זה כנראה הפוסט שקיבל הכי הרבה לייקים והתעניינות… מה שאומר דבר פשוט אחד: GPT 5 מעניין את הציבור כאן, וכמו שכתבתי - לפניכם הסקירה המלאה:</p>
 
 <h2 id="מה-יש-ב-gpt-5">מה יש ב-GPT-5?</h2>
 
@@ -406,48 +444,4 @@ gpt 4o ושאר המודלים טרום עידן החשיבה, לא התקרבו
 
 <p><strong>ניתן לבצע את ההמרה בעצמכם עם כל שיר שתרצו בקישור המצורף, הכולל גם מדריך קצר וברור לשימוש בקוד</strong></p>
 
-<p><a href="https://github.com/NHLOCAL/WatchZekal/tree/main/song_subtitler">מאגר לצפות זה קל בגיטהאב </a></p>]]></content><author><name>NH Local</name></author><category term="AI" /><category term="מוזיקה" /><category term="AI" /><category term="Google" /><category term="AI Studio" /><category term="Gemini" /><category term="LLM" /><category term="Subtitles" /><summary type="html"><![CDATA[פרויקט מרתק: שימוש במודל Gemini 2.5 Pro החדש של גוגל כדי לתמלל ולתרגם שירים מורכבים מאנגלית לעברית, כולל התמודדות עם מוזיקת רקע ואיכות שמע נמוכה.]]></summary></entry><entry><title type="html">o3 mini - מודל ה-AI המתקדם של OpenAI שוחרר לכולם! כן, גם למשתמשים החינמיים!</title><link href="https://blog.ze-kal.top/ai/2025/02/01/o3-mini-realese/" rel="alternate" type="text/html" title="o3 mini - מודל ה-AI המתקדם של OpenAI שוחרר לכולם! כן, גם למשתמשים החינמיים!" /><published>2025-02-01T00:00:00+00:00</published><updated>2025-02-01T00:00:00+00:00</updated><id>https://blog.ze-kal.top/ai/2025/02/01/o3-mini-realese</id><content type="html" xml:base="https://blog.ze-kal.top/ai/2025/02/01/o3-mini-realese/"><![CDATA[<p>לאחר שחרור המודל deepseek R1 והתחרות הגוברת, OpenAI חוזרת ובגדול עם המודל המתקדם ביותר שלהם o3 mini, שמשוחרר גם למשתמשים בחינם.</p>
-
-<p>מאחורי הקלעים, המודל משתמש בשלוש עוצמות חשיבה, low, medium ו-high. וכמובן, ככל שהמודל חושב יותר, הוא מציג ביצועים טובים יותר. הגרסה החינמית מקבלת את מודל ה-medium, המאזן בין עלות וביצועים.</p>
-
-<p>כפי שניתן לראות, כל שחרור חדש בסדרת המודלים של OpenAI משנה את כללי המשחק. המהלך מגיע כתגובה לתחרות הגוברת, ומיד ממקם את o3 mini כשחקן מפתח בשאלה הנצחית: <strong><a href="/ai/2025/06/26/best-model-for-coding/">מהו מודל ה-AI הטוב ביותר לתכנות?</a></strong></p>
-
-<p>בחלק מהתחומים, כמו שפה, מתמטיקה ועוד o1 הוא עדיין מודל טוב יותר, אך בקידוד o3 mini מציג ביצועים מדהימים. במדד livebench למשל, אחד המדדים האמינים והמוכרים בתחום, המודל החדש מקבל ציון מדהים של 82.74%. 13% יותר ממודל o1 שבמקום השני עם 69% “בלבד”.</p>
-
-<p><img src="/assets/images/9ceb760b-bd59-42ef-88d3-07eb468ac92d-image.png" alt="9ceb760b-bd59-42ef-88d3-07eb468ac92d-image.png" /></p>
-
-<p>החלק המדהים באמת היא העובדה שהמודל זול פי 30 מ-o1, ומהיר יותר פי 3 מ-o1 mini, אבל מציג ציונים גבוהים יותר במגוון תחומים!</p>
-
-<p><strong>צילומי מסך עם גרפים ונתונים מלאים</strong></p>
-
-<p><img src="/assets/images/7e8b2238-9bb2-4619-bca2-0fbed5ca0ae2-image.png" alt="7e8b2238-9bb2-4619-bca2-0fbed5ca0ae2-image.png" /></p>
-
-<p><img src="/assets/images/2434c8e7-cf64-42d6-b38d-d6cbe04c53ff-image.png" alt="2434c8e7-cf64-42d6-b38d-d6cbe04c53ff-image.png" /></p>
-
-<p><img src="/assets/images/dbba6fb4-0ab5-4fd5-965e-fe9235d4f26a-image.png" alt="dbba6fb4-0ab5-4fd5-965e-fe9235d4f26a-image.png" /></p>
-
-<p><img src="/assets/images/f3fdc6e2-2597-4a3f-9de2-d8497d32655a-image.png" alt="f3fdc6e2-2597-4a3f-9de2-d8497d32655a-image.png" /></p>
-
-<p>ניתן להפעיל אותו בלחיצה על כפתור החשיבה בממשק של צ’אט GPT. ולמי ששם לב הוא ממש חיקוי מדויק של הממשק של deepseek…</p>
-
-<p><img src="/assets/images/81f08e7b-b42e-4511-979e-22e407751efc-image.png" alt="81f08e7b-b42e-4511-979e-22e407751efc-image.png" /></p>
-
-<hr />
-
-<p><strong>למידע נוסף:</strong></p>
-
-<ul>
-  <li>https://openai.com/index/o3-mini-system-card</li>
-  <li>https://the-decoder.com/openai-launches-new-reasoning-model-o3-mini-for-free-chatgpt-and-api</li>
-  <li><a href="https://www.reddit.com/r/OpenAI/comments/1ieonxv/ama_with_openais_sam_altman_mark_chen_kevin_weil/">שרשור רשמי עם מנכ”ל OpenAI ואנשי הצוות עם הרבה סקופים</a></li>
-  <li>https://letsai.co.il/o3-mini-guide</li>
-</ul>
-
-<hr />
-
-<p><strong>הפוסטים שלי על המודלים הקודמים בסדרה:</strong></p>
-
-<ul>
-  <li><a href="/ai/2024/09/12/o1-realese-new-ai-age/">הי, עצור! עידן AI חדש לפניך! (o1)</a></li>
-  <li><a href="/ai/2024/12/21/o3-model-shown/">מרוץ ה-AI מתקדם במהירות האור - OpenAI הציגה את מודל o3</a></li>
-</ul>]]></content><author><name>NH Local</name></author><category term="AI" /><category term="AI" /><category term="OpenAI" /><category term="ChatGPT" /><category term="LLM" /><category term="o-series" /><category term="o3" /><summary type="html"><![CDATA[OpenAI משחררת את o3 mini לכולם, כולל למשתמשים חינמיים! סקירה על המודל החדש, השוואת ביצועים מול o1, ואיך הוא מתמודד עם התחרות הגוברת בשוק ה-AI.]]></summary></entry></feed>
+<p><a href="https://github.com/NHLOCAL/WatchZekal/tree/main/song_subtitler">מאגר לצפות זה קל בגיטהאב </a></p>]]></content><author><name>NH Local</name></author><category term="AI" /><category term="מוזיקה" /><category term="AI" /><category term="Google" /><category term="AI Studio" /><category term="Gemini" /><category term="LLM" /><category term="Subtitles" /><summary type="html"><![CDATA[פרויקט מרתק: שימוש במודל Gemini 2.5 Pro החדש של גוגל כדי לתמלל ולתרגם שירים מורכבים מאנגלית לעברית, כולל התמודדות עם מוזיקת רקע ואיכות שמע נמוכה.]]></summary></entry></feed>
