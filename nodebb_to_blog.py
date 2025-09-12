@@ -6,7 +6,7 @@ import re
 import argparse
 import os
 from urllib.parse import urlparse, urljoin
-from datetime import date
+from datetime import date, datetime
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 
@@ -178,6 +178,17 @@ def main():
     api_url = f"{base_url}/api/topic/{tid}"
     original_title, first_post = fetch_first_post(api_url)
     html_content = first_post.get('content', '')
+
+    if not args.date:
+        post_timestamp = first_post.get('timestamp')  # In milliseconds
+        if post_timestamp:
+            try:
+                # Convert from milliseconds to YYYY-MM-DD string
+                post_date = datetime.fromtimestamp(post_timestamp / 1000).strftime('%Y-%m-%d')
+                args.date = post_date
+                print(f"Automatically detected post date: {post_date}")
+            except Exception as e:
+                print(f"Warning: Could not parse timestamp '{post_timestamp}'. Using today's date. Error: {e}")
 
     is_save_mode = any([args.output, args.categories, args.tags, args.description, args.featured_image, args.title, args.image_dir])
 
