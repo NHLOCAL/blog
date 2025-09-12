@@ -8,9 +8,9 @@ When asked to convert a link to a post, follow these steps:
 
 ### 1. Gather Information
 
-- **Get Post Date:** Try to find the publication date from the article's content. If not available, use the current date (`YYYY-MM-DD`).
+- **Get Post Date:** The script automatically detects the publication date from the post's metadata. The `--date` flag can be used to override this.
 
-- **Preview Content:** Get the title and content to determine the final metadata.
+- **Preview Content:** Get the title and content to determine the final metadata. The preview will also show the automatically detected date.
   ```bash
   python nodebb_to_blog.py <URL>
   ```
@@ -24,16 +24,16 @@ When asked to convert a link to a post, follow these steps:
 
 ### 2. Create the Blog Post
 
-- **Execute Script:** Use the collected information (drafts/posts_metadata.json) to run the script.
+- **Execute Script:** Use the collected information to run the script. The date will be set automatically unless you override it with `--date`.
   ```bash
   python nodebb_to_blog.py <URL> \
     -o "docs/_posts/YYYY-MM-DD-slug.md" \
-    --date "YYYY-MM-DD" \
     -T "<Title>" \
     -d "<Description>" \
     -c <Category1> <Category2> \
     -t <Tag1> <Tag2>
   ```
+
 
 ### 3. Add Featured Image
 
