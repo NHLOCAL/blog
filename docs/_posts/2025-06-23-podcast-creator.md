@@ -12,6 +12,7 @@ tags:
 - podcast
 - tools
 - tts
+- Productivity
 featured_image: "/assets/images/gemini-podcasts.webp"
 description: גלו כלי חדש המאפשר ליצור פודקאסטים מבוססי AI באיכות אנושית, תוך שימוש
   במודלי ה-TTS החדשים של ג'מיני. המדריך המלא ליצירת תוכן שמע מרתק בשליטה מלאה.

@@ -11,6 +11,7 @@ tags:
 - Development
 - Chrome Extension
 - tools
+- Productivity
 description: סיפור אישי על פיתוח תוסף ל-NodeBB, החשיבות של תכנון מול 'קידוד וייב',
   ומה אפשר ללמוד מטעויות בדרך.
 ---

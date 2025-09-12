@@ -12,6 +12,8 @@ tags:
 - API
 - AI
 - tools
+- Vibe Coding
+- Productivity
 description: תוסף כרום חדש לייצוא שרשורים מלאים מפורומים מבוססי NodeBB לקובץ JSON,
   מושלם לשימוש עם כלי בינה מלאכותית.
 ---

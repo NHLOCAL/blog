@@ -12,6 +12,7 @@ tags:
 - LLM
 - o1
 - o-series
+- Productivity
 description: גלו כיצד מודל o1 החדש של OpenAI אפשר לי לבנות אתר שלם, 'זה קל!', עם מעל
   2,500 מונחים טכניים, בפחות מ-24 שעות. סיפור מקרה על כוחה של AI בפיתוח מהיר.
 popular: true

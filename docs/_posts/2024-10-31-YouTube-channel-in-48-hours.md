@@ -10,6 +10,7 @@ tags:
 - לימוד-אנגלית
 - יוטיוב
 - o-series
+- Productivity
 featured_image: https://i.ytimg.com/vi/0uCrCUXi7Vo/maxresdefault.jpg
 description: 'סיפור פרויקט: כך הקמתי ערוץ יוטיוב שלם ללימוד אנגלית תוך 48 שעות, תוך
   שימוש בכ-98% בינה מלאכותית ומודל o1 של OpenAI. מהתכנון ועד יצירת הוידאו.'
