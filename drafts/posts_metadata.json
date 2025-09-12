@@ -1,0 +1,280 @@
+[
+    {
+        "file": "2025-09-12-press-the-button-ai-secret.md",
+        "title": "ללחוץ על הכפתור: הסוד לפלט איכותי מבינה מלאכותית",
+        "description": "למה חשוב לתת ל-AI הנחיות ברורות ואיך מסמך דרישות טוב הוא המפתח לקבלת קוד איכותי ויעיל.",
+        "tags": [
+            "AI",
+            "Development",
+            "Productivity"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-08-28-vibe-coding-lesson.md",
+        "title": "איך נפלתי עם קידוד וייב ומה למדתי בדרך",
+        "description": "סיפור אישי על פיתוח תוסף ל-NodeBB, החשיבות של תכנון מול 'קידוד וייב', ומה אפשר ללמוד מטעויות בדרך.",
+        "tags": [
+            "Vibe Coding",
+            "NodeBB",
+            "API",
+            "Development",
+            "Chrome Extension",
+            "tools"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-08-21-nodebb-thread-exporter.md",
+        "title": "תוסף לייצוא שרשורים מפורומים - כלי מושלם עבור הקשר ל-AI",
+        "description": "תוסף כרום חדש לייצוא שרשורים מלאים מפורומים מבוססי NodeBB לקובץ JSON, מושלם לשימוש עם כלי בינה מלאכותית.",
+        "tags": [
+            "NodeBB",
+            "Chrome Extension",
+            "AI Studio",
+            "API",
+            "AI",
+            "tools"
+        ],
+        "categories": [
+            "Tools",
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-08-09-gpt-5-realese.md",
+        "title": "GPT 5 הגיע - הסקירה המלאה עם כל מה שחשוב לדעת",
+        "description": null,
+        "tags": [
+            "AI",
+            "LLM",
+            "OpenAI",
+            "ChatGPT",
+            "o-series"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-08-03-hurban-clock.md",
+        "title": "צפו באתר קטן המציג את מספר השנים מאז החורבן",
+        "description": null,
+        "tags": [
+            "tools",
+            "jewish"
+        ],
+        "categories": [
+            "כללי",
+            "תורני"
+        ]
+    },
+    {
+        "file": "2025-07-27-torah-lessons-transcript.md",
+        "title": "תמלול שיעורי תורה - הדרך החינמית, הקלה והטובה ביותר כיום",
+        "description": null,
+        "tags": [
+            "AI",
+            "Gemini",
+            "tools",
+            "stt",
+            "מדריך",
+            "Subtitles",
+            "jewish"
+        ],
+        "categories": [
+            "AI",
+            "תורני",
+            "מדריכים"
+        ]
+    },
+    {
+        "file": "2025-07-19-api-key-for-gemini.md",
+        "title": "מדריך: איך ליצור מפתח API לג'מיני בשלוש צעדים פשוטים",
+        "description": "מדריך פשוט וברור, צעד אחר צעד, איך להפיק מפתח API לג'מיני של גוגל. לא צריך ידע בתכנות - רק כמה לחיצות כפתור ויש לכם מפתח לשימוש בכלים מבוססי AI.",
+        "tags": [
+            "AI",
+            "Google",
+            "Gemini",
+            "API",
+            "tools",
+            "מדריך"
+        ],
+        "categories": [
+            "AI",
+            "מדריכים"
+        ]
+    },
+    {
+        "file": "2025-07-10-grok-4-released.md",
+        "title": "מירוץ ה-AI ממשיך להתקדם בקצב מסחרר - והפעם Grok 4 על הגריל",
+        "description": "חברת xAI של אילון מאסק משחררת את Grok 4, מודל AI שמנפץ שיאים במבחנים הקשים ביותר ומציב רף חדש בתחרות. סקירה על הביצועים, ההשוואות והמשמעויות.",
+        "tags": [
+            "AI",
+            "LLM",
+            "xAI",
+            "grok"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-06-29-25-gemini-2.5-pro-back-free.md",
+        "title": "ג'מיני 2.5 פרו כעת שוב בחינם",
+        "description": "חדשות טובות למפתחים: גוגל מחזירה את הגישה החינמית ל-Gemini 2.5 Pro דרך ה-API. מה זה אומר עבור פרויקטים עתידיים ואיך זה משפיע על התחרות בשוק?",
+        "tags": [
+            "AI",
+            "Google",
+            "Gemini",
+            "AI Studio",
+            "API"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-06-27-best-model-for-coding.md",
+        "title": "מהו מודל ה-AI הטוב ביותר לתכנות?",
+        "description": "מבולבלים מההיצע? הפוסט הזה עושה סדר. סקירה מקיפה ועדכנית על מודלי ה-AI המובילים לתכנות, כולל השוואה בין סדרת o של OpenAI, דגמי Gemini, קלוד וגרוק.",
+        "tags": [
+            "AI",
+            "Gemini",
+            "LLM",
+            "OpenAI",
+            "grok",
+            "claude",
+            "deepseek",
+            "ChatGPT"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2025-06-23-podcast-creator.md",
+        "title": "כך תצרו פודקאסט מבוסס AI שקשה להאמין שהוא לא אנושי",
+        "description": "גלו כלי חדש המאפשר ליצור פודקאסטים מבוססי AI באיכות אנושית, תוך שימוש במודלי ה-TTS החדשים של ג'מיני. המדריך המלא ליצירת תוכן שמע מרתק בשליטה מלאה.",
+        "tags": [
+            "AI",
+            "Google",
+            "AI Studio",
+            "Gemini",
+            "podcast",
+            "tools",
+            "tts"
+        ],
+        "categories": [
+            "AI",
+            "פודקאסטים"
+        ]
+    },
+    {
+        "file": "2025-04-07-Gemini-2.5-pro-songs.md",
+        "title": "תמלול ותרגום שירים באנגלית עם מודל Gemini 2.5 pro החדש!",
+        "description": "פרויקט מרתק: שימוש במודל Gemini 2.5 Pro החדש של גוגל כדי לתמלל ולתרגם שירים מורכבים מאנגלית לעברית, כולל התמודדות עם מוזיקת רקע ואיכות שמע נמוכה.",
+        "tags": [
+            "AI",
+            "Google",
+            "AI Studio",
+            "Gemini",
+            "LLM",
+            "Subtitles"
+        ],
+        "categories": [
+            "AI",
+            "מוזיקה"
+        ]
+    },
+    {
+        "file": "2025-02-01-o3-mini-realese.md",
+        "title": "o3 mini - מודל ה-AI המתקדם של OpenAI שוחרר לכולם! כן, גם למשתמשים החינמיים!",
+        "description": "OpenAI משחררת את o3 mini לכולם, כולל למשתמשים חינמיים! סקירה על המודל החדש, השוואת ביצועים מול o1, ואיך הוא מתמודד עם התחרות הגוברת בשוק ה-AI.",
+        "tags": [
+            "AI",
+            "OpenAI",
+            "ChatGPT",
+            "LLM",
+            "o-series",
+            "o3"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2024-12-21-o3-model-shown.md",
+        "title": "מרוץ ה-AI מתקדם במהירות האור - OpenAI הציגה את מודל o3",
+        "description": "הכרזה דרמטית מ-OpenAI: מודל o3 מוצג ומציג קפיצת מדרגה מדהימה ביכולות. בואו לראות איך מרוץ החימוש ב-AI מאיץ ומה זה אומר על העתיד הקרוב.",
+        "tags": [
+            "OpenAI",
+            "ChatGPT",
+            "LLM",
+            "o-series",
+            "o3"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2024-10-31-YouTube-channel-in-48-hours.md",
+        "title": "כך בניתי ערוץ שלם ביוטיוב תוך יומיים - עם 98% בינה מלאכותית",
+        "description": "סיפור פרויקט: כך הקמתי ערוץ יוטיוב שלם ללימוד אנגלית תוך 48 שעות, תוך שימוש בכ-98% בינה מלאכותית ומודל o1 של OpenAI. מהתכנון ועד יצירת הוידאו.",
+        "tags": [
+            "AI",
+            "o1",
+            "לימוד-אנגלית",
+            "יוטיוב",
+            "o-series"
+        ],
+        "categories": [
+            "AI",
+            "וידאו"
+        ]
+    },
+    {
+        "file": "2024-10-14-build-site-in-24-hours.md",
+        "title": "העתיד כבר כאן - תוך פחות מ-24 שעות בניתי אתר שלם ללימוד מושגים במחשבים וטכנולוגיה",
+        "description": "גלו כיצד מודל o1 החדש של OpenAI אפשר לי לבנות אתר שלם, 'זה קל!', עם מעל 2,500 מונחים טכניים, בפחות מ-24 שעות. סיפור מקרה על כוחה של AI בפיתוח מהיר.",
+        "tags": [
+            "AI",
+            "OpenAI",
+            "ChatGPT",
+            "LLM",
+            "o1",
+            "o-series"
+        ],
+        "categories": [
+            "AI",
+            "עיצוב אתרים"
+        ]
+    },
+    {
+        "file": "2024-09-12-o1-realese-new-ai-age.md",
+        "title": "הי, עצור! עידן AI חדש לפניך!",
+        "description": "הצצה ראשונה למודל o1 של OpenAI, המסמן עידן חדש ביכולות ההסקה של בינה מלאכותית. סקירה של הביצועים המרשימים שלו במבחנים קשים לעומת GPT-4o.",
+        "tags": [
+            "OpenAI",
+            "ChatGPT",
+            "LLM",
+            "o1",
+            "o-series"
+        ],
+        "categories": [
+            "AI"
+        ]
+    },
+    {
+        "file": "2024-02-16-gemini-1.5-pro.md",
+        "title": "Gemini pro 1.5 - המודל החדש של גוגל, המסוגל לנתח עד 1,000,0000 אסימונים!",
+        "description": "סקירה על ההכרזה של גוגל על Gemini 1.5 Pro, מודל AI מולטי-מודאלי עם חלון הקשר פורץ דרך של מיליון אסימונים. גלו את היכולות החדשות והפוטנציאל למפתחים.",
+        "tags": "AI Google Gemini LLM",
+        "categories": "AI"
+    }
+]
