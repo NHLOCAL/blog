@@ -27,7 +27,7 @@ When asked to convert a NodeBB link, follow these steps:
 
 ### 2. Create the Blog Post
 
-- **Execute Script:** Use the collected information to run the script.
+- **Execute Script:** Use the collected information (drafts/posts_metadata.json) to run the script.
   ```bash
   python nodebb_to_blog.py <URL> \
     -o "docs/_posts/YYYY-MM-DD-slug.md" \
