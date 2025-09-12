@@ -12,7 +12,7 @@ bundle exec jekyll build
 echo.
 echo [3/3] Indexing the built site with Pagefind...
 rem Using the modern --site flag instead of the deprecated --source
-pagefind --site "_site"
+npx pagefind --site "_site"
 
 echo.
 echo --- Build and Indexing Complete ---

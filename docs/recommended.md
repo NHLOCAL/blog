@@ -4,7 +4,7 @@ title: פוסטים מומלצים
 permalink: /recommended/
 ---
 
-<div class="recommended-page">
+<div class="recommended-page" data-pagefind-ignore>
   <h1><i class="bi bi-hand-thumbs-up-fill"></i> התוכן המומלץ של הבלוג</h1>
   <p class="page-subtitle">כאן ריכזנו עבורכם את הפוסטים, המדריכים והציטוטים שזכו להכי הרבה אהבה, כדי שלא תפספסו את התוכן הטוב ביותר</p>
 

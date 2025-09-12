@@ -4,7 +4,7 @@ title: קטגוריות
 permalink: /categories/
 ---
 
-<div class="categories-page">
+<div class="categories-page" data-pagefind-ignore>
   <h1>כל הקטגוריות</h1>
 
   {% assign all_categories = site.categories | sort %}

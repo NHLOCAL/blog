@@ -4,7 +4,7 @@ title: כל הציטוטים
 permalink: /quotes/
 ---
 
-<div class="quotes-page">
+<div class="quotes-page" data-pagefind-ignore>
   <h1><i class="bi bi-chat-right-quote"></i> כל הציטוטים</h1>
   <p class="page-subtitle">אוסף של מחשבות, רעיונות וקטעי מידע מעוררי השראה.</p>
 

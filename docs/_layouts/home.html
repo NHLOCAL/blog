@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="homepage">
+<div class="homepage" data-pagefind-ignore>
   {% assign all_items = site.posts | concat: site.quotes | sort: 'date' | reverse %}
   {% assign latest_item = all_items | first %}
 

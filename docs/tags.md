@@ -4,7 +4,7 @@ title: תגיות
 permalink: /tags/
 ---
 
-<div class="tags-page">
+<div class="tags-page" data-pagefind-ignore>
   <h1>כל התגיות</h1>
 
   {% assign all_tags = site.tags | sort %}
