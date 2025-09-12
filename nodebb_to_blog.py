@@ -137,7 +137,7 @@ def preprocess_html_and_convert_to_md(html_content):
     return cleaned_markdown.strip()
 
 def create_blog_post_content(title, markdown, args):
-    post_date = date.today().strftime('%Y-%m-%d')
+    post_date = args.date or date.today().strftime('%Y-%m-%d')
     categories_yaml = '\n'.join([f"- {c}" for c in args.categories]) if args.categories else ''
     tags_yaml = '\n'.join([f"- {t}" for t in args.tags]) if args.tags else ''
     front_matter = [
@@ -169,6 +169,7 @@ def main():
     parser.add_argument('--tags', '-t', nargs='+', help='(Save Mode) A list of tags.')
     parser.add_argument('--description', '-d', help='(Save Mode) A short description.')
     parser.add_argument('--featured-image', '-i', help='(Save Mode) Path to a featured image.')
+    parser.add_argument('--date', help='(Save Mode) Override the post date (YYYY-MM-DD).')
     
     args = parser.parse_args()
 
