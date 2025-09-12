@@ -1,17 +1,14 @@
-# Workflow: Convert NodeBB Post to Blog Post
+# Workflow: Convert URL to Blog Post
 
-This guide outlines the process for converting a NodeBB post into a blog post using the `nodebb_to_blog.py` script.
+This guide outlines the process for converting a post from a URL into a blog post using the `nodebb_to_blog.py` script.
 
 ## Process Overview
 
-When asked to convert a NodeBB link, follow these steps:
+When asked to convert a link to a post, follow these steps:
 
 ### 1. Gather Information
 
-- **Get Post Date:** Extract the Topic ID (TID) from the URL and run this command to get the post's original date (`YYYY-MM-DD`):
-  ```bash
-  python -c "import requests, datetime; api_url = 'https://mitmachim.top/api/topic/<TID>'; r = requests.get(api_url); d = r.json(); ts = int(d['posts'][0]['timestamp']); dt = datetime.datetime.fromtimestamp(ts / 1000); print(dt.strftime('%Y-%m-%d'))"
-  ```
+- **Get Post Date:** Try to find the publication date from the article's content. If not available, use the current date (`YYYY-MM-DD`).
 
 - **Preview Content:** Get the title and content to determine the final metadata.
   ```bash
