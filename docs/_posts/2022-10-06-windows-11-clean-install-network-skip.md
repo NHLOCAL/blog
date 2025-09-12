@@ -4,13 +4,13 @@ layout: post
 date: '2022-10-06'
 categories:
 - Windows
-- Guides
+- מדריכים
 tags:
 - Windows 11
 - NetFree
-- Installation
-description: A guide on how to bypass the network requirement during a clean installation
-  of Windows 11.
+- מדריך
+- Windows
+description: מדריך כיצד לעקוף את דרישת הרשת במהלך התקנה נקייה של Windows 11
 featured_image: "/assets/images/2022-10-06-windows-11-clean-install-network-skip/featured.png"
 ---
 
