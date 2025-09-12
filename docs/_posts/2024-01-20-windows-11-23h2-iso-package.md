@@ -16,6 +16,7 @@ tags:
 description: קובץ ISO מותאם אישית של ווינדוס 11 23H2 הכולל התקנה מהירה, דילוג על דרישות
   מערכת, וחבילת תוכנות מומלצות מותקנות מראש, כולל אופיס, WSA ועוד.
 featured_image: "/assets/images/2024-01-20-windows-11-23h2-iso-package/featured.webp"
+popular: true
 ---
 
 # **זה לקח חודשיים, אבל בסוף זה הגיע**

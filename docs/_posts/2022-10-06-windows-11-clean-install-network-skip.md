@@ -12,6 +12,7 @@ tags:
 - Windows
 description: מדריך כיצד לעקוף את דרישת הרשת במהלך התקנה נקייה של Windows 11
 featured_image: "/assets/images/2022-10-06-windows-11-clean-install-network-skip/featured.png"
+popular: true
 ---
 
 כפי שכבר המלצתי ב[מספר](https://mitmachim.top/post/557281) [מקומות](https://mitmachim.top/post/522207), הדרך המומלצת והיחידה שפותרת את בעית הצורך ברשת בזמן התקנה נקייה (מלבד יצירת [מערכת הפעלה מותאמת אישית](https://mitmachim.top/post/498776)) היא זו שתפורט להלן. מכיון שמדובר בנושא חשוב, חשבתי שכדאי לפתוח מדריך מסודר במקום להפנות לשרשור מבולגן.
