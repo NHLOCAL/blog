@@ -1,19 +1,23 @@
 ---
+title: ג'מיני CLI - הכלי המושלם למשימות קטנות
 layout: post
-title: "ג'מיני CLI - הכלי המושלם למשימות קטנות"
-description: "גוגל שחררה את Gemini CLI, כלי שורת פקודה שימושי וחינמי. הוא אולי פחות חזק מהמתחרים במשימות קוד מורכבות, אבל הוא מצוין לאוטומציה של משימות יומיומיות קטנות."
-date: 2025-10-07
+description: גוגל שחררה את Gemini CLI, כלי שורת פקודה שימושי וחינמי. הוא אולי פחות
+  חזק מהמתחרים במשימות קוד מורכבות, אבל הוא מצוין לאוטומציה של משימות יומיומיות קטנות.
+date: '2025-10-07'
 tags:
-  - AI
-  - Gemini
-  - CLI
-  - Tools
-  - Automation
-  - Development
-  - Productivity
+- AI
+- Gemini
+- CLI
+- Tools
+- Google
+- מדריך
+- Productivity
+- Development
+- Vibe Coding
+- Agent
 categories:
-  - AI
-  - Tools
+- AI
+- Tools
 ---
 
 לפני מספר חודשים גוגל שחררה את **Gemini CLI**, כלי שורת פקודה נחמד ושימושי, כתשובה לכלים המתחרים Claude Code ו-OpenAI Codex CLI.
