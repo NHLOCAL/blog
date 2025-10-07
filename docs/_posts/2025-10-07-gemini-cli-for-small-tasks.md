@@ -4,6 +4,7 @@ layout: post
 description: גוגל שחררה את Gemini CLI, כלי שורת פקודה שימושי וחינמי. הוא אולי פחות
   חזק מהמתחרים במשימות קוד מורכבות, אבל הוא מצוין לאוטומציה של משימות יומיומיות קטנות.
 date: '2025-10-07'
+featured_image: "/assets/images/2025-10-07-gemini-cli-for-small-tasks/featured.png"
 tags:
 - AI
 - Gemini
