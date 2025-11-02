@@ -16,7 +16,7 @@ tags:
 
 [https://tools.ze-kal.top/tools/hurban_clock.html](https://tools.ze-kal.top/tools/hurban_clock.html)
 
-[![hurban-clock.png](/assets/images/hurban-clock.png)](https://tools.ze-kal.top/tools/hurban_clock.html)
+[![hurban-clock.png](/assets/images/hurban-clock.webp)](https://tools.ze-kal.top/tools/hurban_clock.html)
 
 
 #### להורדה מאתר הכלים שלי:

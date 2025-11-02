@@ -23,23 +23,23 @@ description: "OpenAI משחררת את o3 mini לכולם, כולל למשתמש
 
 בחלק מהתחומים, כמו שפה, מתמטיקה ועוד o1 הוא עדיין מודל טוב יותר, אך בקידוד o3 mini מציג ביצועים מדהימים. במדד livebench למשל, אחד המדדים האמינים והמוכרים בתחום, המודל החדש מקבל ציון מדהים של 82.74%. 13% יותר ממודל o1 שבמקום השני עם 69% "בלבד".
 
-![9ceb760b-bd59-42ef-88d3-07eb468ac92d-image.png](/assets/images/9ceb760b-bd59-42ef-88d3-07eb468ac92d-image.png) 
+![9ceb760b-bd59-42ef-88d3-07eb468ac92d-image.png](/assets/images/9ceb760b-bd59-42ef-88d3-07eb468ac92d-image.webp) 
 
 החלק המדהים באמת היא העובדה שהמודל זול פי 30 מ-o1, ומהיר יותר פי 3 מ-o1 mini, אבל מציג ציונים גבוהים יותר במגוון תחומים!
 
 **צילומי מסך עם גרפים ונתונים מלאים**
 
-![7e8b2238-9bb2-4619-bca2-0fbed5ca0ae2-image.png](/assets/images/7e8b2238-9bb2-4619-bca2-0fbed5ca0ae2-image.png)
+![7e8b2238-9bb2-4619-bca2-0fbed5ca0ae2-image.png](/assets/images/7e8b2238-9bb2-4619-bca2-0fbed5ca0ae2-image.webp)
 
-![2434c8e7-cf64-42d6-b38d-d6cbe04c53ff-image.png](/assets/images/2434c8e7-cf64-42d6-b38d-d6cbe04c53ff-image.png)
+![2434c8e7-cf64-42d6-b38d-d6cbe04c53ff-image.png](/assets/images/2434c8e7-cf64-42d6-b38d-d6cbe04c53ff-image.webp)
 
-![dbba6fb4-0ab5-4fd5-965e-fe9235d4f26a-image.png](/assets/images/dbba6fb4-0ab5-4fd5-965e-fe9235d4f26a-image.png)
+![dbba6fb4-0ab5-4fd5-965e-fe9235d4f26a-image.png](/assets/images/dbba6fb4-0ab5-4fd5-965e-fe9235d4f26a-image.webp)
 
-![f3fdc6e2-2597-4a3f-9de2-d8497d32655a-image.png](/assets/images/f3fdc6e2-2597-4a3f-9de2-d8497d32655a-image.png)
+![f3fdc6e2-2597-4a3f-9de2-d8497d32655a-image.png](/assets/images/f3fdc6e2-2597-4a3f-9de2-d8497d32655a-image.webp)
 
 ניתן להפעיל אותו בלחיצה על כפתור החשיבה בממשק של צ'אט GPT. ולמי ששם לב הוא ממש חיקוי מדויק של הממשק של deepseek...
 
-![81f08e7b-b42e-4511-979e-22e407751efc-image.png](/assets/images/81f08e7b-b42e-4511-979e-22e407751efc-image.png) 
+![81f08e7b-b42e-4511-979e-22e407751efc-image.png](/assets/images/81f08e7b-b42e-4511-979e-22e407751efc-image.webp) 
 
 ---
 

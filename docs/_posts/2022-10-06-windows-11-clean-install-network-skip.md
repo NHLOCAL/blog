@@ -11,7 +11,7 @@ tags:
 - מדריך
 - Windows
 description: מדריך כיצד לעקוף את דרישת הרשת במהלך התקנה נקייה של Windows 11
-featured_image: "/assets/images/2022-10-06-windows-11-clean-install-network-skip/featured.png"
+featured_image: "/assets/images/2022-10-06-windows-11-clean-install-network-skip/featured.webp"
 popular: true
 ---
 
@@ -34,7 +34,7 @@ popular: true
 
 בצעו התקנה נקייה של ווינדוס. התקדמו כרגיל עד שתגיעו למסך הבא:
 
-![image](/assets/images/2022-10-06-windows-11-clean-install-network-skip/featured.png)
+![image](/assets/images/2022-10-06-windows-11-clean-install-network-skip/featured.webp)
 
 ### שלב 2:
 
@@ -48,13 +48,13 @@ popular: true
 OOBE\BYPASSNRO
 ```
 
-![image](/assets/images/2022-10-06-windows-11-clean-install-network-skip/2022-10-06-windows-11-clean-install-network-skip-2.png)
+![image](/assets/images/2022-10-06-windows-11-clean-install-network-skip/2022-10-06-windows-11-clean-install-network-skip-2.webp)
 
 ### שלב 4:
 
 המחשב יופעל מחדש באופן אוטומטי, לאחר שהוא ידלק הוא עשוי לכתוב כי הוא מחפש עדכונים. לאחר כדקה, תצטרכו לחזור על חלק מהשלבים של בחירת שפה ומקלדת, ולאחר מכן המחשב יאפשר לכם לבחור באפשרות של דילוג על רשת.
 
-![image](/assets/images/2022-10-06-windows-11-clean-install-network-skip/2022-10-06-windows-11-clean-install-network-skip-3.png)
+![image](/assets/images/2022-10-06-windows-11-clean-install-network-skip/2022-10-06-windows-11-clean-install-network-skip-3.webp)
 
 (**נ.ב.** יתכנו שינויים קלים בתצוגה במהלך ההתקנה בשלב זה, הדבר לא מאוד משנה, ובסופו של דבר הדרך מובילה לאותו היעד)
 

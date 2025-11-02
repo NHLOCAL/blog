@@ -51,7 +51,7 @@ popular: true
 
 כל מה שנשאר לכם זה להכניס מפתח API של ג'מיני - ללא עלות נוספת ולגמרי בחינם.
 
-[![podcast-creator.png](/assets/images/podcast-creator.png)](https://tools.ze-kal.top) 
+[![podcast-creator.png](/assets/images/podcast-creator.webp)](https://tools.ze-kal.top) 
 
 ***
 

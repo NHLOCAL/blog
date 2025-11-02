@@ -8,7 +8,7 @@ tags:
 - LLM
 - xAI
 - grok
-featured_image: "/assets/images/ai-race-gork-now.png"
+featured_image: "/assets/images/ai-race-gork-now.webp"
 description: "חברת xAI של אילון מאסק משחררת את Grok 4, מודל AI שמנפץ שיאים במבחנים הקשים ביותר ומציב רף חדש בתחרות. סקירה על הביצועים, ההשוואות והמשמעויות."
 ---
 

@@ -43,7 +43,7 @@ description: "הכרזה דרמטית מ-OpenAI: מודל o3 מוצג ומציג
 לטעמי, הגרף הזה אמנם לא נותן את התמונה המלאה על התחום, אבל מראה מצויין לאן פנינו מועדות!
 
 
-![arc-agi-o3.png](/assets/images/arc-agi-o3.png)
+![arc-agi-o3.png](/assets/images/arc-agi-o3.webp)
 
 פרטים נוספים בפוסט הרשמי של מדד ARC:
  

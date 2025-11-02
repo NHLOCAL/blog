@@ -31,7 +31,7 @@ popular: true
 #### **קראתי לאתר "זה קל!" והאמת? זה באמת קל! 😊**
 ---
 
-![b7bfcb26-a4a6-4c5c-9a8f-e7eb35ad0447-image.png](/assets/images/b7bfcb26-a4a6-4c5c-9a8f-e7eb35ad0447-image.png) 
+![b7bfcb26-a4a6-4c5c-9a8f-e7eb35ad0447-image.png](/assets/images/b7bfcb26-a4a6-4c5c-9a8f-e7eb35ad0447-image.webp) 
 
 ---
 

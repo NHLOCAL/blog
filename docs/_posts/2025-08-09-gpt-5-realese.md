@@ -93,9 +93,9 @@ GPT 5 משולב חשיבה - היה המודל החינמי הראשון בצ'�
 
 לדעתי, זה אירוע דרמטי בסדר גודל, כי זה מאפשר להשתמש ב-AI גם בתעשיות הדורשות אמינות גבוהה, כמו רפואה למשל, או תחומים רגישים אחרים הכוללים סיכונים.
 
-![gpt-5-hallmarks-1.png](/assets/images/gpt-5-hallmarks-1.png)
+![gpt-5-hallmarks-1.png](/assets/images/gpt-5-hallmarks-1.webp)
 
-![gpt-5-hallmarks-2.png](/assets/images/gpt-5-hallmarks-2.png)
+![gpt-5-hallmarks-2.png](/assets/images/gpt-5-hallmarks-2.webp)
 
 
 ## העשרה נוספת ומקורות

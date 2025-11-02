@@ -37,7 +37,7 @@ popular: true
 
 בנטפרי זה יראה כאילו התצוגה תקועה במשך דקות ארוכות - זה תקין לגמרי. מומלץ להמתין בסבלנות גם אם זה לוקח 5 ואפילו 10 דקות.
 
-[![d6466a25-b0de-46bb-ac0b-a25405fc6a12-image.png](/assets/images/torah-lessons-transcript.png)](https://huggingface.co/spaces/NHLOCAL/gemini-subtitle-creator) 
+[![d6466a25-b0de-46bb-ac0b-a25405fc6a12-image.png](/assets/images/torah-lessons-transcript.webp)](https://huggingface.co/spaces/NHLOCAL/gemini-subtitle-creator) 
 
 [**לכניסה לאתר**](https://huggingface.co/spaces/NHLOCAL/gemini-subtitle-creator)
 
@@ -57,7 +57,7 @@ popular: true
 
 הכנסו ל[**ארגז הכלים שלי**](https://tools.ze-kal.top/#subtitle_editor) ובחרו בעורך הכתוביות, כדי להשתמש בו אונליין או כדי להוריד את הגרסה העדכנית למחשב!
 
-[![d03e00f0-eb3a-4ab9-ad79-741c897b1fdb-image.png](/assets/images/torah-lessons-editor.png)](https://tools.ze-kal.top/#subtitle_editor)
+[![d03e00f0-eb3a-4ab9-ad79-741c897b1fdb-image.png](/assets/images/torah-lessons-editor.webp)](https://tools.ze-kal.top/#subtitle_editor)
 
 
 [**לכניסה ישירה לכלי**](https://tools.ze-kal.top/tools/subtitle_editor.html)

@@ -57,4 +57,4 @@ description: תוסף כרום חדש לייצוא שרשורים מלאים מ�
 6.  בסיום, הקובץ ירד למחשב או שהתוכן יחכה לכם בלוח, מוכן להדבקה.
 
 
-![88f65d3d-106f-4ccb-ab64-dd852a3a6aea-image.png](/assets/images/2025-08-21-nodebb-thread-exporter-1.png)
+![88f65d3d-106f-4ccb-ab64-dd852a3a6aea-image.png](/assets/images/2025-08-21-nodebb-thread-exporter-1.webp)

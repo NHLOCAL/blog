@@ -14,7 +14,7 @@ tags:
 description: מיקרוסופט משלבת את Windows Copilot, עוזר בינה מלאכותית, ישירות במערכת
   ההפעלה ווינדוס 11. הגרסה החדשה מאפשרת למשתמשים לבצע פעולות, לשנות הגדרות ולקבל תשובות
   באמצעות שיחה.
-featured_image: "/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-1.png"
+featured_image: "/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-1.webp"
 ---
 
 **לאחר שמיקרוסופט חשפה לראשונה בכנס מיקרוסופט בילד לפני כחודש, על שילוב עוזר בינה מלאכותית ישירות במערכת ההפעלה ווינדוס, הדבר הזה אכן קורה.**
@@ -29,11 +29,11 @@ featured_image: "/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-
 
 
 
-![64b07eb5-839c-4d2d-b7c7-677a4ad9bc73-image.png](/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-2.png)
+![64b07eb5-839c-4d2d-b7c7-677a4ad9bc73-image.png](/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-2.webp)
 
-![c7e8416c-387f-4257-94dd-6300a3eca504-image.png](/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-3.png)
+![c7e8416c-387f-4257-94dd-6300a3eca504-image.png](/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-3.webp)
 
-![6adf3154-01b1-4d64-a344-a91167ac997b-image.png](/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-4.png)
+![6adf3154-01b1-4d64-a344-a91167ac997b-image.png](/assets/images/2023-06-30-windows-copilot-ai-assistant/2023-06-30-windows-copilot-ai-assistant-4.webp)
 
 
 ## לקריאה נוספת:
