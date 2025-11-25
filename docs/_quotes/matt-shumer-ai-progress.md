@@ -9,9 +9,7 @@ quote_text: |-
   Gemini 3 קיבל 23%.  
   זה שיפור של פי 20+ באחד ממשימות החשיבה הקשות ביותר שיש לנו.  
   אבל בסדר, תמשיך לטמון את הראש בחול…
-author: מאט שומר (Matt Shumer)
+author: "מאט שומר, מנכ\"ל HyperWrite"
 source_name: X (לשעבר טוויטר)
 source_url: https://twitter.com/mattshumer_/
 ---
-
-> **הערת המערכת:** מאט שומר הוא יזם AI, מייסד-שותף ומנכ"ל OthersideAI (החברה שמאחורי HyperWrite). הוא דמות בולטת בשיח ה-AI ומופיע ברשימות "משפיעני AI" ו-"Forbes 30 Under 30".
