@@ -14,7 +14,6 @@ tags:
 - Subtitles
 - jewish
 - Productivity
-popular: true
 ---
 
 ## תמלול שיעורי תורה בדרך הקלה והמדויקת ביותר - המדריך המלא
