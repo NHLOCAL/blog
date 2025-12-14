@@ -62,9 +62,11 @@ def download_images_and_update_html(html_content, base_url, image_dir, image_bas
                         f.write(chunk)
             
             # הנתיב שייכתב ב-Markdown יהיה יחסי לקובץ
-            relative_path = os.path.join(image_dir, new_filename).replace("", "/")
+            relative_path = os.path.join(image_dir, new_filename).replace("\\", "/")
+            
             if relative_path.startswith('docs/'):
                 relative_path = '/' + relative_path[len('docs/'):]
+                
             img_tag['src'] = relative_path
             img_tag['src'] = relative_path
             
