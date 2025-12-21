@@ -1,50 +1,76 @@
 [
     {
         "file": "upton-sinclair-salary.md",
-        "author": "אפטון סינקלייר",
+        "author": "אפטון סינקלר, מחבר הספר 'הג'ונגל'",
         "source": null,
         "tags": []
     },
     {
         "file": "roy-amara-technology-impact.md",
-        "author": "רוי אמרה",
+        "author": "רוי עמרה, הוגה 'חוק עמרה'",
         "source": null,
         "tags": []
     },
     {
         "file": "reddit-translation-analogy.md",
-        "author": "משתמש אלמוני ברדיט",
+        "author": "משתמש Reddit אנונימי",
+        "source": null,
+        "tags": []
+    },
+    {
+        "file": "matt-shumer-ai-progress.md",
+        "author": "מאט שומר, מנכ\"ל HyperWrite",
         "source": null,
         "tags": []
     },
     {
         "file": "karpathy-vibe-coding.md",
-        "author": "אנדריי קרפאתי",
+        "author": "אנדריי קרפאתי, ממייסדי OpenAI ומנהל AI לשעבר בטסלה",
         "source": null,
         "tags": []
     },
     {
         "file": "george-orwell-foolish-ideas.md",
-        "author": "ג'ורג' אורוול",
+        "author": "ג'ורג' אורוול, מחבר '1984' ו'חוות החיות'",
         "source": null,
         "tags": []
     },
     {
+        "file": "ethan-mollick-the-new-new-thing.md",
+        "author": "איתן מוליק, פרופסור בוורטון ומחבר One Useful Thing",
+        "source": null,
+        "tags": [
+            "ai",
+            "automation",
+            "future-of-work"
+        ]
+    },
+    {
         "file": "derya-unutmz-immunology-expertise.md",
-        "author": "דריה אונוטמאז",
+        "author": "דריה אונוטמז, פרופסור לאימונולוגיה",
         "source": null,
         "tags": []
     },
     {
         "file": "demis-hassabis-human-empathy.md",
-        "author": "דמיס חסביס",
+        "author": "דמיס הסאביס, מנכ\"ל Google DeepMind",
         "source": null,
         "tags": []
     },
     {
         "file": "david-graeber-end-of-work.md",
-        "author": "David Graeber",
+        "author": "דיוויד גרייבר, מחבר הספר 'עבודות זבל'",
         "source": null,
         "tags": []
+    },
+    {
+        "file": "adam-wolff-end-of-software-development.md",
+        "author": "אדם וולף, חבר צוות טכני באנתרופיק ומפתח Claude Code",
+        "source": null,
+        "tags": [
+            "ai",
+            "anthropic",
+            "future-of-code"
+        ]
     }
 ]

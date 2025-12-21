@@ -1,12 +1,96 @@
 [
     {
+        "file": "2025-12-21-rtl-bookmarklet-2025.md",
+        "title": "סימנייה ליישור RTL לדפדפן - הגרסה המשודרגת",
+        "description": "סימנייה משודרגת ליישור RTL בדפדפנים, מותאמת במיוחד לקריאת דפים מתורגמים בכרום.",
+        "tags": [
+            "tools",
+            "מדריך",
+            "Chrome Extension"
+        ],
+        "categories": [
+            "מדריכים",
+            "Tools"
+        ]
+    },
+    {
+        "file": "2025-12-02-vibe-coding-html-preview-tool.md",
+        "title": "כלי חדש לקידוד ווייב: תצוגה מקדימה של HTML",
+        "description": "הכירו כלי חדש ופשוט לתצוגה מקדימה של קוד HTML בזמן אמת, שנבנה כולו באמצעות קידוד ווייב כדי לפתור את בעיית התצוגה בכלי ה-AI השונים.",
+        "tags": [
+            "vibe coding",
+            "html",
+            "preview",
+            "tool",
+            "ai studio"
+        ],
+        "categories": [
+            "AI",
+            "Coding",
+            "Tools"
+        ]
+    },
+    {
+        "file": "2025-11-24-alef-bot-torah-transcription.md",
+        "title": "אלף בוט: האתר שיחסוך לכם 90% מהעבודה בתמלול תוכן תורני (או כל דבר אחר)",
+        "description": "הכירו את 'אלף בוט', האתר החדש והמקצועי לתמלול שיעורי תורה והקלטות בלשון הקודש, הכולל ממשק עריכה מתקדם ודיוק מרשים.",
+        "tags": [
+            "transcription",
+            "AI",
+            "Hebrew",
+            "Torah"
+        ],
+        "categories": [
+            "AI",
+            "Tools",
+            "Torah"
+        ]
+    },
+    {
+        "file": "2025-11-18-gemini-3-0-is-here.md",
+        "title": "ג'מיני 3.0 סוף סוף כאן - והמדדים? מטורפים!",
+        "description": "Gemini 3.0 has arrived and at first glance it seems that it did not disappoint.",
+        "tags": [
+            "Gemini",
+            "AI",
+            "LLM",
+            "ai studio"
+        ],
+        "categories": [
+            "AI",
+            "Gemini"
+        ]
+    },
+    {
+        "file": "2025-10-07-gemini-cli-for-small-tasks.md",
+        "title": "ג'מיני CLI - הכלי המושלם למשימות קטנות",
+        "description": "גוגל שחררה את Gemini CLI, כלי שורת פקודה שימושי וחינמי. הוא אולי פחות חזק מהמתחרים במשימות קוד מורכבות, אבל הוא מצוין לאוטומציה של משימות יומיומיות קטנות.",
+        "tags": [
+            "AI",
+            "Gemini",
+            "CLI",
+            "Tools",
+            "Google",
+            "מדריך",
+            "Productivity",
+            "Development",
+            "Vibe Coding",
+            "Agent"
+        ],
+        "categories": [
+            "AI",
+            "Tools"
+        ]
+    },
+    {
         "file": "2025-09-12-press-the-button-ai-secret.md",
         "title": "ללחוץ על הכפתור: הסוד לפלט איכותי מבינה מלאכותית",
         "description": "למה חשוב לתת ל-AI הנחיות ברורות ואיך מסמך דרישות טוב הוא המפתח לקבלת קוד איכותי ויעיל.",
         "tags": [
             "AI",
             "Development",
-            "Productivity"
+            "Productivity",
+            "Vibe Coding"
         ],
         "categories": [
             "AI"
@@ -22,7 +106,8 @@
             "API",
             "Development",
             "Chrome Extension",
-            "tools"
+            "tools",
+            "Productivity"
         ],
         "categories": [
             "AI"
@@ -38,7 +123,9 @@
             "AI Studio",
             "API",
             "AI",
-            "tools"
+            "tools",
+            "Vibe Coding",
+            "Productivity"
         ],
         "categories": [
             "Tools",
@@ -84,7 +171,8 @@
             "stt",
             "מדריך",
             "Subtitles",
-            "jewish"
+            "jewish",
+            "Productivity"
         ],
         "categories": [
             "AI",
@@ -102,7 +190,8 @@
             "Gemini",
             "API",
             "tools",
-            "מדריך"
+            "מדריך",
+            "Productivity"
         ],
         "categories": [
             "AI",
@@ -167,7 +256,8 @@
             "Gemini",
             "podcast",
             "tools",
-            "tts"
+            "tts",
+            "Productivity"
         ],
         "categories": [
             "AI",
@@ -231,7 +321,8 @@
             "o1",
             "לימוד-אנגלית",
             "יוטיוב",
-            "o-series"
+            "o-series",
+            "Productivity"
         ],
         "categories": [
             "AI",
@@ -248,7 +339,8 @@
             "ChatGPT",
             "LLM",
             "o1",
-            "o-series"
+            "o-series",
+            "Productivity"
         ],
         "categories": [
             "AI",
@@ -276,5 +368,54 @@
         "description": "סקירה על ההכרזה של גוגל על Gemini 1.5 Pro, מודל AI מולטי-מודאלי עם חלון הקשר פורץ דרך של מיליון אסימונים. גלו את היכולות החדשות והפוטנציאל למפתחים.",
         "tags": "AI Google Gemini LLM",
         "categories": "AI"
+    },
+    {
+        "file": "2024-01-20-windows-11-23h2-iso-package.md",
+        "title": "להורדה: קובץ ISO של ווינדוס 11 23H2 עם חבילת תוכנות",
+        "description": "קובץ ISO מותאם אישית של ווינדוס 11 23H2 הכולל התקנה מהירה, דילוג על דרישות מערכת, וחבילת תוכנות מומלצות מותקנות מראש, כולל אופיס, WSA ועוד.",
+        "tags": [
+            "Windows",
+            "ISO",
+            "Tools",
+            "Software",
+            "Office",
+            "WSA"
+        ],
+        "categories": [
+            "Tools",
+            "Operating Systems",
+            "Downloads"
+        ]
+    },
+    {
+        "file": "2023-06-30-windows-copilot-ai-assistant.md",
+        "title": "ווינדוס קופיילוט: עוזר הבינה המלאכותית החדש של ווינדוס 11",
+        "description": "מיקרוסופט משלבת את Windows Copilot, עוזר בינה מלאכותית, ישירות במערכת ההפעלה ווינדוס 11. הגרסה החדשה מאפשרת למשתמשים לבצע פעולות, לשנות הגדרות ולקבל תשובות באמצעות שיחה.",
+        "tags": [
+            "Windows 11",
+            "Copilot",
+            "Microsoft",
+            "AI",
+            "Windows"
+        ],
+        "categories": [
+            "Windows",
+            "AI"
+        ]
+    },
+    {
+        "file": "2022-10-06-windows-11-clean-install-network-skip.md",
+        "title": "מדריך: דילוג על דרישת הרשת בהתקנה נקייה של ווינדוס 11",
+        "description": "מדריך כיצד לעקוף את דרישת הרשת במהלך התקנה נקייה של Windows 11",
+        "tags": [
+            "Windows 11",
+            "NetFree",
+            "מדריך",
+            "Windows"
+        ],
+        "categories": [
+            "Windows",
+            "מדריכים"
+        ]
     }
 ]
