@@ -19,14 +19,13 @@
   </div>
   {% endif %}
 
-  <!-- Recommended Posts Widget -->
+  <!-- Recommended Posts Widget (Limit: 2) -->
   {% assign popular_posts = site.posts | where: "popular", true %}
   {% if popular_posts.size > 0 %}
   <div class="sidebar-section recommended-posts-section">
     <h4><a href="{{ "/recommended/" | relative_url }}"><i class="bi bi-star-fill"></i> הנבחרים שלנו</a></h4>
     <ul class="sidebar-post-list">
-      {% assign popular_limit = site.custom_settings.popular_posts_sidebar_count | default: 5 %}
-      {% for post in popular_posts limit: popular_limit %}
+      {% for post in popular_posts limit: 2 %}
         <li>
           <a href="{{ post.url | relative_url }}" class="sidebar-post-card">
             <div class="sidebar-card-content">
@@ -47,11 +46,11 @@
   </div>
   {% endif %}
 
-  <!-- Recent Posts Widget -->
+  <!-- Recent Posts Widget (Limit: 3) -->
   <div class="sidebar-section">
     <h4><a href="{{ "/posts/" | relative_url }}"><i class="bi bi-clock-history"></i> עדכונים אחרונים</a></h4>
     <ul class="sidebar-post-list">
-      {% for post in site.posts limit: 5 %}
+      {% for post in site.posts limit: 3 %}
         <li>
           <a href="{{ post.url | relative_url }}" class="sidebar-post-card">
             {% if post.featured_image %}

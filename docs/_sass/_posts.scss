@@ -1,0 +1,381 @@
+@use 'variables' as *;
+
+.post-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 1.5;
+}
+
+.post-summary {
+  padding: $spacing-unit * 1.5; border-radius: $border-radius; border: 1px solid var(--color-border);
+  background-color: var(--color-background); transition: $transition-base;
+  display: flex; flex-direction: column; gap: $spacing-unit;
+  &:hover {
+    border-color: var(--color-text-secondary); transform: translateY(-2px); box-shadow: $box-shadow-sm;
+  }
+  .post-thumbnail {
+    width: 100%; height: 200px;
+    img { width: 100%; height: 100%; object-fit: cover; border-radius: $border-radius-small; }
+  }
+}
+
+.post-latest .post-title a {
+  font-weight: 700;
+  color: inherit;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+
+  &:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+}
+
+.latest-post-read-more {
+  margin-top: $spacing-unit * 1.5;
+}
+
+.post-featured-image {
+  margin-bottom: 1.5rem;
+}
+
+.post-meta .meta-item + .meta-item {
+  margin-inline-start: 1.25rem;
+}
+
+// Compact list items for Tags and Categories pages
+.tags-page, .categories-page, .posts-archive-page {
+  .post-summary {
+    flex-direction: row;
+    padding: $spacing-unit;
+    gap: $spacing-unit;
+    align-items: center;
+    min-height: 100px;
+
+    &.no-thumbnail .post-summary-content {
+      width: 100%;
+    }
+  }
+
+  .post-thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+  }
+
+  .post-summary-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 0 0 $spacing-unit * 0.25 0;
+    }
+    .post-excerpt {
+      font-size: 0.9rem;
+      margin: 0 0 $spacing-unit * 0.5 0;
+      color: var(--color-text-secondary);
+      flex-grow: 1;
+    }
+    .post-summary-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    .post-meta {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+    .read-more {
+      font-size: 0.85rem;
+      font-weight: 700;
+      &::after { content: none; }
+    }
+  }
+}
+
+// Related Posts
+.related-posts {
+  margin-top: $spacing-unit * 3;
+  h3 { margin-bottom: $spacing-unit; }
+  ul {
+    list-style: none; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: $spacing-unit;
+  }
+  li { margin-bottom: 0; }
+  .related-post-card {
+    display: block;
+    height: 100%;
+    border-radius: $border-radius;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    transition: $transition-base;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $box-shadow;
+      border-color: var(--color-accent);
+    }
+
+    .post-summary.compact {
+      padding: 0; display: flex; flex-direction: column;
+      border: none; background: none;
+      .post-thumbnail {
+        height: 120px; width: 100%;
+        border-radius: 0;
+        &.placeholder {
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; color: var(--color-border); background-color: var(--color-surface);
+        }
+      }
+      .post-summary-content {
+        padding: $spacing-unit;
+        h4 { font-size: 1rem; margin: 0; color: var(--color-heading); }
+      }
+    }
+  }
+}
+
+// Post Navigation
+.post-nav {
+  margin-top: $spacing-unit * 2.5;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-unit;
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .post-nav-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit;
+    padding: $spacing-unit;
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius;
+    background-color: var(--color-surface);
+    transition: $transition-base;
+    min-height: 90px;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $box-shadow;
+      border-color: var(--color-accent);
+      .nav-title { color: var(--color-accent); }
+    }
+  }
+
+  .post-nav-thumbnail {
+    flex-shrink: 0;
+    width: 60px; height: 60px;
+    border-radius: $border-radius-small;
+    overflow: hidden;
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  .post-nav-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .nav-direction {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      margin-bottom: $spacing-unit * 0.25;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-title {
+      font-weight: 700;
+      color: var(--color-heading);
+      line-height: 1.3;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+  }
+
+  .post-nav-prev {
+    .post-nav-content { text-align: right; }
+  }
+  .post-nav-next {
+    .post-nav-content { text-align: left; }
+    .nav-direction { justify-content: flex-end; }
+  }
+}
+
+// --- Quote Cards ---
+%quote-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius;
+  transition: $transition-base;
+  text-decoration: none;
+  color: inherit;
+}
+
+.quote-card--large {
+  @extend %quote-card;
+  padding: $spacing-unit * 2;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '“';
+    position: absolute;
+    top: -0.5rem;
+    right: 0.5rem;
+    font-size: 8rem;
+    color: var(--color-background);
+    z-index: 1;
+    line-height: 1;
+    font-family: serif;
+    transition: color 0.3s ease;
+  }
+
+  .quote-content-wrapper {
+    position: relative;
+    z-index: 2;
+    padding-right: 2.5rem;
+  }
+
+  blockquote {
+    margin: 0; border: none; padding: 0;
+    p {
+      font-size: 1.0rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--color-quote-text);
+      margin-bottom: 1em;
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+
+  figcaption {
+    margin-top: $spacing-unit * 1.5; text-align: left;
+    font-size: 1.1rem; color: var(--color-text-secondary);
+  }
+
+  .post-meta {
+    margin-top: $spacing-unit * 1.5; position: relative; z-index: 2;
+  }
+}
+
+.quote-card--list-item {
+  @extend %quote-card;
+  display: block;
+  padding: $spacing-unit * 1.5;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow;
+    border-color: var(--color-accent);
+  }
+
+  blockquote {
+    margin: 0 0 $spacing-unit 0; border: none; padding: 0;
+    border-right: 3px solid var(--color-border);
+    padding-right: $spacing-unit;
+    transition: border-color 0.2s ease;
+    p {
+      font-size: 1.05rem; line-height: 1.6;
+      color: var(--color-quote-text);
+      margin: 0 0 1em 0;
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+
+  &:hover blockquote {
+    border-color: var(--color-accent);
+  }
+
+  .quote-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-top: $spacing-unit;
+    figcaption {
+        font-weight: 500;
+    }
+  }
+}
+
+.all-quotes-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 1.5;
+}
+
+// --- Social Share Buttons (New) ---
+.share-buttons-container {
+  margin: $spacing-unit * 2.5 0;
+  padding: $spacing-unit;
+  background-color: var(--color-background);
+  border-radius: $border-radius;
+  
+  .share-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: $spacing-unit;
+    display: block;
+    color: var(--color-heading);
+  }
+  
+  .share-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+      color: #fff;
+    }
+    
+    &.whatsapp { background-color: #25D366; }
+    &.telegram { background-color: #0088cc; }
+    &.facebook { background-color: #1877F2; }
+    &.twitter { background-color: #000000; } // X brand color
+    &.email { background-color: #64748b; }
+  }
+}

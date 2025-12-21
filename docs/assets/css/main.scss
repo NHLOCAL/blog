@@ -2,9 +2,11 @@
 # Front matter dashes are required for Jekyll to process SCSS files in this location
 ---
 
-// This file is the single entry point for all SCSS.
-// It uses the modern @use rule to load all partials.
-
+@use 'variables';
 @use 'base';
-@use 'layout';
+@use 'components'; /* כפתורים, כרטיסים, טפסים */
+@use 'layout';     /* מבנה ראשי, הדר, ניווט */
+@use 'sidebar';    /* עיצוב סרגל צד */
+@use 'footer';     /* עיצוב סרגל תחתון */
+@use 'posts';      /* עיצוב פוסטים, ארכיון, כפתורי שיתוף */
 @use 'pagefind';
