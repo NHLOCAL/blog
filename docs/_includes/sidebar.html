@@ -6,12 +6,12 @@
     <h4><i class="bi bi-grid-fill"></i> רשתות וכלים</h4>
     <div class="sidebar-social-grid">
       {% for link in site.data.social %}
-        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="{{ link.name }}">
+        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="{{ link.name }}" title="{{ link.name }}">
           <i class="bi bi-{{ link.icon | default: 'link-45deg' }}"></i>
           <span class="social-tooltip">{{ link.name }}</span>
         </a>
       {% endfor %}
-      <a href="{{ "/about/" | relative_url }}" class="social-btn" aria-label="אודות">
+      <a href="{{ "/about/" | relative_url }}" class="social-btn" aria-label="אודות" title="אודות">
         <i class="bi bi-person-circle"></i>
         <span class="social-tooltip">אודות</span>
       </a>

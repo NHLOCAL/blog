@@ -6,7 +6,7 @@
       <p class="footer-desc">{{ site.description | escape }}</p>
       <div class="footer-social-icons">
         {% for link in site.data.social %}
-          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}">
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}" title="{{ link.name }}">
             <i class="bi bi-{{ link.icon | default: 'link-45deg' }}"></i>
           </a>
         {% endfor %}
@@ -27,9 +27,31 @@
     <div class="footer-section links-section">
       <h5>נושאים פופולריים</h5>
       <ul class="footer-links">
-        {% assign sorted_categories = site.categories | sort %}
-        {% for category_item in sorted_categories limit: 5 %}
-          <li><a href="{{ site.baseurl }}/categories/#{{ category_item[0] | slugify }}">{{ category_item[0] }}</a></li>
+        {% comment %}
+          Logic to sort categories by post count (descending)
+        {% endcomment %}
+        
+        {% assign categories_list = "" | split: "" %}
+        
+        {% for category in site.categories %}
+          {% assign c_name = category[0] %}
+          {% assign c_count = category[1].size %}
+          
+          {% comment %}
+            Create a sortable string: Count + Separator + Name
+            Adding 10000 ensures numeric sorting works correctly as string comparison
+          {% endcomment %}
+          {% assign sort_key = c_count | plus: 10000 %}
+          {% capture c_string %}{{ sort_key }}:::{{ c_name }}{% endcapture %}
+          {% assign categories_list = categories_list | push: c_string %}
+        {% endfor %}
+        
+        {% assign sorted_categories = categories_list | sort | reverse %}
+        
+        {% for item in sorted_categories limit: 5 %}
+          {% assign item_parts = item | split: ":::" %}
+          {% assign c_name = item_parts[1] %}
+          <li><a href="{{ site.baseurl }}/categories/#{{ c_name | slugify }}">{{ c_name }}</a></li>
         {% endfor %}
       </ul>
     </div>
