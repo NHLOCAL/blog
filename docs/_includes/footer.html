@@ -25,33 +25,33 @@
     </div>
 
     <div class="footer-section links-section">
-      <h5>נושאים פופולריים</h5>
+      <h5>נושאים פופולריים (תגיות)</h5>
       <ul class="footer-links">
         {% comment %}
-          Logic to sort categories by post count (descending)
+          Logic to sort TAGS by post count (descending)
         {% endcomment %}
         
-        {% assign categories_list = "" | split: "" %}
+        {% assign tags_list = "" | split: "" %}
         
-        {% for category in site.categories %}
-          {% assign c_name = category[0] %}
-          {% assign c_count = category[1].size %}
+        {% for tag in site.tags %}
+          {% assign t_name = tag[0] %}
+          {% assign t_count = tag[1].size %}
           
           {% comment %}
             Create a sortable string: Count + Separator + Name
             Adding 10000 ensures numeric sorting works correctly as string comparison
           {% endcomment %}
-          {% assign sort_key = c_count | plus: 10000 %}
-          {% capture c_string %}{{ sort_key }}:::{{ c_name }}{% endcapture %}
-          {% assign categories_list = categories_list | push: c_string %}
+          {% assign sort_key = t_count | plus: 10000 %}
+          {% capture t_string %}{{ sort_key }}:::{{ t_name }}{% endcapture %}
+          {% assign tags_list = tags_list | push: t_string %}
         {% endfor %}
         
-        {% assign sorted_categories = categories_list | sort | reverse %}
+        {% assign sorted_tags = tags_list | sort | reverse %}
         
-        {% for item in sorted_categories limit: 5 %}
+        {% for item in sorted_tags limit: 10 %}
           {% assign item_parts = item | split: ":::" %}
-          {% assign c_name = item_parts[1] %}
-          <li><a href="{{ site.baseurl }}/categories/#{{ c_name | slugify }}">{{ c_name }}</a></li>
+          {% assign t_name = item_parts[1] %}
+          <li><a href="{{ site.baseurl }}/tags/#{{ t_name | slugify }}">{{ t_name }}</a></li>
         {% endfor %}
       </ul>
     </div>
