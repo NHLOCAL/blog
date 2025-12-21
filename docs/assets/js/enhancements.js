@@ -31,35 +31,64 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- Dynamic Feedback Link ---
+
     (function setDynamicFeedbackLink() {
         const email = 'nh.local11@gmail.com';
         const subject = encodeURIComponent('משוב על הבלוג');
         const body = encodeURIComponent('שלום,');
-        
+
         const isWindows = navigator.platform.toLowerCase().indexOf('win') > -1;
-        
+
         let feedbackUrl;
         if (isWindows) {
-            // Use Gmail link for Windows users
+
             feedbackUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
         } else {
-            // Use standard mailto for other OS (Mac, Linux, iOS, Android)
+
             feedbackUrl = `mailto:${email}?subject=${subject}&body=${body}`;
         }
 
         const headerLink = document.getElementById('feedback-link-header');
         if (headerLink) {
             headerLink.href = feedbackUrl;
-            // Open in new tab for external Gmail link
+
             if(isWindows) headerLink.target = '_blank';
         }
 
         const sidebarLink = document.getElementById('feedback-link-sidebar');
         if (sidebarLink) {
             sidebarLink.href = feedbackUrl;
-             // Open in new tab for external Gmail link
+
             if(isWindows) sidebarLink.target = '_blank';
         }
     })();
+
+    // --- Share Button Logic (New) ---
+    const copyLinkBtn = document.getElementById('copy-link-btn');
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                
+                // Show feedback
+                const feedbackMsg = document.getElementById('copy-feedback');
+                const icon = copyLinkBtn.querySelector('i');
+                
+                // Change icon temporarily
+                icon.classList.remove('bi-link-45deg');
+                icon.classList.add('bi-check-lg');
+                
+                if (feedbackMsg) feedbackMsg.classList.add('show');
+                
+                setTimeout(() => {
+                    icon.classList.remove('bi-check-lg');
+                    icon.classList.add('bi-link-45deg');
+                    if (feedbackMsg) feedbackMsg.classList.remove('show');
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
+        });
+    }
 });

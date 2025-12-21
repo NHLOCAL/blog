@@ -61,7 +61,7 @@
   margin-inline-start: 1.25rem;
 }
 
-// Compact list items for Tags and Categories pages
+// Compact list items
 .tags-page, .categories-page, .posts-archive-page {
   .post-summary {
     flex-direction: row;
@@ -228,154 +228,70 @@
   }
 }
 
-// --- Quote Cards ---
-%quote-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: $border-radius;
-  transition: $transition-base;
-  text-decoration: none;
-  color: inherit;
-}
-
-.quote-card--large {
-  @extend %quote-card;
-  padding: $spacing-unit * 2;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '“';
-    position: absolute;
-    top: -0.5rem;
-    right: 0.5rem;
-    font-size: 8rem;
-    color: var(--color-background);
-    z-index: 1;
-    line-height: 1;
-    font-family: serif;
-    transition: color 0.3s ease;
-  }
-
-  .quote-content-wrapper {
-    position: relative;
-    z-index: 2;
-    padding-right: 2.5rem;
-  }
-
-  blockquote {
-    margin: 0; border: none; padding: 0;
-    p {
-      font-size: 1.0rem;
-      font-weight: 400;
-      line-height: 1.65;
-      color: var(--color-quote-text);
-      margin-bottom: 1em;
-      &:last-child { margin-bottom: 0; }
-    }
-  }
-
-  figcaption {
-    margin-top: $spacing-unit * 1.5; text-align: left;
-    font-size: 1.1rem; color: var(--color-text-secondary);
-  }
-
-  .post-meta {
-    margin-top: $spacing-unit * 1.5; position: relative; z-index: 2;
-  }
-}
-
-.quote-card--list-item {
-  @extend %quote-card;
-  display: block;
-  padding: $spacing-unit * 1.5;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: $box-shadow;
-    border-color: var(--color-accent);
-  }
-
-  blockquote {
-    margin: 0 0 $spacing-unit 0; border: none; padding: 0;
-    border-right: 3px solid var(--color-border);
-    padding-right: $spacing-unit;
-    transition: border-color 0.2s ease;
-    p {
-      font-size: 1.05rem; line-height: 1.6;
-      color: var(--color-quote-text);
-      margin: 0 0 1em 0;
-      &:last-child { margin-bottom: 0; }
-    }
-  }
-
-  &:hover blockquote {
-    border-color: var(--color-accent);
-  }
-
-  .quote-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    margin-top: $spacing-unit;
-    figcaption {
-        font-weight: 500;
-    }
-  }
-}
-
-.all-quotes-list {
-  list-style: none; padding: 0; margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-unit * 1.5;
-}
-
-// --- Social Share Buttons (New) ---
+// --- Minimal Social Share Buttons ---
 .share-buttons-container {
   margin: $spacing-unit * 2.5 0;
-  padding: $spacing-unit;
-  background-color: var(--color-background);
-  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  gap: 15px;
   
   .share-title {
     font-size: 0.9rem;
     font-weight: 700;
-    margin-bottom: $spacing-unit;
-    display: block;
-    color: var(--color-heading);
+    color: var(--color-text-secondary);
   }
   
   .share-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
   
   .share-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: 20px;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     color: #fff;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1.05rem;
     text-decoration: none;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     
     &:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       color: #fff;
     }
     
+    &.copy-btn { 
+      background-color: var(--color-surface); 
+      color: var(--color-heading);
+      border: 1px solid var(--color-border);
+      &:hover { color: var(--color-accent); border-color: var(--color-accent); }
+    }
+    
     &.whatsapp { background-color: #25D366; }
-    &.telegram { background-color: #0088cc; }
-    &.facebook { background-color: #1877F2; }
-    &.twitter { background-color: #000000; } // X brand color
+    &.telegram { background-color: #24A1DE; }
+    &.twitter { background-color: #000000; }
     &.email { background-color: #64748b; }
+  }
+  
+  .copy-feedback-msg {
+    font-size: 0.85rem;
+    color: #16A34A;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    
+    &.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

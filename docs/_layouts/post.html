@@ -30,6 +30,32 @@ layout: default
     {{ content }}
   </div>
 
+  <div class="share-buttons-container">
+    <span class="share-title">שתפו את הפוסט:</span>
+    <div class="share-grid">
+      <button id="copy-link-btn" class="share-btn copy-btn" aria-label="העתק קישור" title="העתק קישור">
+        <i class="bi bi-link-45deg"></i>
+      </button>
+
+      {% assign share_url = site.url | append: page.url %}
+      {% assign share_title = page.title | url_encode %}
+      
+      <a href="https://wa.me/?text={{ share_title }}%20{{ share_url }}" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp" aria-label="שתף בוואטסאפ" title="וואטסאפ">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a href="https://t.me/share/url?url={{ share_url }}&text={{ share_title }}" target="_blank" rel="noopener noreferrer" class="share-btn telegram" aria-label="שתף בטלגרם" title="טלגרם">
+        <i class="bi bi-telegram"></i>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text={{ share_title }}&url={{ share_url }}" target="_blank" rel="noopener noreferrer" class="share-btn twitter" aria-label="שתף ב-X" title="Twitter / X">
+        <i class="bi bi-twitter-x"></i>
+      </a>
+      <a href="mailto:?subject={{ share_title }}&body={{ share_url }}" class="share-btn email" aria-label="שלח באימייל" title="אימייל">
+        <i class="bi bi-envelope"></i>
+      </a>
+    </div>
+    <div id="copy-feedback" class="copy-feedback-msg">הקישור הועתק!</div>
+  </div>
+
   {% if page.tags.size > 0 %}
   <div class="post-tags">
     <i class="bi bi-tags-fill"></i> תגיות:
@@ -47,11 +73,6 @@ layout: default
       {% assign current_tags = page.tags %}
       {% assign found_related_posts = "" | split: "" %}
 
-      {% comment %}
-        Iterate from 4 down to 1.
-        This finds posts with most common tags first.
-        site.posts is sorted by date, so that's the tie-breaker.
-      {% endcomment %}
       {% for i in (1..4) reversed %}
         {% for post in site.posts %}
           {% if found_related_posts.size >= max_related %}{% break %}{% endif %}
