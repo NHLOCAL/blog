@@ -25,7 +25,7 @@
     </div>
 
     <div class="footer-section links-section">
-      <h5>נושאים פופולריים (תגיות)</h5>
+      <h5>נושאים פופולריים</h5>
       <ul class="footer-links">
         {% comment %}
           Logic to sort TAGS by post count (descending)
@@ -48,7 +48,7 @@
         
         {% assign sorted_tags = tags_list | sort | reverse %}
         
-        {% for item in sorted_tags limit: 10 %}
+        {% for item in sorted_tags limit: 5 %}
           {% assign item_parts = item | split: ":::" %}
           {% assign t_name = item_parts[1] %}
           <li><a href="{{ site.baseurl }}/tags/#{{ t_name | slugify }}">{{ t_name }}</a></li>
