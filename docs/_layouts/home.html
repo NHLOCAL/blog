@@ -9,93 +9,77 @@ layout: default
   {% if latest_item %}
     {% if latest_item.collection == "quotes" %}
       {% assign quote = latest_item %}
-      <article class="quote-card--large">
-        <div class="quote-content-wrapper">
-          <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
-          <figcaption>— {{ quote.author }}</figcaption>
-        </div>
-        <p class="post-meta">
-          <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ quote.date | date_to_xmlschema }}">{{ quote.date | date: "%d/%m/%Y" }}</time></span>
-          <span class="meta-item"><i class="bi bi-link-45deg"></i> <a href="{{ quote.url | relative_url }}">קישור ישיר</a></span>
-        </p>
-      </article>
+      <section class="hero-section">
+        <article class="quote-card--large">
+          <div class="quote-content-wrapper">
+            <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+            <figcaption>— {{ quote.author }}</figcaption>
+          </div>
+          <p class="post-meta">
+            <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ quote.date | date_to_xmlschema }}">{{ quote.date | date: "%d/%m/%Y" }}</time></span>
+            <span class="meta-item"><i class="bi bi-link-45deg"></i> <a href="{{ quote.url | relative_url }}">קישור ישיר</a></span>
+          </p>
+        </article>
+      </section>
     {% else %}
       {% assign latest_post = latest_item %}
-      <article class="post-latest">
-        <header class="post-header">
-          <h1 class="post-title">
-            <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title | escape }}</a>
-          </h1>
-          <p class="post-meta">
-            <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ latest_post.date | date_to_xmlschema }}">{{ latest_post.date | date: "%d/%m/%Y" }}</time></span>
-            {% if latest_post.categories.size > 0 %}
-              <span class="meta-item"><i class="bi bi-folder"></i> קטגוריות:
-              {% for category in latest_post.categories %}
-                <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
-              {% endfor %}
-              </span>
-            {% endif %}
-          </p>
-        </header>
-        {%- assign content_parts = latest_post.content | split: '</p>' -%}
-        {%- assign paragraph_limit = 3 -%}
-        {%- if content_parts.size > paragraph_limit -%}
-          {%- assign limited_content = content_parts | slice: 0, paragraph_limit | join: '</p>' | append: '</p>' -%}
-          {%- assign show_read_more = true -%}
-        {%- else -%}
-          {%- assign limited_content = latest_post.content -%}
-          {%- assign show_read_more = false -%}
-        {%- endif -%}
-        <div class="post-content">
-          {{ limited_content }}
-        </div>
-        {%- if show_read_more -%}
-          <div class="latest-post-read-more">
-            <a href="{{ latest_post.url | relative_url }}" class="read-more">קרא עוד <i class="bi bi-arrow-left-short"></i></a>
+      <section class="hero-section">
+        <article class="post-latest">
+          <header class="post-header">
+            <div class="hero-label">הכי חדש בבלוג</div>
+            <h1 class="post-title">
+              <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title | escape }}</a>
+            </h1>
+            <p class="post-meta">
+              <span class="meta-item"><i class="bi bi-calendar3"></i> <time datetime="{{ latest_post.date | date_to_xmlschema }}">{{ latest_post.date | date: "%d/%m/%Y" }}</time></span>
+              {% if latest_post.categories.size > 0 %}
+                <span class="meta-item"><i class="bi bi-folder"></i>
+                {% for category in latest_post.categories %}
+                  {{ category }}{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+                </span>
+              {% endif %}
+            </p>
+          </header>
+          {%- assign content_parts = latest_post.content | split: '</p>' -%}
+          {%- assign paragraph_limit = 3 -%}
+          {%- if content_parts.size > paragraph_limit -%}
+            {%- assign limited_content = content_parts | slice: 0, paragraph_limit | join: '</p>' | append: '</p>' -%}
+            {%- assign show_read_more = true -%}
+          {%- else -%}
+            {%- assign limited_content = latest_post.content -%}
+            {%- assign show_read_more = false -%}
+          {%- endif -%}
+          <div class="post-content">
+            {{ limited_content }}
           </div>
-        {%- endif -%}
-      </article>
+          {%- if show_read_more -%}
+            <div class="latest-post-read-more">
+              <a href="{{ latest_post.url | relative_url }}" class="read-more">המשך קריאה <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          {%- endif -%}
+        </article>
+      </section>
     {% endif %}
   {% endif %}
 
-  {% assign older_items_count = site.custom_settings.posts_per_page_home | default: 5 %}
-  {% assign items_to_show = all_items | shift | limit: older_items_count %}
+  <nav class="home-navigation-grid">
+    <a href="{{ "/recommended/" | relative_url }}" class="nav-card recommended-card">
+      <div class="nav-card-icon"><i class="bi bi-star-fill"></i></div>
+      <h2 class="nav-card-title">מומלצים</h2>
+      <p class="nav-card-desc">הפוסטים והתכנים הנבחרים של הבלוג</p>
+    </a>
 
-  {% if items_to_show.size > 0 %}
-  <section class="previous-posts">
-    <h2>מה חדש?</h2>
-    <ul class="post-list">
-      {% for item in items_to_show %}
-      <li>
-        {% if item.collection == "quotes" %}
-          {% assign quote = item %}
-          <a href="{{ quote.url | relative_url }}" class="quote-card--list-item">
-            <article>
-              <blockquote>{{ quote.quote_text | markdownify | strip_html | truncatewords: 45 }}</blockquote>
-              <figcaption>— {{ quote.author }}</figcaption>
-            </article>
-          </a>
-        {% else %}
-          {% assign post = item %}
-          <article class="post-summary{% unless post.featured_image %} no-thumbnail{% endunless %}">
-            {% if post.featured_image %}
-            <div class="post-thumbnail">
-              <a href="{{ post.url | relative_url }}">
-                <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
-              </a>
-            </div>
-            {% endif %}
-            <div class="post-summary-content">
-              <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
-              <p class="post-meta"><i class="bi bi-calendar-event"></i> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time></p>
-              <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-              <a href="{{ post.url | relative_url }}" class="read-more">קרא עוד <i class="bi bi-arrow-left-short"></i></a>
-            </div>
-          </article>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
+    <a href="{{ "/quotes/" | relative_url }}" class="nav-card quotes-card">
+      <div class="nav-card-icon"><i class="bi bi-chat-quote-fill"></i></div>
+      <h2 class="nav-card-title">ציטוטים</h2>
+      <p class="nav-card-desc">מחשבות והשראות קצרות לדרך</p>
+    </a>
+
+    <a href="{{ "/posts/" | relative_url }}" class="nav-card all-posts-card">
+      <div class="nav-card-icon"><i class="bi bi-grid-fill"></i></div>
+      <h2 class="nav-card-title">כל הפוסטים</h2>
+      <p class="nav-card-desc">הארכיון המלא של כל הכתבות</p>
+    </a>
+  </nav>
 </div>

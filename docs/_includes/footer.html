@@ -1,4 +1,43 @@
-<footer class="site-footer">
-  <p>© {{ "now" | date: "%Y" }} {{ site.title | escape }}. כל הזכויות שמורות.</p>
-  <p><a href="#top" class="back-to-top"><i class="bi bi-arrow-up-circle"></i> חזרה לראש העמוד</a></p>
+<footer class="site-footer" data-pagefind-ignore>
+  <div class="footer-container">
+    
+    <div class="footer-section brand-section">
+      <div class="footer-title">{{ site.title | escape }}</div>
+      <p class="footer-desc">{{ site.description | escape }}</p>
+      <div class="footer-social-icons">
+        {% for link in site.data.social %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}">
+            <i class="bi bi-{{ link.icon | default: 'link-45deg' }}"></i>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="footer-section links-section">
+      <h5>ניווט מהיר</h5>
+      <ul class="footer-links">
+        <li><a href="{{ "/" | relative_url }}">דף הבית</a></li>
+        <li><a href="{{ "/posts/" | relative_url }}">ארכיון פוסטים</a></li>
+        <li><a href="{{ "/recommended/" | relative_url }}">מומלצים</a></li>
+        <li><a href="{{ "/quotes/" | relative_url }}">ציטוטים</a></li>
+        <li><a href="{{ "/about/" | relative_url }}">אודות</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section links-section">
+      <h5>נושאים פופולריים</h5>
+      <ul class="footer-links">
+        {% assign sorted_categories = site.categories | sort %}
+        {% for category_item in sorted_categories limit: 5 %}
+          <li><a href="{{ site.baseurl }}/categories/#{{ category_item[0] | slugify }}">{{ category_item[0] }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© {{ "now" | date: "%Y" }} {{ site.title | escape }}. נבנה באמצעות Jekyll ו-Repomix.</p>
+    <a href="#top" class="back-to-top-link"><i class="bi bi-arrow-up-circle-fill"></i> חזרה למעלה</a>
+  </div>
 </footer>

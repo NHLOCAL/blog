@@ -1,118 +1,102 @@
 <aside class="sidebar" data-pagefind-ignore>
+
+  <!-- Social & Tools Widget -->
+  {% if site.data.social.size > 0 %}
+  <div class="sidebar-section social-section">
+    <h4><i class="bi bi-grid-fill"></i> רשתות וכלים</h4>
+    <div class="sidebar-social-grid">
+      {% for link in site.data.social %}
+        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="{{ link.name }}">
+          <i class="bi bi-{{ link.icon | default: 'link-45deg' }}"></i>
+          <span class="social-tooltip">{{ link.name }}</span>
+        </a>
+      {% endfor %}
+      <a href="{{ "/about/" | relative_url }}" class="social-btn" aria-label="אודות">
+        <i class="bi bi-person-circle"></i>
+        <span class="social-tooltip">אודות</span>
+      </a>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Recommended Posts Widget -->
   {% assign popular_posts = site.posts | where: "popular", true %}
   {% if popular_posts.size > 0 %}
   <div class="sidebar-section recommended-posts-section">
-    <h4><a href="{{ "/recommended/" | relative_url }}"><i class="bi bi-hand-thumbs-up-fill"></i> פוסטים מומלצים</a></h4>
-    <ul class="recommended-posts-list">
+    <h4><a href="{{ "/recommended/" | relative_url }}"><i class="bi bi-star-fill"></i> הנבחרים שלנו</a></h4>
+    <ul class="sidebar-post-list">
       {% assign popular_limit = site.custom_settings.popular_posts_sidebar_count | default: 5 %}
       {% for post in popular_posts limit: popular_limit %}
-        <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-
-  <div class="sidebar-section">
-    <h4><a href="{{ "/" | relative_url }}"><i class="bi bi-file-earmark-text"></i> פוסטים אחרונים</a></h4>
-    <ul class="recent-posts-list">
-      {% for post in site.posts limit: 5 %}
-        <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  {% assign recent_quotes = site.quotes | sort: 'date' | reverse %}
-  {% if recent_quotes.size > 0 %}
-  <div class="sidebar-section">
-    <h4><a href="{{ "/quotes/" | relative_url }}"><i class="bi bi-quote"></i> ציטוטים אחרונים</a></h4>
-    <ul class="recent-quotes-list">
-      {% assign quotes_limit = site.custom_settings.recent_quotes_sidebar_count | default: 3 %}
-      {% for quote in recent_quotes limit: quotes_limit %}
-      <li>
-        <a href="{{ quote.url | relative_url }}">
-          <div class="quote-text">"{{ quote.quote_text | markdownify | strip_html | truncatewords: 12 }}"</div>
-          <div class="quote-author">{{ quote.author }}</div>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-
-  {% if site.categories.size > 0 %}
-  <div class="sidebar-section">
-    <h4><a href="{{ "/categories/" | relative_url }}"><i class="bi bi-folder2-open"></i> קטגוריות</a></h4>
-    <div class="categories-list-flex">
-      {% assign sorted_categories = site.categories | sort %}
-      {% for category_item in sorted_categories limit: 10 %}
-        {% assign category_name = category_item[0] %}
-        {% assign category_posts_count = category_item[1].size %}
-        <a href="{{ site.baseurl }}/categories/#{{ category_name | slugify }}" class="category-item-badge">
-          {{ category_name }} ({{ category_posts_count }})
-        </a>
-      {% endfor %}
-      {% if sorted_categories.size > 10 %}
-        <a href="{{ site.baseurl }}/categories/" class="category-item-badge more-link">כל הקטגוריות...</a>
-      {% endif %}
-    </div>
-  </div>
-  {% endif %}
-
-  {% if site.tags.size > 0 %}
-  <div class="sidebar-section">
-    <h4><a href="{{ "/tags/" | relative_url }}"><i class="bi bi-tags"></i> תגיות</a></h4>
-    <div class="tags-list">
-
-      {%- assign max_size = 0 -%}
-      {%- for tag in site.tags -%}
-        {%- if tag[1].size > max_size -%}
-          {%- assign max_size = tag[1].size -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- assign output_count = 0 -%}
-      {%- for i in (1..max_size) reversed -%}
-        {%- for tag in site.tags -%}
-          {%- if tag[1].size == i -%}
-            {%- if output_count < 10 -%}
-              {%- assign tag_name = tag[0] -%}
-              {%- assign tag_posts_count = tag[1].size -%}
-              <a href="{{ site.baseurl }}/tags/#{{ tag_name | slugify }}" class="tag-item">
-                {{ tag_name }} ({{ tag_posts_count }})
-              </a>
-              {%- assign output_count = output_count | plus: 1 -%}
-            {%- endif -%}
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endfor -%}
-
-       {% if site.tags.size > 10 %}
-        <a href="{{ site.baseurl }}/tags/" class="tag-item more-link">כל התגיות...</a>
-      {% endif %}
-    </div>
-  </div>
-  {% endif %}
-
-  {% if site.data.social.size > 0 %}
-  <div class="sidebar-section">
-    <h4><i class="bi bi-link-45deg"></i> קישורים</h4>
-    <ul class="custom-links-list">
-      {% for link in site.data.social %}
         <li>
-          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-{{ link.icon | default: 'box-arrow-up-right' }}"></i>
-            <span>{{ link.name }}</span>
+          <a href="{{ post.url | relative_url }}" class="sidebar-post-card">
+            <div class="sidebar-card-content">
+              <span class="sidebar-post-title">{{ post.title | escape }}</span>
+            </div>
+            {% if post.featured_image %}
+              <div class="sidebar-card-thumb">
+                <img src="{{ post.featured_image | relative_url }}" alt="" loading="lazy">
+              </div>
+            {% endif %}
           </a>
         </li>
       {% endfor %}
-      <li>
-        <a href="#" id="feedback-link-sidebar" rel="noopener noreferrer">
-          <i class="bi bi-envelope-paper-heart"></i>
-          <span>משוב</span>
-        </a>
-      </li>
-      <li><a href="{{ "/about/" | relative_url }}"><i class="bi bi-person-circle"></i> <span>אודות</span></a></li>
     </ul>
+    <div class="sidebar-more-link-wrapper">
+        <a href="{{ "/recommended/" | relative_url }}" class="sidebar-more-link">לכל המומלצים <i class="bi bi-arrow-left"></i></a>
+    </div>
   </div>
   {% endif %}
+
+  <!-- Recent Posts Widget -->
+  <div class="sidebar-section">
+    <h4><a href="{{ "/posts/" | relative_url }}"><i class="bi bi-clock-history"></i> עדכונים אחרונים</a></h4>
+    <ul class="sidebar-post-list">
+      {% for post in site.posts limit: 5 %}
+        <li>
+          <a href="{{ post.url | relative_url }}" class="sidebar-post-card">
+            {% if post.featured_image %}
+              <div class="sidebar-card-thumb">
+                <img src="{{ post.featured_image | relative_url }}" alt="" loading="lazy">
+              </div>
+            {% endif %}
+            <div class="sidebar-card-content">
+              <span class="sidebar-post-title">{{ post.title | escape }}</span>
+              <span class="sidebar-post-date">{{ post.date | date: "%d/%m/%Y" }}</span>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Quotes Widget -->
+  {% assign recent_quotes = site.quotes | sort: 'date' | reverse %}
+  {% if recent_quotes.size > 0 %}
+  <div class="sidebar-section">
+    <h4><a href="{{ "/quotes/" | relative_url }}"><i class="bi bi-chat-quote"></i> ציטוט רנדומלי</a></h4>
+    {% assign random_quote = recent_quotes | sample %}
+    <div class="sidebar-quote-box">
+      <blockquote>{{ random_quote.quote_text | markdownify | strip_html | truncatewords: 20 }}</blockquote>
+      <div class="sidebar-quote-author">— {{ random_quote.author }}</div>
+      <a href="{{ "/quotes/" | relative_url }}" class="sidebar-quote-more">עוד ציטוטים...</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Categories Widget -->
+  {% if site.categories.size > 0 %}
+  <div class="sidebar-section">
+    <h4><a href="{{ "/categories/" | relative_url }}"><i class="bi bi-folder2-open"></i> נושאים</a></h4>
+    <div class="categories-list-flex">
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category_item in sorted_categories limit: 15 %}
+        {% assign category_name = category_item[0] %}
+        <a href="{{ site.baseurl }}/categories/#{{ category_name | slugify }}" class="category-item-badge">
+          {{ category_name }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
 </aside>
