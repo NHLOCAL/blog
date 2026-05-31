@@ -6,6 +6,11 @@ layout: default
   <div class="quote-card--large">
     <div class="quote-content-wrapper">
       <blockquote>{{ page.quote_text | markdownify }}</blockquote>
+      {% if page.quote_image %}
+        <figure class="quote-image">
+          <img src="{{ page.quote_image | relative_url }}" alt="{{ page.quote_image_alt | default: page.title | escape }}" loading="lazy">
+        </figure>
+      {% endif %}
       <figcaption>
         — 
         {% if page.source_url %}

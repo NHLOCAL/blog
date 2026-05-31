@@ -19,6 +19,11 @@ permalink: /quotes/
           <a href="{{ quote.url | relative_url }}" class="quote-card--list-item">
             <article>
               <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+              {% if quote.quote_image %}
+                <figure class="quote-image quote-image--thumb">
+                  <img src="{{ quote.quote_image | relative_url }}" alt="{{ quote.quote_image_alt | default: quote.title | escape }}" loading="lazy">
+                </figure>
+              {% endif %}
               <div class="quote-footer">
                 <figcaption>— {{ quote.author }}</figcaption>
                 <time datetime="{{ quote.date | date_to_xmlschema }}">

@@ -13,6 +13,11 @@ layout: default
         <article class="quote-card--large">
           <div class="quote-content-wrapper">
             <blockquote>{{ quote.quote_text | markdownify }}</blockquote>
+            {% if quote.quote_image %}
+              <figure class="quote-image">
+                <img src="{{ quote.quote_image | relative_url }}" alt="{{ quote.quote_image_alt | default: quote.title | escape }}" loading="lazy">
+              </figure>
+            {% endif %}
             <figcaption>— {{ quote.author }}</figcaption>
           </div>
           <p class="post-meta">
